@@ -1,0 +1,204 @@
+@import url("https://fonts.cdnfonts.com/css/poppins");
+.bg_img {
+  background-image: url("D:\vhs_landingpage\vhslandingpage\public\assests\deep-cleaning-2-1771x500.jpg");
+  background-size: cover;
+  height: 60vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #b4b4b3;
+}
+.cat_Active:hover {
+  background-color: #d2d2d2;
+  transition: background-color 0.5s ease;
+  animation: yourAnimation 0.5s ease;
+}
+.c_active {
+}
+
+.red-star {
+  color: red;
+}
+
+.yellow-star {
+  color: yellow;
+}
+
+.green-star {
+  color: green;
+}
+
+.categoy_div,
+.categoy_div1 {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.active {
+  background-color: #dde6ed;
+  box-shadow: 0 4 5px;
+  border-radius: 1px;
+}
+
+.categoy_Img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.d_none {
+  display: none !important;
+}
+.colr {
+  color: white;
+}
+.li_f {
+  list-style: none;
+}
+.amazon_fnt {
+  text-decoration: none;
+  color: black;
+}
+.fnt32 {
+  font-size: 32px;
+}
+.fnt14 {
+  font-size: 14px;
+}
+.fnt16 {
+  font-size: 16px;
+}
+.fnt18 {
+  font-size: 18px;
+}
+.fnt28 {
+  font-size: 28px;
+}
+.fnt24 {
+  font-size: 24px;
+}
+
+.dotList {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 0;
+  list-style-type: none;
+
+  &:hover .dot {
+    width: 8px;
+    max-width: 8px;
+    height: 8px;
+    max-height: 8px;
+    margin-right: 12px;
+  }
+
+  & .dot {
+    display: inline-block;
+    width: 4px;
+    max-width: 4px;
+    height: 4px;
+    max-height: 4px;
+    margin-right: 3px;
+    border-radius: 50%;
+    background-color: #d2d2d2;
+    transition: all 0.25s;
+    cursor: pointer;
+
+    &.active {
+      background-color: #e73439;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap");
+
+/* Style the accordion section */
+.accordion__section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  outline: none;
+  transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.accordion:hover,
+.active {
+  background-color: #ccc;
+}
+
+/* Style the accordion content title */
+.accordion__title {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Style the accordion chevron icon */
+.accordion__icon {
+  margin-left: auto;
+  transition: transform 0.6s ease;
+}
+
+/* Style to rotate icon when state is active */
+.rotate {
+  transform: rotate(90deg);
+}
+
+/* Style the accordion content panel. Note: hidden by default */
+.accordion__content {
+  background-color: white;
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+}
+
+/* Style the accordion content text */
+.accordion__text {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 18px;
+}
+.hovrc {
+  border-bottom: 0;
+  transition: border-bottom 0.3s ease-in-out;
+  background-color: #dde6ed;
+}
+
+.hovrc:hover {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.858);
+}
+.fntf {
+  font-family: "poppins";
+  font-size: 15px;
+}
+.scrl {
+  overflow-y: scroll;
+  height: 80vh;
+  /* border-right: 1px solid grey; */
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
