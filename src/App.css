@@ -1,6 +1,6 @@
 @import url("https://fonts.cdnfonts.com/css/poppins");
 .bg_img {
-  background-image: url("D:\vhs_landingpage\vhslandingpage\public\assests\deep-cleaning-2-1771x500.jpg");
+  background-image: url("/public/images/deep-cleaning-2-1771x500.jpg");
   background-size: cover;
   height: 60vh;
   background-repeat: no-repeat;
