@@ -23,7 +23,7 @@ export default function Home1() {
       "Deep Cleaning": [
         {
           id: 1,
-          img: "/assests/thumb-deep-cleaning.jpg",
+          img: "/images/thumb-deep-cleaning.jpg",
           rate: "23004.2",
           price: "45",
 
@@ -68,7 +68,7 @@ export default function Home1() {
         },
         {
           id: 5,
-          img: "/assests/thumb-deep-cleaning.jpg",
+          img: "/images/thumb-deep-cleaning.jpg",
           rate: "704.2",
           price: "45",
           discription: [
@@ -79,7 +79,7 @@ export default function Home1() {
         },
       ],
       demovideo: "/videos/production_id_4145662 (2160p).mp4",
-      img1: "/assests/thumb-deep-cleaning.jpg",
+      img1: "/images/thumb-deep-cleaning.jpg",
     },
 
     {
@@ -93,7 +93,7 @@ export default function Home1() {
             "Consult, quote and team of experts trained for high quality work",
           ],
           categoryName: "Super saver deals",
-          img: "/assests/thumb-vacant-flat-cleaning.jpg",
+          img: "/images/thumb-vacant-flat-cleaning.jpg",
         },
         {
           id: 7,
@@ -104,11 +104,11 @@ export default function Home1() {
             "Consult, quote and team of experts trained for high quality work",
           ],
           categoryName: "Super saver deals",
-          img: "/assests/thumb-vacant-flat-cleaning.jpg",
+          img: "/images/thumb-vacant-flat-cleaning.jpg",
         },
       ],
       demovideo: "/videos/production_id_4145662 (2160p).mp4",
-      img1: "/assests/thumb-vacant-flat-cleaning.jpg",
+      img1: "/images/thumb-vacant-flat-cleaning.jpg",
     },
 
     {
@@ -122,7 +122,7 @@ export default function Home1() {
             "Consult, quote and team of experts trained for high quality work",
           ],
           categoryName: "Super saver deals",
-          img: "/assests/thumb-Kitchen-Cleaning.jpg",
+          img: "/images/thumb-Kitchen-Cleaning.jpg",
         },
         {
           id: 23445745,
@@ -133,7 +133,7 @@ export default function Home1() {
             "Consult, quote and team of experts trained for high quality work",
           ],
           categoryName: "Super saver deals",
-          img: "/assests/thumb-Kitchen-Cleaning.jpg",
+          img: "/images/thumb-Kitchen-Cleaning.jpg",
         },
         {
           id: 23445745,
@@ -144,12 +144,12 @@ export default function Home1() {
             "Consult, quote and team of experts trained for high quality work",
           ],
           categoryName: "Super saver deals",
-          img: "/assests/thumb-Kitchen-Cleaning.jpg",
+          img: "/images/thumb-Kitchen-Cleaning.jpg",
         },
       ],
 
       demovideo: "/videos/production_id_4238551 (1080p).mp4",
-      img1: "/assests/thumb-Kitchen-Cleaning.jpg",
+      img1: "/images/thumb-Kitchen-Cleaning.jpg",
     },
 
     {
@@ -195,7 +195,7 @@ export default function Home1() {
                     className="me-2"
                     width={30}
                     height={30}
-                    src="../assests/House-Cleaning.jpg"
+                    src="../images/House-Cleaning.jpg"
                   />
                   <p>Cleaning Services</p>
                 </div>
@@ -210,7 +210,7 @@ export default function Home1() {
                     className="me-2"
                     width={30}
                     height={30}
-                    src="../assests/homepainting.jpg"
+                    src="../images/homepainting.jpg"
                   />
                   <p> Painting Services</p>
                 </div>
