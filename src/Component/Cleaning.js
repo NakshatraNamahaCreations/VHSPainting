@@ -1584,8 +1584,7 @@ export default function Cleaning() {
           </p>
           <p className="text-center fnt24 fntf">
             {" "}
-            Transform your home into a festive wonderland with our expert
-            cleaning services.
+          
           </p>
         </div>
         <div className="row m-3">
