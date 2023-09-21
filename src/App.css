@@ -1,26 +1,119 @@
-@import url("https://fonts.cdnfonts.com/css/poppins");
-.bg_img {
-  background-image: url("/public/images/deep-cleaning-2-1771x500.jpg");
-  background-size: cover;
-  height: 60vh;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-color: #b4b4b3;
-}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@100;300&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@100&display=swap");
+
 .cat_Active:hover {
-  background-color: #d2d2d2;
+  background-color: #dfd1d1;
   transition: background-color 0.5s ease;
   animation: yourAnimation 0.5s ease;
 }
-.c_active {
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.clrpr {
+  font-family: "Poppins";
+}
+.card-container {
+  border-radius: 10px;
+  animation: bounceIn 0.5s ease-out;
+}
+
+.card-container:hover {
+  transform: scale(1.02);
+}
+.card-container {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.crd {
+  display: flex;
+
+  justify-content: center;
+}
+.card-container img {
+  width: 100%;
+  height: auto;
+}
+
+.card-container:hover {
+  transform: translateY(-5px);
+}
+.card-container {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  /* height: 70vh; */
+}
+
+.card-container img {
+  width: 100%;
+  height: auto;
+}
+
+.card-container:hover {
+  transform: translateY(-5px);
+}
+.hvrc:hover {
+  transform: translateY(-9px);
+}
+
+.hvrc {
+  transition: transform 0.3s ease;
+}
+.card-container {
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card-container img {
+  width: 100%;
+  height: auto;
+}
+
+.card-container:hover {
+  transform: translateY(-5px);
+}
+
+.card-container:hover .hvr {
+  display: block;
+}
+
+.hvr {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
 }
 
 .red-star {
-  color: red;
+  color: rgb(218, 35, 35) (188, 35, 35);
 }
 
 .yellow-star {
-  color: yellow;
+  color: rgb(161, 161, 44);
 }
 
 .green-star {
@@ -50,6 +143,9 @@
 .colr {
   color: white;
 }
+.bgclr {
+  background-color: rgba(250, 235, 215, 0.24);
+}
 .li_f {
   list-style: none;
 }
@@ -61,7 +157,7 @@
   font-size: 32px;
 }
 .fnt14 {
-  font-size: 14px;
+  font-size: 12px;
 }
 .fnt16 {
   font-size: 16px;
@@ -74,6 +170,7 @@
 }
 .fnt24 {
   font-size: 24px;
+  font-weight: bolder;
 }
 
 .dotList {
@@ -115,19 +212,17 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap");
 
 /* Style the accordion section */
-.accordion__section {
+/* .accordion__section {
   display: flex;
   flex-direction: column;
-}
+} */
 
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
   background-color: #eee;
-  color: #444;
+  color: black;
   cursor: pointer;
-  padding: 18px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   border: none;
   outline: none;
@@ -137,7 +232,7 @@
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .accordion:hover,
 .active {
-  background-color: #ccc;
+  background-color: #cccccc;
 }
 
 /* Style the accordion content title */
@@ -145,6 +240,7 @@
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   font-size: 14px;
+  margin-left: 15px;
 }
 
 /* Style the accordion chevron icon */
@@ -160,11 +256,13 @@
 
 /* Style the accordion content panel. Note: hidden by default */
 .accordion__content {
-  background-color: white;
+  background-color: #ffffff;
   overflow: hidden;
   transition: max-height 0.6s ease;
 }
-
+.cs {
+  background-color: #f2ecbe91;
+}
 /* Style the accordion content text */
 .accordion__text {
   font-family: "Open Sans", sans-serif;
@@ -181,9 +279,12 @@
 .hovrc:hover {
   border-bottom: 2px solid rgba(0, 0, 0, 0.858);
 }
+.listy {
+  list-style-type: disc;
+}
 .fntf {
-  font-family: "poppins";
-  font-size: 15px;
+  font-family: "Montserrat.sans-serif";
+  /* font-size: 15px; */
 }
 .scrl {
   overflow-y: scroll;
@@ -201,4 +302,16 @@
 
 ::-webkit-scrollbar-thumb {
   background: transparent;
+}
+.bclr {
+  color: black !important;
+}
+.bgimgre {
+  background-image: url("/public/NImages/b1dfe127-9c94-492d-85d8-4889dae05368.jfif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60vh;
+  width: 100% !important;
+  max-width: 100%;
+  opacity: 0.56;
 }

@@ -23,141 +23,8 @@ const starColorClass = {
 };
 
 const DetailsPage = (props) => {
-  const [show, setShow] = useState(false);
-  const [serviceBookData, setServiceBookData] = useState(null);
-  const [Name, setName] = useState("");
-  const [Email, setEmail] = useState("");
-  const [Address, setAddress] = useState("");
-  const [contact1, setcontact1] = useState("");
 
-  const [City, setCity] = useState("");
-  const [Citydata, setCityData] = useState(null);
 
-  useEffect(() => {
-    getCity();
-    getenquiry();
-  }, []);
-  const handleClose = () => {
-    setShow(false);
-  };
-  const handleShow = (item) => {
-    setServiceBookData(item);
-    setShow(true);
-  };
-  const location = useLocation();
-  const categoryDataParam = new URLSearchParams(location.search).get(
-    "category"
-  );
-  const selectedCategory = new URLSearchParams(location.search).get(
-    "selectedCategory"
-  );
-
-  const categoryData = categoryDataParam
-    ? JSON.parse(decodeURIComponent(categoryDataParam))
-    : null;
-
-  if (!categoryData) {
-    return <div>No category data found</div>;
-  }
-
-  const addenquiry = async (e) => {
-    e.preventDefault();
-
-    // if (!Name || !Email || !contact1 || !City) {
-    //   alert("Please enter all fields");
-    // } else {
-
-    try {
-      const formattedDate = moment().format("MM-DD-YYYY");
-
-      const config = {
-        url: "/addenquiry",
-        method: "post",
-        baseURL: "http://api.vijayhomeservicebengaluru.in/api",
-
-        headers: { "content-type": "application/json" },
-        data: {
-          enquirydate: formattedDate,
-          name: Name,
-          contact1: contact1,
-          email: Email,
-          address: Address,
-          category: selectedCategory,
-          city: City,
-          intrestedfor: serviceBookData?.categoryName,
-        },
-      };
-      await axios(config).then(function (response) {
-        if (response.status === 200) {
-          console.log(response.data.data, "response.data.data");
-          AddEnquiryfollowup(response.data.data);
-        }
-      });
-    } catch (error) {
-      console.error(error);
-      if (error.response) {
-        alert(error.response.data.error);
-      } else {
-        alert("An error occurred. Please try again later.");
-      }
-    }
-  };
-
-  const AddEnquiryfollowup = async (data) => {
-    try {
-      const config = {
-        url: "/addenquiryfollowup",
-        method: "post",
-        baseURL: "http://api.vijayhomeservicebengaluru.in/api",
-
-        headers: { "content-type": "application/json" },
-        data: {
-          EnquiryId: data?.EnquiryId,
-          category: data?.category,
-          response: "New",
-          desc: data?.intrestedfor,
-          // folldate:
-        },
-      };
-      await axios(config).then(function (response) {
-        if (response.status === 200) {
-          setShow(false);
-          alert("Thank you for booking our sevice. We will contact you soon.");
-        }
-      });
-    } catch (error) {
-      console.error(error);
-      if (error.response) {
-        alert(error.response.data.error);
-      } else {
-        alert("An error occurred. Please try again later.");
-      }
-    }
-    // }
-  };
-
-  const getCity = async () => {
-    try {
-      let res = await axios.get("http://api.vijayhomeservicebengaluru.in/api/master/getcity");
-      if (res.status === 200) {
-        setCityData(res.data?.mastercity);
-      }
-    } catch (err) {
-      alert("can't able to get");
-    }
-  };
-
-  const getenquiry = async () => {
-    try {
-      let res = await axios.get("http://api.vijayhomeservicebengaluru.in/api/getenquiry");
-      if (res.status === 200) {
-        console.log("City", res.data);
-      }
-    } catch (err) {
-      alert("can't able to get");
-      console.log(err, "errcity");
-    }
-  };
   return (
     <>
       <Header />
@@ -166,69 +33,65 @@ const DetailsPage = (props) => {
           <div className="row mt-3 m-auto">
             <div className="col-md-4">
               <div className="row">
-                <div style={{color:"black",fontSize:"19px",fontWeight:"bold"}}>{Object.keys(categoryData)[0]}</div>
-                {Object.keys(categoryData)[0]?.includes("Painting") ? (
-                  <div className="col-md-6">
-                    <Button className="row m-auto mb-3">View Services</Button>
+                <div
+                  style={{
+                    color: "black",
+                    fontSize: "19px",
+                    fontWeight: "bold",
+                  }}
+                ></div>
+
+                <div className="row">
+                {firstItem[Object.keys(firstItem)[0]].map((item, index) => (
+              <li key={index}>{/* Display your item data here */}</li>
+            ))}
+                  <div className="col-md-4 mt-4 text-center">
+                    {/* {filteredData[0]?.map((ele) => (
+                      <>
+                        <img
+                          width={100}
+                          height={100}
+                          src={ele.img}
+                          alt=""
+                          style={{ borderRadius: "10px" }}
+                        />
+                        <p className="m-auto fntf" style={{ fontSize: "10px" }}>
+                          {ele.categoryName}
+                        </p>
+                      </>
+                    ))} */}
                   </div>
-                ) : null}
-
-<div className="row">
-  {Object.entries(categoryData).map(([category, properties], index) => {
-    if (Array.isArray(properties)) {
-      return properties.map((item, itemIndex) => (
-        <div className="col-md-4 mt-4 text-center" key={itemIndex}>
-          <img
-            width={100}
-            height={100}
-            src={item.img}
-            alt=""
-            style={{ borderRadius: "10px" }}
-          />
-          <p className="m-auto fntf" style={{ fontSize: "10px" }}>
-            {item.categoryName}
-          </p>
-        </div>
-      ));
-    }
-    return null;
-  })}
-</div>
-
+                </div>
               </div>
-
-          
-
-
-
             </div>
             <div className="col-md-8">
-            <div style={{ borderRadius: '10px', overflow: 'hidden' }}>
-  <video autoPlay muted loop width="100%" height="350">
-    <source src={categoryData.demovideo} type="video/mp4" />
-  </video>
-</div>
-              
-          
-             
-              
+              <div style={{ borderRadius: "10px", overflow: "hidden" }}>
+                <video autoPlay muted loop width="100%" height="350">
+                  {/* <source src={categoryData.demovideo} type="video/mp4" /> */}
+                </video>
+              </div>
             </div>
           </div>
 
-       <div className="row m-auto mt-3">
-           <div className="col-md-5">
-           <img
-              style={{ width: "100%", height: "auto",marginTop:"5px",borderRadius:"10px", }}
-              src="..\assests\homebanner.jpeg"
-              alt=""
-            />
-           </div>
-           <div className="col-md-7 pb-5">
-           <Card >
+          <div className="row m-auto mt-3">
+            <div className="col-md-5">
+              <img
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  marginTop: "5px",
+                  borderRadius: "10px",
+                }}
+                src="..\assests\homebanner.jpeg"
+                alt=""
+              />
+            </div>
+            <div className="col-md-7 pb-5">
+              <Card>
                 <div className="row">
                   <div className="row">
                     <div className="row  p-3 ">
-                      {Object.entries(categoryData).map(
+                      {/* {Object.entries(categoryData).map(
                         ([category, properties], index) => {
                           if (Array.isArray(properties)) {
                             return (
@@ -343,15 +206,13 @@ const DetailsPage = (props) => {
                             return null;
                           }
                         }
-                      )}
+                      )} */}
                     </div>
                   </div>
                 </div>
               </Card>
-           </div>
-       </div>
-
-
+            </div>
+          </div>
         </div>
       </div>
       <Modal show={show} onHide={handleClose}>

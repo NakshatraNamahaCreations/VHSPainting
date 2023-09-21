@@ -156,7 +156,7 @@ export default function Home1() {
       "Painting and waterproofing": [
         {
           id: 8,
-          categoryName: "Exterior Painting",
+          categoryName: "Painting and waterproofing1",
           rate: "5045",
           price: "45",
           discription: [
@@ -164,48 +164,31 @@ export default function Home1() {
             "Consult, quote and team of experts trained for high quality work",
           ],
 
-          img: "/images/thumb-exterior-painting.jpg",
-        },
-        {
-          id: 8,
-          categoryName: "Office Painting",
-          rate: "5045",
-          price: "45",
-          discription: [
-            "final painting cost to be paid,only after you are satisfied",
-            "Consult, quote and team of experts trained for high quality work",
-          ],
-
-          img: "/images/thumb-exterior-painting.jpg",
-        },
-        {
-          id: 8,
-          categoryName: "interior Painting",
-          rate: "5045",
-          price: "45",
-          discription: [
-            "final painting cost to be paid,only after you are satisfied",
-            "Consult, quote and team of experts trained for high quality work",
-          ],
-
-          img: "/images/thumb-exterior-painting.jpg",
-        },
-        {
-          id: 8,
-          categoryName: "Factory Painting",
-          rate: "5045",
-          price: "45",
-          discription: [
-            "final painting cost to be paid,only after you are satisfied",
-            "Consult, quote and team of experts trained for high quality work",
-          ],
-
-          img: "/images/thumb-interior-painting.jpg",
+          img: "/videos/1646230044496-56d688.webp",
         },
       ],
 
       demovideo: "/videos/2500_03042_preview.mp4",
-      img1: "/videos/1646230044496-56d688.webp",
+      img1: "vhslandingpage\public\images\thumb-interior-painting.jpg",
+    },
+    {
+      "Painting and waterproofing": [
+        {
+          id: 8,
+          categoryName: "Painting and waterproofing1",
+          rate: "5045",
+          price: "45",
+          discription: [
+            "final painting cost to be paid,only after you are satisfied",
+            "Consult, quote and team of experts trained for high quality work",
+          ],
+
+          img: "/videos/1646230044496-56d688.webp",
+        },
+      ],
+
+      demovideo: "/videos/2500_03042_preview.mp4",
+      img1: "vhslandingpage\public\images\thumb-interior-painting.jpg",
     },
   ];
 

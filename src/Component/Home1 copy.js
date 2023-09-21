@@ -959,7 +959,7 @@ export default function Home1() {
       </div>
 
       <div className="row mt-5 m-auto">
-        <p className="text-center fnt28"> Frequently Asked Questions</p>
+        <p className="text-center fnt28" style={{fontWeight:"bold"}}> Frequently Asked Questions</p>
 
         {faqs.map((faq, index) => (
           <div key={index} className="accordion__section m-1">
