@@ -31,14 +31,13 @@ import moment from "moment";
 import Row from "react-bootstrap/Row";
 import { useLocation } from "react-router-dom";
 
-export default function Painting() {
+export default function MiniServices() {
   const location = useLocation();
 
   const selectedCategory = new URLSearchParams(location.search).get(
     "selectedCategory"
   );
 
-  const [isVideoPlaying, setVideoPlaying] = useState(false);
   const [show, setShow] = useState(false);
   const [serviceBookData, setServiceBookData] = useState(null);
   const [Name, setName] = useState("");
@@ -47,10 +46,6 @@ export default function Painting() {
   const [contact1, setcontact1] = useState("");
   const [City, setCity] = useState("");
   const [Citydata, setCityData] = useState(null);
-
-  const handleVideoClick = () => {
-    setVideoPlaying(true);
-  };
 
   const [jobcompleted, setJobcompleted] = useState(0);
   const [statisfieldcustomer, setStatisfieldcustomer] = useState(0);
@@ -112,43 +107,6 @@ export default function Painting() {
     };
   }, [repeatcustomer]);
 
-  // const slidesData = [
-  //   {
-  //     id: 1,
-  //     image: "/videos/production_id_4145662 (2160p).mp4",
-  //   },
-  //   {
-  //     id: 2,
-  //     image: "/videos/2500_03042_preview.mp4",
-  //   },
-  //   {
-  //     id: 3,
-  //     image: "/videos/2500_03042_preview.mp4",
-  //   },
-  //   {
-  //     id: 4,
-  //     image: "/videos/2500_03042_preview.mp4",
-  //   },
-  //   {
-  //     id: 5,
-  //     image: "/videos/2500_03042_preview.mp4",
-  //   },
-  // ];
-
-  // const [start, setStart] = useState(0);
-
-  // const onNextClick = () => {
-  //   setStart((start + 1) % slidesData.length);
-  // };
-
-  // const onPrevClick = () => {
-  //   setStart((start - 1 + slidesData.length) % slidesData.length);
-  // };
-
-  // const onDotClick = (index) => {
-  //   setStart(index);
-  // };
-
   const slidesData1 = [
     {
       id: 1,
@@ -167,20 +125,6 @@ export default function Painting() {
       image: "../videos/production_id_4145662 (2160p).mp4",
     },
   ];
-
-  const [start1, setStart1] = useState(0);
-
-  const onNextClick1 = () => {
-    setStart1((start1 + 1) % slidesData1.length);
-  };
-
-  const onPrevClick1 = () => {
-    setStart1((start1 - 1 + slidesData1.length) % slidesData1.length);
-  };
-
-  const onDotClick1 = (index) => {
-    setStart1(index);
-  };
 
   const responsive = {
     desktop: {
@@ -201,56 +145,49 @@ export default function Painting() {
   };
   const faqs = [
     {
-      title: "What is the Re-painting procedure for interiors?",
+      title: "What cleaning solutions do you use?",
       content:
-        "The re-painting procedure for Interiors includes the following steps: 1) Check surface for dampness or water seepage. 2) Rectify the water seepage problem at the source. This could mean repairing leaking plumbing or cracks in the exterior walls. 3) Any loose plaster should be removed from the wall. Check for loose plaster by tapping on the walls. Any hollow sound means the plaster is loose. 4) Masonry work to be undertaken to fill up all cracks and repair broken plaster.",
+        "Local Steam Cleaning makes sure that we do not do any impact to nature, environment and those dwelling in their homes and commercial spaces. Our team only uses eco-friendly. We only use cleaning agents and solutions that are environment-friendly to protect mother nature, ensure our client’s safety and protect our cleaners.",
     },
     {
-      title: "What should be taken care of while painting?",
+      title: "What is your Pet Policy?",
       content:
-        "While Painting you need to keep in mind some Tips: 1) To save on costs, buy paint in the largest pack possible. 2) Stir and strain the paint thoroughly before application. 3) Rectify existing surface problems like cracks/seepage, etc before the actual painting process. 4) Ensure that the paint is bought from an authorized dealer. 5) Ensure that the shop has an additional quantity of paint in case you need it later (of course, at our dealers especially Colour World, you will not find this problem.) 6) If you are using thinners, primers and undercoats, ensure that they are of good quality. 7) Always clean spilt/splashed paint with a recommended thinner while it is still wet.",
+        "For the safety and security of your pets please have dogs and cats crated or gated prior to our arrival.",
     },
     {
-      title: " What precautions should be taken while painting?",
+      title: "Do you perform outside cleaning ?",
       content:
-        "While painting, one must take a few precautions, such as: 1) Do not use cotton rags for cleaning, use soft synthetic or muslin cloth. Otherwise, threads will stick to the surface leading to a patchy, uneven finish. 2) Do not apply the next coat without the first one drying, otherwise you will have a wrinkly, patchy finish as well as loss of gloss. 3) Do not sandpaper very hard, otherwise there will be scratches, roughness and poor gloss. 4) Do not apply very thick coats, otherwise there will be a thick rough finish, resulting in slow drying. 5) Avoid mixing paints yourself. Buy readymade paints as far as possible, otherwise there will be patchy and inconsistent columns in the finish.",
+        "Yes. We provide sweeping and cobwebs removal only on balconies, garages, decks. If further cleaning is required, please discuss it during your booking.",
     },
     {
-      title: "Should primer always be used before applying paint?",
+      title: "How long can you Finish the cleaning works? ",
       content:
-        "Priming can be skipped while repainting using a flat paint (matte finish), though it is always advisable to apply paint on well prepped and primed surface. But never give it a miss when 1. Fresh painting a surface/drywall 2. Using gloss/high sheen paints 3. Painting a drastic colour change - lighter shade over a darker one and vice-versa. 4. Painting on repaired walls(patched areas) or walls in bad condition – paint flaking/peel off 5. Painting wood surfaces.",
+        "The duration of cleaning will depend on the items that you require to be cleaned. Our team will give you the estimated time frame once we visit your place for live assessment.",
     },
     {
-      title: "  What are paint finishes available?",
+      title: " Can I trust my cleaning professional? ",
       content:
-        "Paints are available in following dead flat to high gloss finishes: · Matte · Semi Gloss or Satin or Soft Sheen · High Gloss or Super Sheen or Silky.",
+        "Yes. All our in-house cleaners are trustworthy and background checked. We make sure that you get the best, friendly and professional cleaners at all times.",
     },
     {
-      title: "  What is a matte finish?",
+      title: "Do you clean carpets or rugs that are heavily stained? ",
       content:
-        "Matte finish is opaque and does not reflect light at all and thus can cover up minor imperfections. It is not washable or stain resistant, so only way to get rid of scribbles or stains, is to paint over them. Matte paint is least expensive of all emulsions and is the most economical solution for houses on rent.",
+        "Yes, it is one of our specialized service and we can efficiently remove them.",
     },
+
     {
-      title: "  How do I choose paint finishes for my house? ",
+      title:
+        " Do you bring your own cleaning supplies, products and equipment? ",
       content:
-        "Rule of thumb says higher the sheen, higher the shine, more durable and easy to maintain it is and higher the cost. But, high sheen also reflects more light and hence imperfections like patches or reworked areas are easily noticeable. Gloss paints can be used in areas that demand attention and easy maintenance, like high traffic living room, kids room, kitchen and bath. If you have to impress your tenants with your freshly painted apartment and also save good cash, go for matte paints. They are easy to be painted over and do not show up minor imperfections as well. A smart tip is to use combination of paints: Matte finish on ceiling and products of desired sheen on walls.",
+        "Yes, we will bring our own cleaning supplies and materials to help you get rid of the hassle with the cleaning preparations. Our cleaner will arrive with all the equipment we need to perform and complete our cleaning operations. Should you require specific products to be used, you can let our team know and our cleaner will discuss our cleaning solutions and what you need as long as it works best, safe for your health and the environment.",
     },
+
     {
-      title: "  What paint should I use for kitchen? ",
+      title: "What work can I expect to be done ?",
       content:
-        "High gloss paints are well suited for kitchens because of their high washability and stain resistance.",
+        "Vijay Home Services Cleaners offer a systemised approach to our services. We would love the opportunity to show you through the types of services on offer during one of our friendly face-to-face consultations/quotations. Simply complete a booking form and we will be more than happy to show you how we can assist with your house cleaning needs.",
     },
   ];
-
-  // const [activeIndex, setActiveIndex] = useState(null);
-  // const [activeIndex1, setActiveIndex1] = useState(null);
-  // const toggleAccordion = (index) => {
-  //   setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
-  // };
-
-  // const toggleAccordion1 = (index) => {
-  //   setActiveIndex1((prevIndex) => (prevIndex === index ? null : index));
-  // };
 
   const [activeIndex1, setActiveIndex1] = useState(null);
   const [activeIndex2, setActiveIndex2] = useState(null);
@@ -277,59 +214,71 @@ export default function Painting() {
 
   const data2 = [
     {
-      Painting: [
+      MiniServices: [
         {
-          id: 8,
-          categoryName: "Exterior Painting",
-          rate: "2025",
-          price: "45",
+          id: 1,
+          img: "../NImages/fridge.png",
+          rate: "13004.2",
+          price: "499",
+          Off: "15",
           discription: [
-            "Upto 100% Cashback on all painting booking above Rs 20,000/-",
-            "Cashback points to be used book any other services in next 6 months ",
+            "Deep cleaning of one fridge's interiors and exteriors.",
+            "Dry cleaning of the back side.",
           ],
-
-          img: "/NImages/exterios.jpg",
+          categoryName: "Fridge Cleaning",
         },
         {
-          id: 8,
-          categoryName: "Office Painting",
-          rate: "45",
-          price: "45",
+          id: 4,
+          img: "../NImages/carpet.png",
+          rate: "404.2",
+          price: "354",
+          Off: "21",
           discription: [
-            "Upto 100% Cashback on all painting booking above Rs 20,000/-",
-            "Cashback points to be used book any other services in next 6 months ",
+            "Our high power suction equipment will suck and remove all the dust ",
+            "We shampoo your carpet with chemical foam to remove and dislodge the finest particles of grime.",
           ],
-
-          img: "/NImages/officepainit.jpg",
+          categoryName: "Carpet Cleaning",
         },
         {
-          id: 8,
-          categoryName: "Interior Painting",
-          rate: "345",
-          price: "45",
+          id: 3,
+          img: "../NImages/wind.jpg",
+          rate: "404.2",
+          price: "177",
+          Off: "12",
           discription: [
-            "Upto 100% Cashback on all painting booking above Rs 20,000/-",
-            "Cashback points to be used book any other services in next 6 months ",
+            "Vacuuming of window tracks to extract dust.",
+            "Wiping and cleaning of glass.",
           ],
-
-          img: "/NImages/interior.jpg",
+          categoryName: "Window Cleaning",
         },
         {
-          id: 8,
-          categoryName: "Factory Painting",
-          rate: "5045",
-          price: "45",
+          id: 2,
+          img: "../NImages/sofa.jpg",
+          rate: "5000.2",
+          price: "1003",
+          Off: "15",
           discription: [
-            "Upto 100% Cashback on all painting booking above Rs 20,000/-",
-            "Cashback points to be used book any other services in next 6 months ",
+            "Mechanized cleaning and extraction process for upholstered sofa.",
+            "Dry Vacuum to extract loose dust and Applications of Chemical Foam & Scrubbing.",
           ],
-
-          img: "/NImages/factory.jpg",
+          categoryName: "Sofa Cleaning",
+        },
+        {
+          id: 3,
+          img: "../NImages/matrres.jpg",
+          rate: "404.2",
+          price: "589",
+          Off: "26",
+          discription: [
+            "Dust extraction, Sanitization by steam, Extraction of Residual Moisture.",
+            "Vacuuming of dust with vacuum cleaners with HEPA filters for maximum impact.",
+          ],
+          categoryName: "Mattress Cleaning",
         },
       ],
-      bgimg: "/NImages/pnt.avif",
-      demovideo: "/videos/2500_03042_preview.mp4",
-      img1: "/videos/1646230044496-56d688.webp",
+      bgimg: "/NImages/carpetdd.jpeg",
+      demovideo: "/videos/production_id_4145662 (2160p).mp4",
+      img1: "/images/thumb-deep-cleaning.jpg",
     },
   ];
 
@@ -362,7 +311,6 @@ export default function Painting() {
       };
       await axios(config).then(function (response) {
         if (response.status === 200) {
-          console.log(response.data.data, "response.data.data");
           AddEnquiryfollowup(response.data.data);
         }
       });
@@ -441,6 +389,10 @@ export default function Painting() {
     return selectedCategory?.includes(category);
   });
 
+  let category = selectedCategory?.toLocaleLowerCase();
+  //   let bgdta = filteredData.map((ele) =>
+  //     ele.bgimg.includes(category) ? category : ""
+  //   );
   const categoryData = filteredData[0][selectedCategory];
 
   return (
@@ -450,7 +402,6 @@ export default function Painting() {
       {filteredData?.map((ele, index) => {
         const bgImg = ele.bgimg;
         const includesCategory = bgImg.includes(selectedCategory);
-
         const bgStyle = {
           backgroundImage: `url(${bgImg})`,
           backgroundSize: "cover",
@@ -463,7 +414,7 @@ export default function Painting() {
         return (
           <div
             key={index}
-            className={`row mb-5 bg_img ${
+            className={`row mdQ mb-5 bg_img ${
               includesCategory ? "painting-bg" : "cleaning-bg"
             }`}
             style={bgStyle}
@@ -477,7 +428,8 @@ export default function Painting() {
                     fontWeight: "bolder",
                   }}
                 >
-                  Revitalize Your Home with Our Expert Painting Services!
+                  Small Space, Big Clean! Discover the Magic of Mini Cleaning
+                  Services with Vijay Home Services Today!.
                 </p>
                 <p
                   className=" fntf fnt32 m-auto"
@@ -487,7 +439,7 @@ export default function Painting() {
                 >
                   Pay After Service | 100% Satisfaction or FREE Rework*
                 </p>
-                <div className="row">
+                <div className="row  ">
                   <Button
                     className="col-md-4 mt-5   m-auto fntf"
                     style={{
@@ -521,7 +473,7 @@ export default function Painting() {
           className=" fntf m-auto col-md-8"
           style={{ fontSize: "15px", fontWeight: "bolder" }}
         >
-          Get your home festival-ready with our exclusive painting service
+          Get your home festival-ready with our exclusive Mini Cleaning service
           offers at affordable price.
         </p>
       </div>
@@ -575,8 +527,8 @@ export default function Painting() {
             }
 
             return (
-              <div className="row m-5 " style={{ height: "70vh" }}>
-                <div className="row  p-2  card-container ">
+              <div style={{ height: "70vh" }} className="row m-5 ">
+                <div className="row  p-2  card-container">
                   <div className="row text-center">
                     <img
                       className="m-auto"
@@ -608,11 +560,11 @@ export default function Painting() {
                               alt=""
                             />
                           </span>{" "}
-                          {ele}
+                          <span style={{ fontSize: "13px" }}>{ele}</span>
                         </span>
                       </>
                     ))}
-                    {/* <div className="row text-center">
+                    <div className="row text-center">
                       <p style={{ fontWeight: "bolder" }} className="m-2 fntf">
                         Starting @ Rs .{item.price}
                       </p>
@@ -622,23 +574,7 @@ export default function Painting() {
                       >
                         [{item.Off}% Off]
                       </p>
-                    </div> */}
-                    {/* <p className="fntf">
-                      <span
-                        style={{ fontWeight: "bolder" }}
-                        className={`me-2  ${starColor}`}
-                      >
-                        {" "}
-                        {starIcon}
-                      </span>
-                      <span style={{ fontWeight: "bolder" }} className="me-2">
-                        {Rate}
-                      </span>
-                      <span style={{ fontWeight: "bolder" }} className="me-2">
-                        {item.rate}
-                        {unitrs}(reviews)
-                      </span>
-                    </p> */}
+                    </div>
                   </div>
                   <div className="row">
                     <Button
@@ -647,7 +583,7 @@ export default function Painting() {
                         backgroundColor: "#AE445A",
                         border: "none",
                       }}
-                      className="col-md-5 p-1 mt-3 text-center m-auto fntf"
+                      className="col-md-5 p-1 mt-1 text-center m-auto fntf"
                     >
                       BOOK NOW
                     </Button>
@@ -779,83 +715,31 @@ export default function Painting() {
               height={300}
             />
           </div>
-          {/* <div className="col-md-2">
-            <img src="" alt="" width={200} height={200} />
-          </div> */}
         </div>
-        {/* <div className="slides  m-auto">
-          <span onClick={onPrevClick1} className="navButtons">
-            <ArrowBackIosIcon style={{ color: "grey", fontSize: "35px" }} />
-          </span>
-          <img
-            width={400}
-            height={400}
-            src={slidesData1[start1].image}
-            alt={`Slide ${slidesData1[start1].id}`}
-            className="image visible"
-          />
-          <span onClick={onNextClick1} className="navButtons">
-            <ArrowForwardIosIcon style={{ color: "grey", fontSize: "35px" }} />
-          </span>
-        </div> */}
-        {/* <div className="dotsControls">
-          <ul className="dotList">
-            {slidesData1.map((slide, index) => (
-              <li
-                key={index}
-                className={start1 === index ? "dot active" : "dot"}
-                onClick={() => onDotClick1(index)}
-              />
-            ))}
-          </ul>
-        </div>{" "} */}
       </div>
-
-      <div
-        className="row mt-5 text-center  p-3 cs mdQ"
-        style={{ borderRadius: "55px" }}
-      >
-        <div className="row">
-          <p
-            className="text-center fnt32 fntf"
-            style={{ fontWeight: "bolder" }}
-          >
-            Elevate Your Festive Decor with Our Painting Magic.
-          </p>
-          <p className="text-center fnt24 fntf">
-            {" "}
-            Transform your home into a festive wonderland with our expert
-            painting services.
-          </p>
-          <p className="text-center fnt24 fntf">
-            {" "}
-            Painting service Starting At Rs 7/-SQFT*
-          </p>
-        </div>
-        <div className="row m-3">
+      <div className="mt-3 ">
+        <div className="text-center">
           <Button
-            className="col-md-2 m-auto"
             style={{
               backgroundColor: "#AE445A",
               border: "none",
             }}
           >
             BOOK NOW
-          </Button>{" "}
+          </Button>
         </div>
       </div>
 
       <div
-        className="row mt-5 bgclr mdQ"
+        className="row mt-5 bgclr "
         style={{
-          // height: "60vh",
           borderTopLeftRadius: "80px",
           borderBottomRightRadius: "80px",
         }}
       >
-        <div className="row p-2 ">
+        <div className="row p-2 mdQ">
           <div className="row">
-            <div className="col-md-5  m-auto">
+            <div className="col-md-5 m-auto">
               <p
                 style={{
                   fontSize: "28px",
@@ -902,8 +786,8 @@ export default function Painting() {
                 </span>
               </p>
             </div>
-            <div className="col-md-5  m-auto">
-              <div className="row ">
+            <div className="col-md-5 m-auto">
+              <div className="row">
                 <p className="row ">
                   <span className="col-md-2 ">
                     <img
@@ -921,35 +805,38 @@ export default function Painting() {
                   </span>
                 </p>
                 <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  Quality of the work done is very good and their suggestions
-                  and advice as painting progressed, was valuable. Couple of
-                  times we requested to change the colour after one or two
-                  coats.
+                  Staff was very good at checking the cleaning area & put all
+                  efforts in cleaning the house. Although the house was cleaned
+                  before their service, it looked much much kind of new after
+                  their service. Nice work by the team & I recommend their
+                  services.
                   <p className="fntf text-end" style={{ fontWeight: "bold" }}>
-                    Srihari
+                    Akhilesh bc
                   </p>
                 </p>
                 <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  Great work by vijay home services on painting. Painters were
-                  professionally and finished on time.
+                  Vijay Home Services have done a good job of deep cleaning for
+                  my Villa and kudos to KB team. Highly recommended, if you're
+                  looking for a deep cleaning Services.
                   <p className="fntf text-end" style={{ fontWeight: "bold" }}>
-                    Mounika Lingam
+                    Janardhan Chagaleti
                   </p>
                 </p>
                 <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  Excellent customer service. Trained and experienced
-                  technicians. Good understanding of the customer requirement.
-                  Timely execution and handing over.
+                  The work was done neat and clean, customer service Aruna was
+                  supportive and helped to get the service done. 5 people
+                  arrived and all did a great job 👍. I really loved the
+                  service. I would strongly recommend vijay home service to all
                   <p className="fntf text-end" style={{ fontWeight: "bold" }}>
-                    Boby Thamoas
+                    Anil NS
                   </p>
                 </p>
                 <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  We got our flat painted and deep cleaned by Vijay Home
-                  Services. Tenant vacated and it was poorly maintained. Badly
-                  needed painting and cleaning before renting out again.
+                  Vijay home service, for KB and team: it’s wonderful job by KB
+                  and Team. It’s a villa hose for me it’s a tremendous efforts
+                  from morning 9 am to 8 pm.
                   <p className="fntf text-end" style={{ fontWeight: "bold" }}>
-                    Rohan
+                    Bridgid Vithya
                   </p>
                 </p>{" "}
               </div>
@@ -967,7 +854,7 @@ export default function Painting() {
           </span>
         </p>
         <div className="row m-auto">
-          <div className="   col-md-3 m-auto">
+          <div className="col-md-3 m-auto">
             <iframe
               width="260"
               height="215"
@@ -1040,7 +927,7 @@ export default function Painting() {
               </span>
             </p>
           </div>
-          <div className="row m-auto">
+          <div className="row m-auto ">
             <div className="col-md-2">
               <img
                 src="..\NImages\df (1).jpeg"
@@ -1179,7 +1066,7 @@ export default function Painting() {
       </div>
 
       <div className="row mt-5 m-auto mdQ">
-        <p className="row ">
+        <p className="row m-auto">
           <span className="col-md-2 "></span>
           <span
             className="col-md-9 fntf text-center"
@@ -1188,12 +1075,12 @@ export default function Painting() {
             Few More Happy Customers!
           </span>
         </p>
-        <div className="row">
+        <div className="row m-auto">
           <div className="col-md-3 m-auto">
             <iframe
               width="260"
               height="215"
-              src="https://www.youtube.com/embed/eP35Th4xzO4?si=wF0TAdpv1mVe3o_k"
+              src="https://www.youtube.com/embed/qR1-_0JcXjw?si=UKA-vJ_e1dpXy8Wn"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -1315,6 +1202,36 @@ export default function Painting() {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+
+      <div
+        className="row mt-5 text-center  p-3 cs"
+        style={{ borderRadius: "55px" }}
+      >
+        <div className="row">
+          <p
+            className="text-center fnt32 fntf"
+            style={{ fontWeight: "bolder" }}
+          >
+            Cleanliness, the Ultimate Festive Tradition.
+          </p>
+          <p className="text-center fnt24 fntf">
+            {" "}
+            Celebrate the season with a clean and clutter-free home courtesy of
+            Vijay Home Services.
+          </p>
+        </div>
+        <div className="row m-3">
+          <Button
+            className="col-md-2 m-auto"
+            style={{
+              backgroundColor: "#AE445A",
+              border: "none",
+            }}
+          >
+            BOOK NOW
+          </Button>{" "}
         </div>
       </div>
 

@@ -1,5 +1,3 @@
-
-
 import Navbar from "react-bootstrap/Navbar";
 import React from "react";
 import Container from "react-bootstrap/Container";
@@ -13,7 +11,7 @@ export default function Header() {
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand href="/" className="col-md-8">
+          <Navbar.Brand href="/" className="col-md-6">
             <img src="..\images\vhs-lgo.png" width={40} height={40} />
             <span
               style={{
@@ -31,6 +29,11 @@ export default function Header() {
             <Nav className="justify-content-end">
               {pathname === "/" || pathname === "/painting/" ? (
                 <Nav.Link
+                  style={{
+                    color: "black",
+                    fontSize: "14px",
+                    fontWeight: "bold",
+                  }}
                   href={`/painting/?selectedCategory=${encodeURIComponent(
                     "Painting"
                   )}`}
@@ -41,11 +44,44 @@ export default function Header() {
 
               {pathname === "/" || pathname === "/Cleaning/" ? (
                 <Nav.Link
+                  style={{
+                    color: "black",
+                    fontSize: "14px",
+                    fontWeight: "bold",
+                  }}
                   href={`/Cleaning/?selectedCategory=${encodeURIComponent(
                     "Cleaning"
                   )}`}
                 >
                   Cleaning Services
+                </Nav.Link>
+              ) : null}
+              {pathname === "/" || pathname === "/MiniServices/" ? (
+                <Nav.Link
+                  style={{
+                    color: "black",
+                    fontSize: "14px",
+                    fontWeight: "bold",
+                  }}
+                  href={`/MiniServices/?selectedCategory=${encodeURIComponent(
+                    "MiniServices"
+                  )}`}
+                >
+                  Mini Services
+                </Nav.Link>
+              ) : null}
+              {pathname === "/" || pathname === "/CommercialServices/" ? (
+                <Nav.Link
+                  style={{
+                    color: "black",
+                    fontSize: "14px",
+                    fontWeight: "bold",
+                  }}
+                  href={`/CommercialServices/?selectedCategory=${encodeURIComponent(
+                    "CommercialServices"
+                  )}`}
+                >
+                  Commercial Services
                 </Nav.Link>
               ) : null}
             </Nav>

@@ -315,3 +315,13 @@
   max-width: 100%;
   opacity: 0.56;
 }
+
+@media (min-width: 368px) and (max-width: 991.98px) {
+  .mdQ {
+    text-align: center;
+  }
+  .btn_mdQ {
+    width: 30px;
+    float: center;
+  }
+}

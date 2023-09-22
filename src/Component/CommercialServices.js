@@ -31,7 +31,7 @@ import moment from "moment";
 import Row from "react-bootstrap/Row";
 import { useLocation } from "react-router-dom";
 
-export default function Painting() {
+export default function CommercialServices() {
   const location = useLocation();
 
   const selectedCategory = new URLSearchParams(location.search).get(
@@ -201,56 +201,40 @@ export default function Painting() {
   };
   const faqs = [
     {
-      title: "What is the Re-painting procedure for interiors?",
-      content:
-        "The re-painting procedure for Interiors includes the following steps: 1) Check surface for dampness or water seepage. 2) Rectify the water seepage problem at the source. This could mean repairing leaking plumbing or cracks in the exterior walls. 3) Any loose plaster should be removed from the wall. Check for loose plaster by tapping on the walls. Any hollow sound means the plaster is loose. 4) Masonry work to be undertaken to fill up all cracks and repair broken plaster.",
+      title: "What is pest control?",
+      content: "",
     },
     {
-      title: "What should be taken care of while painting?",
-      content:
-        "While Painting you need to keep in mind some Tips: 1) To save on costs, buy paint in the largest pack possible. 2) Stir and strain the paint thoroughly before application. 3) Rectify existing surface problems like cracks/seepage, etc before the actual painting process. 4) Ensure that the paint is bought from an authorized dealer. 5) Ensure that the shop has an additional quantity of paint in case you need it later (of course, at our dealers especially Colour World, you will not find this problem.) 6) If you are using thinners, primers and undercoats, ensure that they are of good quality. 7) Always clean spilt/splashed paint with a recommended thinner while it is still wet.",
+      title:
+        "What are the different kind of pests that can affect my house/office?",
+      content: "",
     },
     {
-      title: " What precautions should be taken while painting?",
-      content:
-        "While painting, one must take a few precautions, such as: 1) Do not use cotton rags for cleaning, use soft synthetic or muslin cloth. Otherwise, threads will stick to the surface leading to a patchy, uneven finish. 2) Do not apply the next coat without the first one drying, otherwise you will have a wrinkly, patchy finish as well as loss of gloss. 3) Do not sandpaper very hard, otherwise there will be scratches, roughness and poor gloss. 4) Do not apply very thick coats, otherwise there will be a thick rough finish, resulting in slow drying. 5) Avoid mixing paints yourself. Buy readymade paints as far as possible, otherwise there will be patchy and inconsistent columns in the finish.",
+      title: "What is the difference between an ant and a termite?",
+      content: "",
     },
     {
-      title: "Should primer always be used before applying paint?",
-      content:
-        "Priming can be skipped while repainting using a flat paint (matte finish), though it is always advisable to apply paint on well prepped and primed surface. But never give it a miss when 1. Fresh painting a surface/drywall 2. Using gloss/high sheen paints 3. Painting a drastic colour change - lighter shade over a darker one and vice-versa. 4. Painting on repaired walls(patched areas) or walls in bad condition – paint flaking/peel off 5. Painting wood surfaces.",
+      title: " How can I identify a bed bug infestation and kill bed bugs?",
+      content: "",
     },
     {
-      title: "  What are paint finishes available?",
-      content:
-        "Paints are available in following dead flat to high gloss finishes: · Matte · Semi Gloss or Satin or Soft Sheen · High Gloss or Super Sheen or Silky.",
+      title: " How effective are store bought traps for rat control?",
+      content: "",
     },
     {
-      title: "  What is a matte finish?",
-      content:
-        "Matte finish is opaque and does not reflect light at all and thus can cover up minor imperfections. It is not washable or stain resistant, so only way to get rid of scribbles or stains, is to paint over them. Matte paint is least expensive of all emulsions and is the most economical solution for houses on rent.",
+      title: "What are the signs that I need a pest control service?",
+      content: "",
     },
     {
-      title: "  How do I choose paint finishes for my house? ",
-      content:
-        "Rule of thumb says higher the sheen, higher the shine, more durable and easy to maintain it is and higher the cost. But, high sheen also reflects more light and hence imperfections like patches or reworked areas are easily noticeable. Gloss paints can be used in areas that demand attention and easy maintenance, like high traffic living room, kids room, kitchen and bath. If you have to impress your tenants with your freshly painted apartment and also save good cash, go for matte paints. They are easy to be painted over and do not show up minor imperfections as well. A smart tip is to use combination of paints: Matte finish on ceiling and products of desired sheen on walls.",
+      title: "What are the types of pest control services offered?",
+      content: "",
     },
+
     {
-      title: "  What paint should I use for kitchen? ",
-      content:
-        "High gloss paints are well suited for kitchens because of their high washability and stain resistance.",
+      title: "How much is it a hassle for me as a customer?",
+      content: "",
     },
   ];
-
-  // const [activeIndex, setActiveIndex] = useState(null);
-  // const [activeIndex1, setActiveIndex1] = useState(null);
-  // const toggleAccordion = (index) => {
-  //   setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
-  // };
-
-  // const toggleAccordion1 = (index) => {
-  //   setActiveIndex1((prevIndex) => (prevIndex === index ? null : index));
-  // };
 
   const [activeIndex1, setActiveIndex1] = useState(null);
   const [activeIndex2, setActiveIndex2] = useState(null);
@@ -277,57 +261,45 @@ export default function Painting() {
 
   const data2 = [
     {
-      Painting: [
+      CommercialServices: [
         {
-          id: 8,
-          categoryName: "Exterior Painting",
+          id: 2,
+          categoryName: "Office Cleaning",
           rate: "2025",
           price: "45",
           discription: [
-            "Upto 100% Cashback on all painting booking above Rs 20,000/-",
-            "Cashback points to be used book any other services in next 6 months ",
+            "Dusting of cushions, ceilings, telephones, desks, chairs and tables.",
+            "The crew is not to be asked to displace furniture, fixtures or any kind of appliances .",
           ],
 
-          img: "/NImages/exterios.jpg",
+          img: "/NImages/ofccisful.jpg",
         },
         {
-          id: 8,
-          categoryName: "Office Painting",
+          id: 3,
+          categoryName: "Office Carpet Cleaning",
           rate: "45",
           price: "45",
           discription: [
-            "Upto 100% Cashback on all painting booking above Rs 20,000/-",
-            "Cashback points to be used book any other services in next 6 months ",
+            "Carpet cleaning rejuvenates your floors, removing stains and allergens for a fresh and inviting space.",
+            "Application of a foam based shampoo on the carpet using a sponge. ",
           ],
 
-          img: "/NImages/officepainit.jpg",
+          img: "/NImages/ofcicarpet.jpg",
         },
         {
-          id: 8,
-          categoryName: "Interior Painting",
+          id: 4,
+          categoryName: "Office Chair Cleaning",
           rate: "345",
           price: "45",
           discription: [
-            "Upto 100% Cashback on all painting booking above Rs 20,000/-",
-            "Cashback points to be used book any other services in next 6 months ",
+            "Removal of dirt and dust.",
+            "Office chair cleaning restores comfort and hygiene to your workspace seating.",
           ],
 
-          img: "/NImages/interior.jpg",
-        },
-        {
-          id: 8,
-          categoryName: "Factory Painting",
-          rate: "5045",
-          price: "45",
-          discription: [
-            "Upto 100% Cashback on all painting booking above Rs 20,000/-",
-            "Cashback points to be used book any other services in next 6 months ",
-          ],
-
-          img: "/NImages/factory.jpg",
+          img: "/NImages/ofchair.webp",
         },
       ],
-      bgimg: "/NImages/pnt.avif",
+      bgimg: "/NImages/cmrs.jpeg",
       demovideo: "/videos/2500_03042_preview.mp4",
       img1: "/videos/1646230044496-56d688.webp",
     },
@@ -463,21 +435,22 @@ export default function Painting() {
         return (
           <div
             key={index}
-            className={`row mb-5 bg_img ${
-              includesCategory ? "painting-bg" : "cleaning-bg"
+            className={`row psci mb-5 bg_img ${
+              includesCategory ? "painting-bg " : "cleaning-bg"
             }`}
             style={bgStyle}
           >
-            <div className="col-md-7  p-5 ">
+            <div className="row  p-5 ">
               <div className="row text-center">
                 <p
-                  className=" fntf fnt32 m-auto"
+                  className="col-md-9  fntf fnt32 m-auto   pscic"
                   style={{
                     fontSize: "45px",
                     fontWeight: "bolder",
                   }}
                 >
-                  Revitalize Your Home with Our Expert Painting Services!
+                  Elevate Your Business Environment with Us - Professional
+                  Commercial Cleaning Solutions!.
                 </p>
                 <p
                   className=" fntf fnt32 m-auto"
@@ -489,7 +462,7 @@ export default function Painting() {
                 </p>
                 <div className="row">
                   <Button
-                    className="col-md-4 mt-5   m-auto fntf"
+                    className="col-md-2 mt-5   m-auto fntf"
                     style={{
                       backgroundColor: "#AE445A",
                       border: "none",
@@ -521,8 +494,8 @@ export default function Painting() {
           className=" fntf m-auto col-md-8"
           style={{ fontSize: "15px", fontWeight: "bolder" }}
         >
-          Get your home festival-ready with our exclusive painting service
-          offers at affordable price.
+          Get your home festival-ready with our exclusive Commercial Cleaning
+          service offers at affordable price.
         </p>
       </div>
       <Carousel responsive={responsive}>
@@ -820,16 +793,16 @@ export default function Painting() {
             className="text-center fnt32 fntf"
             style={{ fontWeight: "bolder" }}
           >
+            Celebrate the Season of Success with a Fresh Workspace.
+          </p>
+          <p className="text-center fnt24 fntf">
+            {" "}
+            Unwrap our exclusive festival offers to ensure your workplace shines
+            just as bright as your achievements.
+          </p>
+          <p className="text-center fnt24 fntf">
+            {" "}
             Elevate Your Festive Decor with Our Painting Magic.
-          </p>
-          <p className="text-center fnt24 fntf">
-            {" "}
-            Transform your home into a festive wonderland with our expert
-            painting services.
-          </p>
-          <p className="text-center fnt24 fntf">
-            {" "}
-            Painting service Starting At Rs 7/-SQFT*
           </p>
         </div>
         <div className="row m-3">
@@ -921,33 +894,32 @@ export default function Painting() {
                   </span>
                 </p>
                 <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  Quality of the work done is very good and their suggestions
-                  and advice as painting progressed, was valuable. Couple of
-                  times we requested to change the colour after one or two
-                  coats.
+                  Good work, last long standing stains on our sofa set is
+                  totally cleared. Can be trusted. Good service, thanks.
                   <p className="fntf text-end" style={{ fontWeight: "bold" }}>
-                    Srihari
+                    Vasu Javaraiah
                   </p>
                 </p>
                 <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  Great work by vijay home services on painting. Painters were
-                  professionally and finished on time.
+                  Excellent!! We requested Office Cleaning Services and the
+                  service provided was top quality. Would like to appreciate
+                  Mr.Rahul and his team for their high quality cleaning service.
+                  Truly commendable. Thanks a lot.
                   <p className="fntf text-end" style={{ fontWeight: "bold" }}>
-                    Mounika Lingam
+                    Anup Morap
                   </p>
                 </p>
                 <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  Excellent customer service. Trained and experienced
-                  technicians. Good understanding of the customer requirement.
-                  Timely execution and handing over.
+                  One of the best service I ever received, look at the below
+                  pics it will tell about their service. Thank you so much for
+                  the service!
                   <p className="fntf text-end" style={{ fontWeight: "bold" }}>
-                    Boby Thamoas
+                    Satish Loganathan
                   </p>
                 </p>
                 <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  We got our flat painted and deep cleaned by Vijay Home
-                  Services. Tenant vacated and it was poorly maintained. Badly
-                  needed painting and cleaning before renting out again.
+                  Very supportive team and professional at work...James team has
+                  done excellent Deep clean in my flat..Habron Avenue.
                   <p className="fntf text-end" style={{ fontWeight: "bold" }}>
                     Rohan
                   </p>
