@@ -217,7 +217,7 @@ export default function MiniServices() {
       MiniServices: [
         {
           id: 1,
-          img: "../NImages/fridge.png",
+          img: "../NImages/nfridge.jfif",
           rate: "13004.2",
           price: "499",
           Off: "15",
@@ -229,7 +229,7 @@ export default function MiniServices() {
         },
         {
           id: 4,
-          img: "../NImages/carpet.png",
+          img: "../NImages/ncarpet.jfif",
           rate: "404.2",
           price: "354",
           Off: "21",
@@ -241,7 +241,7 @@ export default function MiniServices() {
         },
         {
           id: 3,
-          img: "../NImages/wind.jpg",
+          img: "../NImages/Nwindow.jfif",
           rate: "404.2",
           price: "177",
           Off: "12",
@@ -253,7 +253,7 @@ export default function MiniServices() {
         },
         {
           id: 2,
-          img: "../NImages/sofa.jpg",
+          img: "../NImages/Nsofa.jfif",
           rate: "5000.2",
           price: "1003",
           Off: "15",
@@ -265,7 +265,7 @@ export default function MiniServices() {
         },
         {
           id: 3,
-          img: "../NImages/matrres.jpg",
+          img: "../NImages/nmatress.jfif",
           rate: "404.2",
           price: "589",
           Off: "26",
@@ -414,17 +414,17 @@ export default function MiniServices() {
         return (
           <div
             key={index}
-            className={`row mdQ mb-5 bg_img ${
-              includesCategory ? "painting-bg" : "cleaning-bg"
-            }`}
-            style={bgStyle}
+            // className={`row mdQ mb-5 bg_img ${
+            //   includesCategory ? "painting-bg" : "cleaning-bg"
+            // }`}
+            // style={bgStyle}
           >
-            <div className="col-md-7  p-5 ">
+            <div className="col-md-12  p-5 ">
               <div className="row text-center">
                 <p
                   className=" fntf fnt32 m-auto"
                   style={{
-                    fontSize: "45px",
+                    fontSize: "35px",
                     fontWeight: "bolder",
                   }}
                 >
@@ -441,7 +441,7 @@ export default function MiniServices() {
                 </p>
                 <div className="row  ">
                   <Button
-                    className="col-md-4 mt-5   m-auto fntf"
+                    className="col-md-2 mt-5   m-auto fntf"
                     style={{
                       backgroundColor: "#AE445A",
                       border: "none",
@@ -477,122 +477,154 @@ export default function MiniServices() {
           offers at affordable price.
         </p>
       </div>
-      <Carousel responsive={responsive}>
-        {categoryData &&
-          categoryData.map((item, index) => {
-            let starIcon;
-            let starColor = "";
-            let Rate = 0;
-            let unitrs = "";
-            const starColorClass = {
-              red: "red-star",
-              yellow: "yellow-star",
-              green: "green-star",
-            };
-            if (item.rate >= 1000) {
-              unitrs = "k";
-            } else if (item.rate >= 100000) {
-              unitrs = "lakh";
-            } else if (item.rate >= 1000000) {
-              unitrs = "M";
-            }
+      <div className="row  m-auto ">
+        <div className="col-md-12 m-auto">
+          <div
+            className="row m-auto mt-5"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            {" "}
+            {categoryData &&
+              categoryData.map((item, index) => {
+                const isEven = index % 2 === 0;
+                let starIcon;
+                let starColor = "";
+                let Rate = 0;
+                let unitrs = "";
+                const starColorClass = {
+                  red: "red-star",
+                  yellow: "yellow-star",
+                  green: "green-star",
+                };
+                if (item.rate >= 1000) {
+                  unitrs = "k";
+                } else if (item.rate >= 100000) {
+                  unitrs = "lakh";
+                } else if (item.rate >= 1000000) {
+                  unitrs = "M";
+                }
 
-            if (item.rate >= 5000) {
-              starColor = starColorClass.green;
-            } else if (item.rate >= 2000) {
-              starColor = starColorClass.yellow;
-            } else {
-              starColor = starColorClass.red;
-            }
+                if (item.rate >= 5000) {
+                  starColor = starColorClass.green;
+                } else if (item.rate >= 2000) {
+                  starColor = starColorClass.yellow;
+                } else {
+                  starColor = starColorClass.red;
+                }
 
-            if (item.rate <= 1000) {
-              starIcon = <StarBorderIcon />;
-              starColor = starColorClass.red;
-              Rate = item.rate >= 1000 ? 1 : 0.5;
-            } else if (item.rate <= 3000) {
-              starIcon = <StarHalfIcon />;
-              starColor = starColorClass.yellow;
-              Rate = item.rate >= 2000 ? 2 : 1.5;
-            } else {
-              starIcon = <StarIcon />;
-              starColor = starColorClass.green;
-              Rate =
-                item.rate >= 5000
-                  ? 5
-                  : item.rate >= 4000
-                  ? 4.8
-                  : item.rate >= 3000
-                  ? 4.5
-                  : 0;
-            }
+                if (item.rate <= 1000) {
+                  starIcon = <StarBorderIcon />;
+                  starColor = starColorClass.red;
+                  Rate = item.rate >= 1000 ? 1 : 0.5;
+                } else if (item.rate <= 3000) {
+                  starIcon = <StarHalfIcon />;
+                  starColor = starColorClass.yellow;
+                  Rate = item.rate >= 2000 ? 2 : 1.5;
+                } else {
+                  starIcon = <StarIcon />;
+                  starColor = starColorClass.green;
+                  Rate =
+                    item.rate >= 5000
+                      ? 5
+                      : item.rate >= 4000
+                      ? 4.8
+                      : item.rate >= 3000
+                      ? 4.5
+                      : 0;
+                }
 
-            return (
-              <div style={{ height: "70vh" }} className="row m-5 ">
-                <div className="row  p-2  card-container">
-                  <div className="row text-center">
-                    <img
-                      className="m-auto"
-                      style={{
-                        width: "150px",
-                        height: "100px",
-                        borderRadius: "20px",
-                      }}
-                      alt=""
-                      src={item.img}
-                    />
-                    <p className="fntf fnt24 text-center mt-2">
-                      {item.categoryName}
-                    </p>
-                  </div>
-                  <div className="row ">
-                    {item.discription.map((ele) => (
-                      <>
-                        <span
-                          style={{
-                            fontWeight: "bolder",
-                            listStyleType: "disc",
-                          }}
-                        >
-                          <span>
-                            <img
-                              style={{ width: "15px", height: "15px" }}
-                              src="..\NImages\r.jfif"
-                              alt=""
-                            />
-                          </span>{" "}
-                          <span style={{ fontSize: "13px" }}>{ele}</span>
-                        </span>
-                      </>
-                    ))}
-                    <div className="row text-center">
-                      <p style={{ fontWeight: "bolder" }} className="m-2 fntf">
-                        Starting @ Rs .{item.price}
-                      </p>
-                      <p
-                        style={{ fontWeight: "bolder", marginLeft: "10px" }}
-                        className="fntf "
-                      >
-                        [{item.Off}% Off]
+                return (
+                  <div className="col-md-3 m-2  card-container">
+                    <div className="row ">
+                      <img
+                        className="col-md-12 m-0 p-0 "
+                        style={{
+                          width: "440px",
+                          height: "200px",
+                          // borderRadius: "20px",
+                        }}
+                        alt=""
+                        src={item.img}
+                      />
+                      <p className="fntf fnt24 text-center mt-2">
+                        {item.categoryName}
                       </p>
                     </div>
+                    <div className="row " style={{ height: "120px" }}>
+                      {item.discription.map((ele) => (
+                        <>
+                          <span
+                            style={{
+                              // fontWeight: "bolder",
+                              listStyleType: "disc",
+                            }}
+                          >
+                            <span>
+                              <img
+                                style={{ width: "15px", height: "15px" }}
+                                src="..\NImages\r.jfif"
+                                alt=""
+                              />
+                            </span>{" "}
+                            <span style={{ fontSize: "13px" }}>{ele}</span>
+                          </span>
+                        </>
+                      ))}
+                    </div>
+                    <div className="row mt-2">
+                      <div className="col-md-8">
+                        <p
+                          style={{ fontWeight: "bolder", fontSize: "16px" }}
+                          className=" m-2 fntf"
+                        >
+                          Starting @
+                          <span
+                            style={{
+                              fontWeight: "bolder",
+                              fontSize: "16px",
+                              color: "#AE445A",
+                            }}
+                          >
+                            Rs .{item.price}
+                          </span>
+                        </p>{" "}
+                      </div>
+                      <div className="col-md-4">
+                        <Button
+                          style={{
+                            fontWeight: "bolder",
+                            backgroundColor: "green",
+                            border: "none",
+                            borderRadius: "30px",
+                          }}
+                          className="fntf row"
+                        >
+                          {item.Off}% Off
+                        </Button>
+                      </div>
+                    </div>
+
+                    <div className="row mt-2 mb-2">
+                      <Button
+                        onClick={() => handleShow(item)}
+                        style={{
+                          backgroundColor: "#AE445A",
+                          border: "none",
+                        }}
+                        className="col-md-5 p-1 mt-1 text-center m-auto fntf"
+                      >
+                        BOOK NOW
+                      </Button>
+                    </div>
                   </div>
-                  <div className="row">
-                    <Button
-                      onClick={() => handleShow(item)}
-                      style={{
-                        backgroundColor: "#AE445A",
-                        border: "none",
-                      }}
-                      className="col-md-5 p-1 mt-1 text-center m-auto fntf"
-                    >
-                      BOOK NOW
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-      </Carousel>
+                );
+              })}
+          </div>
+        </div>
+      </div>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -674,7 +706,7 @@ export default function MiniServices() {
         </Modal.Footer>
       </Modal>
 
-      <div className="row m-auto mdQ">
+      <div className="row m-auto mt-5 mdQ">
         <p className="row text-center">
           <span className="fntf fnt28" style={{ fontWeight: "bold" }}>
             <img width={30} height={30} src="..\NImages\awards.jpeg" alt="" />{" "}

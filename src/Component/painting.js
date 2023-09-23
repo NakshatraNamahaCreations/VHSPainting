@@ -112,43 +112,6 @@ export default function Painting() {
     };
   }, [repeatcustomer]);
 
-  // const slidesData = [
-  //   {
-  //     id: 1,
-  //     image: "/videos/production_id_4145662 (2160p).mp4",
-  //   },
-  //   {
-  //     id: 2,
-  //     image: "/videos/2500_03042_preview.mp4",
-  //   },
-  //   {
-  //     id: 3,
-  //     image: "/videos/2500_03042_preview.mp4",
-  //   },
-  //   {
-  //     id: 4,
-  //     image: "/videos/2500_03042_preview.mp4",
-  //   },
-  //   {
-  //     id: 5,
-  //     image: "/videos/2500_03042_preview.mp4",
-  //   },
-  // ];
-
-  // const [start, setStart] = useState(0);
-
-  // const onNextClick = () => {
-  //   setStart((start + 1) % slidesData.length);
-  // };
-
-  // const onPrevClick = () => {
-  //   setStart((start - 1 + slidesData.length) % slidesData.length);
-  // };
-
-  // const onDotClick = (index) => {
-  //   setStart(index);
-  // };
-
   const slidesData1 = [
     {
       id: 1,
@@ -167,20 +130,6 @@ export default function Painting() {
       image: "../videos/production_id_4145662 (2160p).mp4",
     },
   ];
-
-  const [start1, setStart1] = useState(0);
-
-  const onNextClick1 = () => {
-    setStart1((start1 + 1) % slidesData1.length);
-  };
-
-  const onPrevClick1 = () => {
-    setStart1((start1 - 1 + slidesData1.length) % slidesData1.length);
-  };
-
-  const onDotClick1 = (index) => {
-    setStart1(index);
-  };
 
   const responsive = {
     desktop: {
@@ -242,16 +191,6 @@ export default function Painting() {
     },
   ];
 
-  // const [activeIndex, setActiveIndex] = useState(null);
-  // const [activeIndex1, setActiveIndex1] = useState(null);
-  // const toggleAccordion = (index) => {
-  //   setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
-  // };
-
-  // const toggleAccordion1 = (index) => {
-  //   setActiveIndex1((prevIndex) => (prevIndex === index ? null : index));
-  // };
-
   const [activeIndex1, setActiveIndex1] = useState(null);
   const [activeIndex2, setActiveIndex2] = useState(null);
 
@@ -283,10 +222,6 @@ export default function Painting() {
           categoryName: "Exterior Painting",
           rate: "2025",
           price: "45",
-          discription: [
-            "Upto 100% Cashback on all painting booking above Rs 20,000/-",
-            "Cashback points to be used book any other services in next 6 months ",
-          ],
 
           img: "/NImages/exterios.jpg",
         },
@@ -295,10 +230,6 @@ export default function Painting() {
           categoryName: "Office Painting",
           rate: "45",
           price: "45",
-          discription: [
-            "Upto 100% Cashback on all painting booking above Rs 20,000/-",
-            "Cashback points to be used book any other services in next 6 months ",
-          ],
 
           img: "/NImages/officepainit.jpg",
         },
@@ -307,10 +238,6 @@ export default function Painting() {
           categoryName: "Interior Painting",
           rate: "345",
           price: "45",
-          discription: [
-            "Upto 100% Cashback on all painting booking above Rs 20,000/-",
-            "Cashback points to be used book any other services in next 6 months ",
-          ],
 
           img: "/NImages/interior.jpg",
         },
@@ -319,10 +246,6 @@ export default function Painting() {
           categoryName: "Factory Painting",
           rate: "5045",
           price: "45",
-          discription: [
-            "Upto 100% Cashback on all painting booking above Rs 20,000/-",
-            "Cashback points to be used book any other services in next 6 months ",
-          ],
 
           img: "/NImages/factory.jpg",
         },
@@ -447,63 +370,36 @@ export default function Painting() {
     <>
       <Header />
 
-      {filteredData?.map((ele, index) => {
-        const bgImg = ele.bgimg;
-        const includesCategory = bgImg.includes(selectedCategory);
-
-        const bgStyle = {
-          backgroundImage: `url(${bgImg})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center center",
-          borderTopRightRadius: "100px",
-          borderBottomLeftRadius: "320px",
-        };
-
-        return (
-          <div
-            key={index}
-            className={`row mb-5 bg_img ${
-              includesCategory ? "painting-bg" : "cleaning-bg"
-            }`}
-            style={bgStyle}
-          >
-            <div className="col-md-7  p-5 ">
-              <div className="row text-center">
-                <p
-                  className=" fntf fnt32 m-auto"
-                  style={{
-                    fontSize: "45px",
-                    fontWeight: "bolder",
-                  }}
-                >
-                  Revitalize Your Home with Our Expert Painting Services!
-                </p>
-                <p
-                  className=" fntf fnt32 m-auto"
-                  style={{
-                    fontSize: "20px",
-                  }}
-                >
-                  Pay After Service | 100% Satisfaction or FREE Rework*
-                </p>
-                <div className="row">
-                  <Button
-                    className="col-md-4 mt-5   m-auto fntf"
-                    style={{
-                      backgroundColor: "#AE445A",
-                      border: "none",
-                      color: "colr",
-                    }}
-                  >
-                    BOOK OUR SERVICE{" "}
-                  </Button>{" "}
-                </div>
+      <div className="row m-auto">
+        {/* <div className="col-md-6">
+          <div className="row">
+            {filteredData?.map((ele, index) => (
+              <img className="row" src={ele.bgimg} alt="" />
+            ))}
+          </div>
+        </div> */}
+        <div className="row   m-auto">
+          <Form className="shadow m-3 p-5 mb-5 bg-white rounded m-auto ">
+            <div className="row m-auto p-5">
+              <h1 className="row fntf m-auto" style={{ fontWeight: "bold" }}>
+                Elevate Your Festive Decor with Our Painting Magic.
+              </h1>
+              <p className="col-md-8 fntf fnt16 m-auto" style={{ fontWeight: "bold" }}>
+                Transform your home into a festive wonderland with our expert
+                painting services.
+              </p>
+              <p className="col-md-8 text-center fntf fnt16 m-auto" style={{ fontWeight: "bold" }}>
+                Painting service Starting At Rs 7/-SQFT*
+              </p>
+              <div className="row">
+                <Button className="col-md-3 mt-5 btnhr1  m-auto fntf btnhr">
+                  BOOK OUR SERVICE{" "}
+                </Button>{" "}
               </div>
             </div>
-          </div>
-        );
-      })}
+          </Form>
+        </div>
+      </div>
 
       <div className="row text-center mdQ">
         <p className="col-md-6 m-auto">
@@ -519,64 +415,75 @@ export default function Painting() {
         </p>
         <p
           className=" fntf m-auto col-md-8"
-          style={{ fontSize: "15px", fontWeight: "bolder" }}
+          style={{ fontSize: "15px", fontWeight: "normal" }}
         >
           Get your home festival-ready with our exclusive painting service
           offers at affordable price.
         </p>
+        <p
+          className=" fntf m-auto col-md-5"
+          style={{ fontSize: "15px", fontWeight: "bolder" }}
+        >
+          Upto 100% Cashback on all painting booking above Rs 20,000/- Cashback
+          points to be used book any other services in next 6 months
+        </p>
       </div>
-      <Carousel responsive={responsive}>
-        {categoryData &&
-          categoryData.map((item, index) => {
-            let starIcon;
-            let starColor = "";
-            let Rate = 0;
-            let unitrs = "";
-            const starColorClass = {
-              red: "red-star",
-              yellow: "yellow-star",
-              green: "green-star",
-            };
-            if (item.rate >= 1000) {
-              unitrs = "k";
-            } else if (item.rate >= 100000) {
-              unitrs = "lakh";
-            } else if (item.rate >= 1000000) {
-              unitrs = "M";
-            }
+      <div className="row m-auto ">
+        <div className="col-md-12 m-auto">
+          {/* {categoryData &&
+            categoryData.map((item, index) => {
+              const isEven = index % 2 === 0;
+              let starIcon;
+              let starColor = "";
+              let Rate = 0;
+              let unitrs = "";
+              const starColorClass = {
+                red: "red-star",
+                yellow: "yellow-star",
+                green: "green-star",
+              };
+              if (item.rate >= 1000) {
+                unitrs = "k";
+              } else if (item.rate >= 100000) {
+                unitrs = "lakh";
+              } else if (item.rate >= 1000000) {
+                unitrs = "M";
+              }
 
-            if (item.rate >= 5000) {
-              starColor = starColorClass.green;
-            } else if (item.rate >= 2000) {
-              starColor = starColorClass.yellow;
-            } else {
-              starColor = starColorClass.red;
-            }
+              if (item.rate >= 5000) {
+                starColor = starColorClass.green;
+              } else if (item.rate >= 2000) {
+                starColor = starColorClass.yellow;
+              } else {
+                starColor = starColorClass.red;
+              }
 
-            if (item.rate <= 1000) {
-              starIcon = <StarBorderIcon />;
-              starColor = starColorClass.red;
-              Rate = item.rate >= 1000 ? 1 : 0.5;
-            } else if (item.rate <= 3000) {
-              starIcon = <StarHalfIcon />;
-              starColor = starColorClass.yellow;
-              Rate = item.rate >= 2000 ? 2 : 1.5;
-            } else {
-              starIcon = <StarIcon />;
-              starColor = starColorClass.green;
-              Rate =
-                item.rate >= 5000
-                  ? 5
-                  : item.rate >= 4000
-                  ? 4.8
-                  : item.rate >= 3000
-                  ? 4.5
-                  : 0;
-            }
+              if (item.rate <= 1000) {
+                starIcon = <StarBorderIcon />;
+                starColor = starColorClass.red;
+                Rate = item.rate >= 1000 ? 1 : 0.5;
+              } else if (item.rate <= 3000) {
+                starIcon = <StarHalfIcon />;
+                starColor = starColorClass.yellow;
+                Rate = item.rate >= 2000 ? 2 : 1.5;
+              } else {
+                starIcon = <StarIcon />;
+                starColor = starColorClass.green;
+                Rate =
+                  item.rate >= 5000
+                    ? 5
+                    : item.rate >= 4000
+                    ? 4.8
+                    : item.rate >= 3000
+                    ? 4.5
+                    : 0;
+              }
 
-            return (
-              <div className="row m-5 " style={{ height: "70vh" }}>
-                <div className="row  p-2  card-container ">
+              return (
+                <div
+                  className="col-md-3 m-2"
+                  style={{ border: "1px solid red" }}
+                >
                   <div className="row text-center">
                     <img
                       className="m-auto"
@@ -608,11 +515,11 @@ export default function Painting() {
                               alt=""
                             />
                           </span>{" "}
-                          {ele}
+                          <span style={{ fontSize: "13px" }}>{ele}</span>
                         </span>
                       </>
                     ))}
-                    {/* <div className="row text-center">
+                    <div className="row text-center">
                       <p style={{ fontWeight: "bolder" }} className="m-2 fntf">
                         Starting @ Rs .{item.price}
                       </p>
@@ -622,41 +529,117 @@ export default function Painting() {
                       >
                         [{item.Off}% Off]
                       </p>
-                    </div> */}
-                    {/* <p className="fntf">
-                      <span
-                        style={{ fontWeight: "bolder" }}
-                        className={`me-2  ${starColor}`}
+                    </div>
+                  </div>
+                  {isEven ? (
+                    <div className="row">
+                      <Button
+                        onClick={() => handleShow(item)}
+                        style={{
+                          backgroundColor: "#AE445A",
+                          border: "none",
+                        }}
+                        className="col-md-5 p-1 mt-1 text-center m-auto fntf"
                       >
-                        {" "}
-                        {starIcon}
-                      </span>
-                      <span style={{ fontWeight: "bolder" }} className="me-2">
-                        {Rate}
-                      </span>
-                      <span style={{ fontWeight: "bolder" }} className="me-2">
-                        {item.rate}
-                        {unitrs}(reviews)
-                      </span>
-                    </p> */}
-                  </div>
-                  <div className="row">
-                    <Button
-                      onClick={() => handleShow(item)}
-                      style={{
-                        backgroundColor: "#AE445A",
-                        border: "none",
-                      }}
-                      className="col-md-5 p-1 mt-3 text-center m-auto fntf"
-                    >
-                      BOOK NOW
-                    </Button>
-                  </div>
+                        BOOK NOW
+                      </Button>
+                    </div>
+                  ) : null}
                 </div>
-              </div>
-            );
-          })}
-      </Carousel>
+              );
+            })} */}
+          <div
+            className="row m-auto mt-5"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            {" "}
+            {categoryData &&
+              categoryData.map((item, index) => {
+                const isEven = index % 2 === 0;
+                let starIcon;
+                let starColor = "";
+                let Rate = 0;
+                let unitrs = "";
+                const starColorClass = {
+                  red: "red-star",
+                  yellow: "yellow-star",
+                  green: "green-star",
+                };
+                if (item.rate >= 1000) {
+                  unitrs = "k";
+                } else if (item.rate >= 100000) {
+                  unitrs = "lakh";
+                } else if (item.rate >= 1000000) {
+                  unitrs = "M";
+                }
+
+                if (item.rate >= 5000) {
+                  starColor = starColorClass.green;
+                } else if (item.rate >= 2000) {
+                  starColor = starColorClass.yellow;
+                } else {
+                  starColor = starColorClass.red;
+                }
+
+                if (item.rate <= 1000) {
+                  starIcon = <StarBorderIcon />;
+                  starColor = starColorClass.red;
+                  Rate = item.rate >= 1000 ? 1 : 0.5;
+                } else if (item.rate <= 3000) {
+                  starIcon = <StarHalfIcon />;
+                  starColor = starColorClass.yellow;
+                  Rate = item.rate >= 2000 ? 2 : 1.5;
+                } else {
+                  starIcon = <StarIcon />;
+                  starColor = starColorClass.green;
+                  Rate =
+                    item.rate >= 5000
+                      ? 5
+                      : item.rate >= 4000
+                      ? 4.8
+                      : item.rate >= 3000
+                      ? 4.5
+                      : 0;
+                }
+
+                return (
+                  <div className="col-md-3 m-2  card-container">
+                    <div className="row ">
+                      <img
+                        className="col-md-12 m-0 p-0 "
+                        style={{
+                          width: "440px",
+                          height: "200px",
+                        }}
+                        alt=""
+                        src={item.img}
+                      />
+                      <p className="fntf fnt24 text-center mt-2">
+                        {item.categoryName}
+                      </p>
+                    </div>
+
+                    <div className="row mt-2 mb-2">
+                      <Button
+                        onClick={() => handleShow(item)}
+                        style={{
+                          backgroundColor: "#AE445A",
+                          border: "none",
+                        }}
+                        className="col-md-5 p-1 mt-1 text-center m-auto fntf"
+                      >
+                        BOOK NOW
+                      </Button>
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+      </div>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -738,7 +721,7 @@ export default function Painting() {
         </Modal.Footer>
       </Modal>
 
-      <div className="row m-auto mdQ">
+      <div className="row m-auto mt-5 mdQ m-auto">
         <p className="row text-center">
           <span className="fntf fnt28" style={{ fontWeight: "bold" }}>
             <img width={30} height={30} src="..\NImages\awards.jpeg" alt="" />{" "}
@@ -811,8 +794,8 @@ export default function Painting() {
         </div>{" "} */}
       </div>
 
-      <div
-        className="row mt-5 text-center  p-3 cs mdQ"
+      {/* <div
+        className="row mt-5 text-center  p-3 cs mdQ m-auto"
         style={{ borderRadius: "55px" }}
       >
         <div className="row">
@@ -843,7 +826,7 @@ export default function Painting() {
             BOOK NOW
           </Button>{" "}
         </div>
-      </div>
+      </div> */}
 
       <div
         className="row mt-5 bgclr mdQ"
@@ -958,7 +941,7 @@ export default function Painting() {
         </div>
       </div>
 
-      <div className="row mt-5 m-auto mdQ">
+      <div className="row mt-5 m-auto mdQ m-auto">
         <p className="row text-center">
           <span className="fntf fnt28" style={{ fontWeight: "bold" }}>
             <img width={50} height={50} src="..\NImages\statrs.jpeg" alt="" />{" "}
@@ -1016,7 +999,7 @@ export default function Painting() {
         </div>
       </div>
 
-      <div className="row mt-5 mdQ">
+      <div className="row mt-5 mdQ m-auto">
         <div
           style={{ borderRadius: "40px" }}
           className="col-md-6 shadow-sm p-3 mb-5 bg-white "
@@ -1178,7 +1161,7 @@ export default function Painting() {
         </div>
       </div>
 
-      <div className="row mt-5 m-auto mdQ">
+      <div className="row mt-5 m-auto mdQ m-auto">
         <p className="row ">
           <span className="col-md-2 "></span>
           <span
@@ -1318,165 +1301,279 @@ export default function Painting() {
         </div>
       </div>
 
-      <div className="row mt-5" style={{ backgroundColor: "#ADC4CE" }}>
-        <div className="row " style={{ display: "flex" }}>
+      <div className="row mt-5 m-auto " style={{ backgroundColor: "#ADC4CE" }}>
+        <div className="row p-4  m-auto" style={{ display: "flex" }}>
           <li
             className="col-md-1"
             style={{ fontSize: "12px", listStyleType: "none" }}
           >
-            Home
-          </li>
-          <li
-            className="col-md-1"
-            style={{ fontSize: "12px", listStyleType: "none" }}
-          >
-            Contact
+            <a href="#" style={{ textDecoration: "none", color: "black" }}>
+              Home
+            </a>
           </li>
           <li
             className="col-md-1"
             style={{ fontSize: "12px", listStyleType: "none" }}
           >
-            About Us
+            {" "}
+            <a href="#" style={{ textDecoration: "none", color: "black" }}>
+              Contact
+            </a>
           </li>
           <li
-            className="col-md-2"
+            className="col-md-1"
             style={{ fontSize: "12px", listStyleType: "none" }}
           >
-            Terms and Condition
-          </li>
-          <li
-            className="col-md-2"
-            style={{ fontSize: "12px", listStyleType: "none" }}
-          >
-            Refund and Cancellation
+            {" "}
+            <a href="#" style={{ textDecoration: "none", color: "black" }}>
+              About Us
+            </a>
           </li>
           <li
             className="col-md-2"
             style={{ fontSize: "12px", listStyleType: "none" }}
           >
             {" "}
-            Policy Privacy Policy
+            <a href="#" style={{ textDecoration: "none", color: "black" }}>
+              Terms and Condition
+            </a>
+          </li>
+          <li
+            className="col-md-2"
+            style={{ fontSize: "12px", listStyleType: "none" }}
+          >
+            <a href="#" style={{ textDecoration: "none", color: "black" }}>
+              Refund and Cancellation
+            </a>
+          </li>
+          <li
+            className="col-md-2"
+            style={{ fontSize: "12px", listStyleType: "none" }}
+          >
+            {" "}
+            <a href="#" style={{ textDecoration: "none", color: "black" }}>
+              Policy Privacy Policy
+            </a>
           </li>
           <li
             className="col-md-1"
             style={{ fontSize: "12px", listStyleType: "none" }}
           >
             {" "}
-            VHS Logo
+            <a href="#" style={{ textDecoration: "none", color: "black" }}>
+              VHS Logo
+            </a>
           </li>
           <li
             className="col-md-1"
             style={{ fontSize: "12px", listStyleType: "none" }}
           >
             {" "}
-            Career
+            <a href="#" style={{ textDecoration: "none", color: "black" }}>
+              Career
+            </a>
           </li>
           <li
             className="col-md-1"
             style={{ fontSize: "12px", listStyleType: "none" }}
           >
             {" "}
-            Work with us
+            <a href="#" style={{ textDecoration: "none", color: "black" }}>
+              Work with us
+            </a>
           </li>
         </div>
         <p className="mt-2 m-auto" style={{ border: "1px solid #ECE8DD" }}></p>
 
-        <div className="row">
-          <h3>INDIA</h3>
-          <div className="row " style={{ display: "flex" }}>
+        <div className="row p-2 m-auto">
+          <h3 className="fntf" style={{ fontWeight: "bolder" }}>
+            INDIA
+          </h3>
+          <div className="row p-2 " style={{ display: "flex" }}>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
-              Ahmedabad
+              <span className="me-4">Ahmedabad</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>
+            </li>
+            <li
+              className="col-md-1"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              <span className="me-4">Bangalore</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>
+            </li>
+            <li
+              className="col-md-1"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              <span className="me-4">Lucknow</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>{" "}
+            </li>
+            <li
+              className="col-md-1"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              <span className="me-4">Chennai</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>{" "}
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
               {" "}
-              Bangalore
+              <span className="me-4">Hyderabad</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
-              Lucknow{" "}
-            </li>
-            <li
-              className="col-md-1"
-              style={{ fontSize: "12px", listStyleType: "none" }}
-            >
-              {" "}
-              Chennai
-            </li>
-            <li
-              className="col-md-1"
-              style={{ fontSize: "12px", listStyleType: "none" }}
-            >
-              {" "}
-              Hyderabad
+              <span className="me-4">Pune</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>{" "}
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
               {" "}
-              Pune
+              <span className="me-4">Mumbai</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
               {" "}
-              Mumbai
+              <span className="me-4">Surat</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
-              {" "}
-              Surat
+              <span className="me-4">Vadodara</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
-              Vadodara
+              <span className="me-4">Gurugram</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
-              Gurugram
+              <span className="me-4">NCR</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
-              NCR
+              <span className="me-4">Noida</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>
             </li>
+          </div>
+
+          <div className="row p-2 m-auto" style={{ display: "flex" }}>
             <li
-              className="col-md-1"
+              className="col-md-2 m-auto"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
-              Noida
+              <div className="row">
+                <div className="col-md-7">
+                  <span className="me-2 m-auto">Sarjapur Road</span>{" "}
+                  <span style={{ borderRight: "2px solid grey" }}></span>
+                </div>
+                <div className="col-md-4">
+                  <span className="me-2 m-auto">Whitefield</span>{" "}
+                  <span style={{ borderRight: "2px solid grey" }}></span>
+                </div>
+              </div>
+            </li>
+
+            <li
+              className="col-md-5 m-auto"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              <div className="row">
+                <div className="col-md-4">
+                  <span className="me-2 m-auto"> Bannerghatta Road</span>{" "}
+                  <span style={{ borderRight: "2px solid grey" }}></span>{" "}
+                </div>
+                <div className="col-md-3">
+                  <span className="me-2 m-auto"> Electronic City</span>{" "}
+                  <span style={{ borderRight: "2px solid grey" }}></span>{" "}
+                </div>
+                <div className="col-md-3">
+                  <span className="me-2 m-auto"> HSR Layout</span>{" "}
+                  <span style={{ borderRight: "2px solid grey" }}></span>
+                </div>
+                <div className="col-md-2">
+                  <span className="me-2 m-auto">Jayanagar</span>{" "}
+                  <span style={{ borderRight: "2px solid grey" }}></span>{" "}
+                </div>
+              </div>
+            </li>
+            <li
+              className="col-md-5 m-auto"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              <div className="row">
+                <div className="col-md-3">
+                  <span className="me-2 m-auto"> JP Nagar</span>{" "}
+                  <span style={{ borderRight: "2px solid grey" }}></span>
+                </div>
+                <div className="col-md-3">
+                  <span className="me-2 m-auto"> Hosur Road </span>{" "}
+                  <span style={{ borderRight: "2px solid grey" }}></span>
+                </div>
+                <div className="col-md-3">
+                  <span className="me-2 m-auto"> Indira Nagar</span>{" "}
+                  <span style={{ borderRight: "2px solid grey" }}></span>
+                </div>
+              </div>
             </li>
           </div>
         </div>
         <p className="mt-2 m-auto" style={{ border: "1px solid #ECE8DD" }}></p>
         <div className="row p-3">
-          <p className="col-md-6 fntf" style={{ fontSize: "14px" }}>
-            {" "}
-            © Copyright 2023 Vijay Home Services. All rights reserved.
+          <p className="col-md-8  m-auto" style={{ fontSize: "13px" }}>
+            <span className="fntf me-2">
+              {" "}
+              © Copyright 2023 Vijay Home Services. All rights reserved.
+              Designed and Developed By
+            </span>
+            <a
+              style={{ textDecoration: "none" }}
+              className="fntf"
+              href="https://nakshatranamahacreations.com/"
+            >
+              Nakshatra Namaha Creations
+            </a>
           </p>
-          <div className="col-md-6 ">
+          <div className="col-md-4 ">
             <div className="row m-auto  ">
-              <div className="col-md-2 m-2 text-end">
-                <img width={100} height={50} src="..\NImages\aps.jfif" alt="" />
+              <div className="col-md-2 m-auto ">
+                <img
+                  width={100}
+                  height={50}
+                  src="..\NImages\Screenshot (19).png"
+                  alt=""
+                />
               </div>
-              <div className="col-md-2 m-2 text-end">
-                <img width={100} height={50} src="..\NImages\pl.jfif" alt="" />
+              <div className="col-md-2 m-auto ">
+                <img
+                  style={{ borderRadius: "5px" }}
+                  width={100}
+                  height={50}
+                  src="..\NImages\Screenshot (20).png"
+                  alt=""
+                />
               </div>
             </div>
           </div>

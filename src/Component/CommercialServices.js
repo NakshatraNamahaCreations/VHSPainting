@@ -199,43 +199,50 @@ export default function CommercialServices() {
       slidesToSlide: 1,
     },
   };
+
   const faqs = [
     {
-      title: "What is pest control?",
-      content: "",
+      title: " What cleaning solutions do you use?",
+      content:
+        "Local Steam Cleaning makes sure that we do not do any impact to nature, environment and those dwelling in their homes and commercial spaces. Our team only uses eco-friendly. We only use cleaning agents and solutions that are environment-friendly to protect mother nature, ensure our client’s safety and protect our cleaners. ",
     },
     {
-      title:
-        "What are the different kind of pests that can affect my house/office?",
-      content: "",
+      title: " What is your 100% satisfaction guarantee policy?",
+      content:
+        "We will not stop unless you are satisfied. Your satisfaction seals the deal and we always strive to keep you smiling in every cleaning appointment we do for you.",
     },
     {
-      title: "What is the difference between an ant and a termite?",
-      content: "",
+      title: " What is your Pet Policy?",
+      content:
+        "For the safety and security of your pets please have dogs and cats crated or gated prior to our arrival.",
     },
     {
-      title: " How can I identify a bed bug infestation and kill bed bugs?",
-      content: "",
+      title: " What work can I expect to be done ?",
+      content:
+        "Vijay Home Services Cleaners offer a systemised approach to our services. We would love the opportunity to show you through the types of services on offer during one of our friendly face-to-face consultations/quotations. Simply complete a booking form and we will be more than happy to show you how we can assist with your house cleaning needs.",
     },
     {
-      title: " How effective are store bought traps for rat control?",
-      content: "",
-    },
-    {
-      title: "What are the signs that I need a pest control service?",
-      content: "",
-    },
-    {
-      title: "What are the types of pest control services offered?",
-      content: "",
-    },
+      title: "Do you bring your own cleaning supplies, products and equipment?",
 
+      content:
+        "Yes, we will bring our own cleaning supplies and materials to help you get rid of the hassle with the cleaning preparations. Our cleaner will arrive with all the equipment we need to perform and complete our cleaning operations. Should you require specific products to be used, you can let our team know and our cleaner will discuss our cleaning solutions and what you need as long as it works best, safe for your health and the environment. ",
+    },
     {
-      title: "How much is it a hassle for me as a customer?",
-      content: "",
+      title: " Do you perform outside cleaning?",
+      content:
+        "Yes. We provide sweeping and cobwebs removal only on balconies, garages, decks. If further cleaning is required, please discuss it during your booking.",
+    },
+    {
+      title: " How long can you finish the cleaning works?",
+      content:
+        "The duration of cleaning will depend on the items that you require to be cleaned. Our team will give you the estimated time frame once we visit your place for live assessment..",
+    },
+    {
+      title: " Can I Trust my cleaning professionals ?",
+      content:
+        "Yes. All our in-house cleaners are trustworthy and background checked. We make sure that you get the best, friendly and professional cleaners at all times.",
     },
   ];
-
   const [activeIndex1, setActiveIndex1] = useState(null);
   const [activeIndex2, setActiveIndex2] = useState(null);
 
@@ -267,6 +274,7 @@ export default function CommercialServices() {
           categoryName: "Office Cleaning",
           rate: "2025",
           price: "45",
+          Off: "0",
           discription: [
             "Dusting of cushions, ceilings, telephones, desks, chairs and tables.",
             "The crew is not to be asked to displace furniture, fixtures or any kind of appliances .",
@@ -279,6 +287,7 @@ export default function CommercialServices() {
           categoryName: "Office Carpet Cleaning",
           rate: "45",
           price: "45",
+          Off: "0",
           discription: [
             "Carpet cleaning rejuvenates your floors, removing stains and allergens for a fresh and inviting space.",
             "Application of a foam based shampoo on the carpet using a sponge. ",
@@ -291,6 +300,7 @@ export default function CommercialServices() {
           categoryName: "Office Chair Cleaning",
           rate: "345",
           price: "45",
+          Off: "0",
           discription: [
             "Removal of dirt and dust.",
             "Office chair cleaning restores comfort and hygiene to your workspace seating.",
@@ -418,7 +428,7 @@ export default function CommercialServices() {
   return (
     <>
       <Header />
-
+      {/* 
       {filteredData?.map((ele, index) => {
         const bgImg = ele.bgimg;
         const includesCategory = bgImg.includes(selectedCategory);
@@ -476,9 +486,29 @@ export default function CommercialServices() {
             </div>
           </div>
         );
-      })}
-
-      <div className="row text-center mdQ">
+      })} */}
+      <div className="row   m-auto">
+        <Form className="shadow m-3 p-5 mb-5 bg-white rounded m-auto ">
+          <div className="row">
+            <p
+              className="text-center fnt32 fntf"
+              style={{ fontWeight: "bolder" }}
+            >
+              Celebrate the Season of Success with a Fresh Workspace.
+            </p>
+            <p className="col-md-8 m-auto text-center fnt24 fntf">
+              {" "}
+              Unwrap our exclusive festival offers to ensure your workplace
+              shines just as bright as your achievements.
+            </p>
+            <p className="text-center fnt18 fntf">
+              {" "}
+              Elevate Your Festive Decor with Our Cleaning Magic.
+            </p>
+          </div>
+        </Form>
+      </div>
+      <div className="row text-center mt-1 mdQ">
         <p className="col-md-6 m-auto">
           <span className="m-auto">
             <img width={50} height={50} alt="" src="..\NImages\party-hat.png" />{" "}
@@ -498,7 +528,7 @@ export default function CommercialServices() {
           service offers at affordable price.
         </p>
       </div>
-      <Carousel responsive={responsive}>
+      {/* <Carousel responsive={responsive}>
         {categoryData &&
           categoryData.map((item, index) => {
             let starIcon;
@@ -585,33 +615,7 @@ export default function CommercialServices() {
                         </span>
                       </>
                     ))}
-                    {/* <div className="row text-center">
-                      <p style={{ fontWeight: "bolder" }} className="m-2 fntf">
-                        Starting @ Rs .{item.price}
-                      </p>
-                      <p
-                        style={{ fontWeight: "bolder", marginLeft: "10px" }}
-                        className="fntf "
-                      >
-                        [{item.Off}% Off]
-                      </p>
-                    </div> */}
-                    {/* <p className="fntf">
-                      <span
-                        style={{ fontWeight: "bolder" }}
-                        className={`me-2  ${starColor}`}
-                      >
-                        {" "}
-                        {starIcon}
-                      </span>
-                      <span style={{ fontWeight: "bolder" }} className="me-2">
-                        {Rate}
-                      </span>
-                      <span style={{ fontWeight: "bolder" }} className="me-2">
-                        {item.rate}
-                        {unitrs}(reviews)
-                      </span>
-                    </p> */}
+                   
                   </div>
                   <div className="row">
                     <Button
@@ -629,7 +633,155 @@ export default function CommercialServices() {
               </div>
             );
           })}
-      </Carousel>
+      </Carousel> */}
+      <div className="row m-auto mt-3">
+        <div className="col-md-12 m-auto">
+          <div
+            className="row m-auto mt-5"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            {" "}
+            {categoryData &&
+              categoryData.map((item, index) => {
+                const isEven = index % 2 === 0;
+                let starIcon;
+                let starColor = "";
+                let Rate = 0;
+                let unitrs = "";
+                const starColorClass = {
+                  red: "red-star",
+                  yellow: "yellow-star",
+                  green: "green-star",
+                };
+                if (item.rate >= 1000) {
+                  unitrs = "k";
+                } else if (item.rate >= 100000) {
+                  unitrs = "lakh";
+                } else if (item.rate >= 1000000) {
+                  unitrs = "M";
+                }
+
+                if (item.rate >= 5000) {
+                  starColor = starColorClass.green;
+                } else if (item.rate >= 2000) {
+                  starColor = starColorClass.yellow;
+                } else {
+                  starColor = starColorClass.red;
+                }
+
+                if (item.rate <= 1000) {
+                  starIcon = <StarBorderIcon />;
+                  starColor = starColorClass.red;
+                  Rate = item.rate >= 1000 ? 1 : 0.5;
+                } else if (item.rate <= 3000) {
+                  starIcon = <StarHalfIcon />;
+                  starColor = starColorClass.yellow;
+                  Rate = item.rate >= 2000 ? 2 : 1.5;
+                } else {
+                  starIcon = <StarIcon />;
+                  starColor = starColorClass.green;
+                  Rate =
+                    item.rate >= 5000
+                      ? 5
+                      : item.rate >= 4000
+                      ? 4.8
+                      : item.rate >= 3000
+                      ? 4.5
+                      : 0;
+                }
+
+                return (
+                  <div className="col-md-3 m-2  card-container">
+                    <div className="row ">
+                      <img
+                        className="col-md-12 m-0 p-0 "
+                        style={{
+                          width: "440px",
+                          height: "200px",
+                          // borderRadius: "20px",
+                        }}
+                        alt=""
+                        src={item.img}
+                      />
+                      <p className="fntf fnt24 text-center mt-2">
+                        {item.categoryName}
+                      </p>
+                    </div>
+                    <div className="row " style={{ height: "120px" }}>
+                      {item.discription.map((ele) => (
+                        <>
+                          <span
+                            style={{
+                              // fontWeight: "bolder",
+                              listStyleType: "disc",
+                            }}
+                          >
+                            <span>
+                              <img
+                                style={{ width: "15px", height: "15px" }}
+                                src="..\NImages\r.jfif"
+                                alt=""
+                              />
+                            </span>{" "}
+                            <span style={{ fontSize: "13px" }}>{ele}</span>
+                          </span>
+                        </>
+                      ))}
+                    </div>
+                    <div className="row mt-2">
+                      <div className="col-md-8">
+                        <p
+                          style={{ fontWeight: "bolder", fontSize: "16px" }}
+                          className=" m-2 fntf"
+                        >
+                          Starting @
+                          <span
+                            style={{
+                              fontWeight: "bolder",
+                              fontSize: "16px",
+                              color: "#AE445A",
+                            }}
+                          >
+                            Rs .{item.price}
+                          </span>
+                        </p>{" "}
+                      </div>
+                      <div className="col-md-4">
+                        <Button
+                          style={{
+                            fontWeight: "bolder",
+                            backgroundColor: "green",
+                            border: "none",
+                            borderRadius: "30px",
+                          }}
+                          className="fntf row"
+                        >
+                          {item.Off}% Off
+                        </Button>
+                      </div>
+                    </div>
+
+                    <div className="row mt-2 mb-2">
+                      <Button
+                        onClick={() => handleShow(item)}
+                        style={{
+                          backgroundColor: "#AE445A",
+                          border: "none",
+                        }}
+                        className="col-md-5 p-1 mt-1 text-center m-auto fntf"
+                      >
+                        BOOK NOW
+                      </Button>
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+      </div>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -711,7 +863,7 @@ export default function CommercialServices() {
         </Modal.Footer>
       </Modal>
 
-      <div className="row m-auto mdQ">
+      <div className="row m-auto mt-5 mdQ">
         <p className="row text-center">
           <span className="fntf fnt28" style={{ fontWeight: "bold" }}>
             <img width={30} height={30} src="..\NImages\awards.jpeg" alt="" />{" "}
@@ -784,7 +936,7 @@ export default function CommercialServices() {
         </div>{" "} */}
       </div>
 
-      <div
+      {/* <div
         className="row mt-5 text-center  p-3 cs mdQ"
         style={{ borderRadius: "55px" }}
       >
@@ -816,7 +968,7 @@ export default function CommercialServices() {
             BOOK NOW
           </Button>{" "}
         </div>
-      </div>
+      </div> */}
 
       <div
         className="row mt-5 bgclr mdQ"

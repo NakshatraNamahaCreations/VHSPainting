@@ -275,6 +275,11 @@
   transition: border-bottom 0.3s ease-in-out;
   background-color: #dde6ed;
 }
+.btnhr1 {
+  background-color: #ae445a !important;
+  border: none !important;
+  color: white !important;
+}
 
 .hovrc:hover {
   border-bottom: 2px solid rgba(0, 0, 0, 0.858);
@@ -283,8 +288,12 @@
   list-style-type: disc;
 }
 .fntf {
-  font-family: "Montserrat.sans-serif";
-  /* font-size: 15px; */
+  font-family: "Montserrat", sans-serif;
+}
+.btnhr:hover {
+  background-color: white !important;
+  color: rgb(6, 182, 252) !important;
+  border: 1px solid rgb(6, 182, 252) !important;
 }
 .scrl {
   overflow-y: scroll;
