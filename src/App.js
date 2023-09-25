@@ -8,6 +8,7 @@ import Painting from "./Component/painting";
 import Header from "./Component/Header";
 import MiniServices from "./Component/MiniServices";
 import CommercialServices from "./Component/CommercialServices";
+import WellcomePage from "./Component/WellcomePage";
 // import Home from "./Component/Home";
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
         <Route path="/painting" element={<Painting />} />
         <Route path="/MiniServices" element={<MiniServices />} />
         <Route path="/CommercialServices" element={<CommercialServices />} />
+        <Route path="/WellcomePage" element={<WellcomePage />} />
+        
       </Routes>
     </>
   );

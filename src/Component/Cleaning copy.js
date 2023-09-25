@@ -31,13 +31,13 @@ import moment from "moment";
 import Row from "react-bootstrap/Row";
 import { useLocation } from "react-router-dom";
 
-export default function MiniServices() {
+export default function Cleaning() {
   const location = useLocation();
 
   const selectedCategory = new URLSearchParams(location.search).get(
     "selectedCategory"
   );
-
+  const [isVideoPlaying, setVideoPlaying] = useState(false);
   const [show, setShow] = useState(false);
   const [serviceBookData, setServiceBookData] = useState(null);
   const [Name, setName] = useState("");
@@ -46,6 +46,10 @@ export default function MiniServices() {
   const [contact1, setcontact1] = useState("");
   const [City, setCity] = useState("");
   const [Citydata, setCityData] = useState(null);
+
+  const handleVideoClick = () => {
+    setVideoPlaying(true);
+  };
 
   const [jobcompleted, setJobcompleted] = useState(0);
   const [statisfieldcustomer, setStatisfieldcustomer] = useState(0);
@@ -106,6 +110,42 @@ export default function MiniServices() {
       clearInterval(interval);
     };
   }, [repeatcustomer]);
+  // const slidesData = [
+  //   {
+  //     id: 1,
+  //     image: "/videos/production_id_4145662 (2160p).mp4",
+  //   },
+  //   {
+  //     id: 2,
+  //     image: "/videos/2500_03042_preview.mp4",
+  //   },
+  //   {
+  //     id: 3,
+  //     image: "/videos/2500_03042_preview.mp4",
+  //   },
+  //   {
+  //     id: 4,
+  //     image: "/videos/2500_03042_preview.mp4",
+  //   },
+  //   {
+  //     id: 5,
+  //     image: "/videos/2500_03042_preview.mp4",
+  //   },
+  // ];
+
+  // const [start, setStart] = useState(0);
+
+  // const onNextClick = () => {
+  //   setStart((start + 1) % slidesData.length);
+  // };
+
+  // const onPrevClick = () => {
+  //   setStart((start - 1 + slidesData.length) % slidesData.length);
+  // };
+
+  // const onDotClick = (index) => {
+  //   setStart(index);
+  // };
 
   const slidesData1 = [
     {
@@ -126,6 +166,20 @@ export default function MiniServices() {
     },
   ];
 
+  const [start1, setStart1] = useState(0);
+
+  const onNextClick1 = () => {
+    setStart1((start1 + 1) % slidesData1.length);
+  };
+
+  const onPrevClick1 = () => {
+    setStart1((start1 - 1 + slidesData1.length) % slidesData1.length);
+  };
+
+  const onDotClick1 = (index) => {
+    setStart1(index);
+  };
+
   const responsive = {
     desktop: {
       breakpoint: { max: 2000, min: 1024 },
@@ -145,47 +199,45 @@ export default function MiniServices() {
   };
   const faqs = [
     {
-      title: "What cleaning solutions do you use?",
+      title: " What cleaning solutions do you use?",
       content:
-        "Local Steam Cleaning makes sure that we do not do any impact to nature, environment and those dwelling in their homes and commercial spaces. Our team only uses eco-friendly. We only use cleaning agents and solutions that are environment-friendly to protect mother nature, ensure our client’s safety and protect our cleaners.",
+        "Local Steam Cleaning makes sure that we do not do any impact to nature, environment and those dwelling in their homes and commercial spaces. Our team only uses eco-friendly. We only use cleaning agents and solutions that are environment-friendly to protect mother nature, ensure our client’s safety and protect our cleaners. ",
     },
     {
-      title: "What is your Pet Policy?",
+      title: " What is your 100% satisfaction guarantee policy?",
+      content:
+        "We will not stop unless you are satisfied. Your satisfaction seals the deal and we always strive to keep you smiling in every cleaning appointment we do for you.",
+    },
+    {
+      title: " What is your Pet Policy?",
       content:
         "For the safety and security of your pets please have dogs and cats crated or gated prior to our arrival.",
     },
     {
-      title: "Do you perform outside cleaning ?",
+      title: " What work can I expect to be done ?",
+      content:
+        "Vijay Home Services Cleaners offer a systemised approach to our services. We would love the opportunity to show you through the types of services on offer during one of our friendly face-to-face consultations/quotations. Simply complete a booking form and we will be more than happy to show you how we can assist with your house cleaning needs.",
+    },
+    {
+      title: "Do you bring your own cleaning supplies, products and equipment?",
+
+      content:
+        "Yes, we will bring our own cleaning supplies and materials to help you get rid of the hassle with the cleaning preparations. Our cleaner will arrive with all the equipment we need to perform and complete our cleaning operations. Should you require specific products to be used, you can let our team know and our cleaner will discuss our cleaning solutions and what you need as long as it works best, safe for your health and the environment. ",
+    },
+    {
+      title: " Do you perform outside cleaning?",
       content:
         "Yes. We provide sweeping and cobwebs removal only on balconies, garages, decks. If further cleaning is required, please discuss it during your booking.",
     },
     {
-      title: "How long can you Finish the cleaning works? ",
+      title: " How long can you finish the cleaning works?",
       content:
-        "The duration of cleaning will depend on the items that you require to be cleaned. Our team will give you the estimated time frame once we visit your place for live assessment.",
+        "The duration of cleaning will depend on the items that you require to be cleaned. Our team will give you the estimated time frame once we visit your place for live assessment..",
     },
     {
-      title: " Can I trust my cleaning professional? ",
+      title: " Can I Trust my cleaning professionals ?",
       content:
         "Yes. All our in-house cleaners are trustworthy and background checked. We make sure that you get the best, friendly and professional cleaners at all times.",
-    },
-    {
-      title: "Do you clean carpets or rugs that are heavily stained? ",
-      content:
-        "Yes, it is one of our specialized service and we can efficiently remove them.",
-    },
-
-    {
-      title:
-        " Do you bring your own cleaning supplies, products and equipment? ",
-      content:
-        "Yes, we will bring our own cleaning supplies and materials to help you get rid of the hassle with the cleaning preparations. Our cleaner will arrive with all the equipment we need to perform and complete our cleaning operations. Should you require specific products to be used, you can let our team know and our cleaner will discuss our cleaning solutions and what you need as long as it works best, safe for your health and the environment.",
-    },
-
-    {
-      title: "What work can I expect to be done ?",
-      content:
-        "Vijay Home Services Cleaners offer a systemised approach to our services. We would love the opportunity to show you through the types of services on offer during one of our friendly face-to-face consultations/quotations. Simply complete a booking form and we will be more than happy to show you how we can assist with your house cleaning needs.",
     },
   ];
 
@@ -214,69 +266,57 @@ export default function MiniServices() {
 
   const data2 = [
     {
-      MiniServices: [
+      Cleaning: [
         {
           id: 1,
-          img: "../NImages/nfridge.jfif",
+          img: "../NImages/nhmd.jpg",
           rate: "13004.2",
-          price: "499",
-          Off: "15",
+          price: "2300",
+          Off: "55",
           discription: [
-            "Deep cleaning of one fridge's interiors and exteriors.",
-            "Dry cleaning of the back side.",
+            "Floor Sterilization- Use of cleaning and disinfecting Chemicals & sophisticated Machinery to remove deep layers of dirt.",
+            // "Disinfecting, Sanitizing and Deep Scrubbing of Bathrooms and Toilets.",
           ],
-          categoryName: "Fridge Cleaning",
-        },
-        {
-          id: 4,
-          img: "../NImages/ncarpet.jfif",
-          rate: "404.2",
-          price: "354",
-          Off: "21",
-          discription: [
-            "Our high power suction equipment will suck and remove all the dust ",
-            "We shampoo your carpet with chemical foam to remove and dislodge the finest particles of grime.",
-          ],
-          categoryName: "Carpet Cleaning",
-        },
-        {
-          id: 3,
-          img: "../NImages/Nwindow.jfif",
-          rate: "404.2",
-          price: "177",
-          Off: "12",
-          discription: [
-            "Vacuuming of window tracks to extract dust.",
-            "Wiping and cleaning of glass.",
-          ],
-          categoryName: "Window Cleaning",
+          categoryName: "Home Deep Cleaning",
         },
         {
           id: 2,
-          img: "../NImages/Nsofa.jfif",
+          img: "/NImages/vcnt.jfif",
           rate: "5000.2",
-          price: "1003",
-          Off: "15",
+          price: "2300",
+          // Off: "15",
           discription: [
-            "Mechanized cleaning and extraction process for upholstered sofa.",
-            "Dry Vacuum to extract loose dust and Applications of Chemical Foam & Scrubbing.",
+            "Cupboard Cleaning from outside and inside.",
+            "Dry dusting of Walls and ceiling.",
           ],
-          categoryName: "Sofa Cleaning",
+          categoryName: "Vacant Flat Cleaning",
         },
-        {
-          id: 3,
-          img: "../NImages/nmatress.jfif",
-          rate: "404.2",
-          price: "589",
-          Off: "26",
-          discription: [
-            "Dust extraction, Sanitization by steam, Extraction of Residual Moisture.",
-            "Vacuuming of dust with vacuum cleaners with HEPA filters for maximum impact.",
-          ],
-          categoryName: "Mattress Cleaning",
-        },
+        // {
+        //   id: 3,
+        //   img: "../NImages/nmatress.jfif",
+        //   rate: "404.2",
+        //   price: "589",
+        //   Off: "26",
+        //   discription: [
+        //     "Dust extraction, Sanitization by steam, Extraction of Residual Moisture.",
+        //     // "Vacuuming of dust with vacuum cleaners with HEPA filters for maximum impact.",
+        //   ],
+        //   categoryName: "Mattress Cleaning",
+        // },
+        // {
+        //   id: 4,
+        //   img: "../NImages/ncarpet.jfif",
+        //   rate: "404.2",
+        //   price: "354",
+        //   Off: "21",
+        //   discription: [
+        //     "Our high power suction equipment will suck and remove all the dust ",
+        //     // "We shampoo your carpet with chemical foam to remove and dislodge the finest particles of grime.",
+        //   ],
+        //   categoryName: "Carpet Cleaning",
+        // },
       ],
-      bgimg: "/NImages/carpetdd.jpeg",
+      bgimg: "/NImages/cleaningbnr.jfif",
       demovideo: "/videos/production_id_4145662 (2160p).mp4",
       img1: "/images/thumb-deep-cleaning.jpg",
     },
@@ -306,6 +346,7 @@ export default function MiniServices() {
           address: Address,
           category: selectedCategory,
           city: City,
+          reference1: "Landingpage",
           intrestedfor: serviceBookData?.categoryName,
         },
       };
@@ -344,7 +385,6 @@ export default function MiniServices() {
         if (response.status === 200) {
           setShow(false);
           alert("Thank you for booking our sevice. We will contact you soon.");
-          window.location.href = "/WellcomePage";
         }
       });
     } catch (error) {
@@ -400,65 +440,33 @@ export default function MiniServices() {
     <>
       <Header />
 
-      {filteredData?.map((ele, index) => {
-        const bgImg = ele.bgimg;
-        const includesCategory = bgImg.includes(selectedCategory);
-        const bgStyle = {
-          backgroundImage: `url(${bgImg})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center center",
-          borderTopRightRadius: "100px",
-          borderBottomLeftRadius: "320px",
-        };
-
-        return (
-          <div
-            key={index}
-            // className={`row mdQ mb-5 bg_img ${
-            //   includesCategory ? "painting-bg" : "cleaning-bg"
-            // }`}
-            // style={bgStyle}
-          >
-            <div className="col-md-12  p-5 ">
-              <div className="row text-center">
-                <p
-                  className=" fntf fnt32 m-auto"
-                  style={{
-                    fontSize: "35px",
-                    fontWeight: "bolder",
-                  }}
-                >
-                  Small Space, Big Clean! Discover the Magic of Mini Cleaning
-                  Services with Vijay Home Services Today!.
-                </p>
-                <p
-                  className=" fntf fnt32 m-auto"
-                  style={{
-                    fontSize: "20px",
-                  }}
-                >
-                  Pay After Service | 100% Satisfaction or FREE Rework*
-                </p>
-                <div className="row  ">
-                  <Button
-                    className="col-md-2 mt-5   m-auto fntf"
-                    style={{
-                      backgroundColor: "#AE445A",
-                      border: "none",
-                      color: "colr",
-                    }}
-                  >
-                    BOOK OUR SERVICE{" "}
-                  </Button>{" "}
-                </div>
+      <div className="row  m-auto">
+        {" "}
+        <div className="col-md-6  ">
+          <div className="row">
+            {filteredData?.map((ele, index) => (
+              <img className="row" src={ele.bgimg} alt="" />
+            ))}{" "}
+          </div>
+        </div>
+        <div className="col-md-5 m-2  m-auto">
+          <Form className="shadow p-5 mb-5 bg-white rounded m-auto ">
+            <div className="row m-auto p-5">
+              <h1 className="row fntf " style={{ fontWeight: "bold" }}>
+                Book Deep Cleaning service & Get 1 Service Free
+              </h1>
+              <p>Service starting from just Rs.2539/-</p>
+              <div className="row">
+                <Button className="col-md-9 mt-5 btnhr1  m-auto fntf btnhr">
+                  BOOK OUR SERVICE{" "}
+                </Button>{" "}
               </div>
             </div>
-          </div>
-        );
-      })}
+          </Form>
+        </div>
+      </div>
 
-      <div className="row text-center mdQ">
+      <div className="row text-center mt-5 mdQ  m-auto">
         <p className="col-md-6 m-auto">
           <span className="m-auto">
             <img width={50} height={50} alt="" src="..\NImages\party-hat.png" />{" "}
@@ -474,12 +482,130 @@ export default function MiniServices() {
           className=" fntf m-auto col-md-8"
           style={{ fontSize: "15px", fontWeight: "bolder" }}
         >
-          Get your home festival-ready with our exclusive Mini Cleaning service
+          Get your home festival-ready with our exclusive cleaning service
           offers at affordable price.
         </p>
       </div>
-      <div className="row  m-auto ">
+      <div className="row m-auto ">
         <div className="col-md-12 m-auto">
+          {/* {categoryData &&
+            categoryData.map((item, index) => {
+              const isEven = index % 2 === 0;
+              let starIcon;
+              let starColor = "";
+              let Rate = 0;
+              let unitrs = "";
+              const starColorClass = {
+                red: "red-star",
+                yellow: "yellow-star",
+                green: "green-star",
+              };
+              if (item.rate >= 1000) {
+                unitrs = "k";
+              } else if (item.rate >= 100000) {
+                unitrs = "lakh";
+              } else if (item.rate >= 1000000) {
+                unitrs = "M";
+              }
+
+              if (item.rate >= 5000) {
+                starColor = starColorClass.green;
+              } else if (item.rate >= 2000) {
+                starColor = starColorClass.yellow;
+              } else {
+                starColor = starColorClass.red;
+              }
+
+              if (item.rate <= 1000) {
+                starIcon = <StarBorderIcon />;
+                starColor = starColorClass.red;
+                Rate = item.rate >= 1000 ? 1 : 0.5;
+              } else if (item.rate <= 3000) {
+                starIcon = <StarHalfIcon />;
+                starColor = starColorClass.yellow;
+                Rate = item.rate >= 2000 ? 2 : 1.5;
+              } else {
+                starIcon = <StarIcon />;
+                starColor = starColorClass.green;
+                Rate =
+                  item.rate >= 5000
+                    ? 5
+                    : item.rate >= 4000
+                    ? 4.8
+                    : item.rate >= 3000
+                    ? 4.5
+                    : 0;
+              }
+
+              return (
+                <div
+                  className="col-md-3 m-2"
+                  style={{ border: "1px solid red" }}
+                >
+                  <div className="row text-center">
+                    <img
+                      className="m-auto"
+                      style={{
+                        width: "150px",
+                        height: "100px",
+                        borderRadius: "20px",
+                      }}
+                      alt=""
+                      src={item.img}
+                    />
+                    <p className="fntf fnt24 text-center mt-2">
+                      {item.categoryName}
+                    </p>
+                  </div>
+                  <div className="row ">
+                    {item.discription.map((ele) => (
+                      <>
+                        <span
+                          style={{
+                            fontWeight: "bolder",
+                            listStyleType: "disc",
+                          }}
+                        >
+                          <span>
+                            <img
+                              style={{ width: "15px", height: "15px" }}
+                              src="..\NImages\r.jfif"
+                              alt=""
+                            />
+                          </span>{" "}
+                          <span style={{ fontSize: "13px" }}>{ele}</span>
+                        </span>
+                      </>
+                    ))}
+                    <div className="row text-center">
+                      <p style={{ fontWeight: "bolder" }} className="m-2 fntf">
+                        Starting @ Rs .{item.price}
+                      </p>
+                      <p
+                        style={{ fontWeight: "bolder", marginLeft: "10px" }}
+                        className="fntf "
+                      >
+                        [{item.Off}% Off]
+                      </p>
+                    </div>
+                  </div>
+                  {isEven ? (
+                    <div className="row">
+                      <Button
+                        onClick={() => handleShow(item)}
+                        style={{
+                          backgroundColor: "#AE445A",
+                          border: "none",
+                        }}
+                        className="col-md-5 p-1 mt-1 text-center m-auto fntf"
+                      >
+                        BOOK NOW
+                      </Button>
+                    </div>
+                  ) : null}
+                </div>
+              );
+            })} */}
           <div
             className="row m-auto mt-5"
             style={{
@@ -554,7 +680,7 @@ export default function MiniServices() {
                         {item.categoryName}
                       </p>
                     </div>
-                    <div className="row " style={{ height: "120px" }}>
+                    <div className="row " style={{ height: "80px" }}>
                       {item.discription.map((ele) => (
                         <>
                           <span
@@ -575,66 +701,188 @@ export default function MiniServices() {
                         </>
                       ))}
                     </div>
-                    <div className="row mt-2">
-                      <div className="col-md-8">
-                        <p
-                          style={{ fontWeight: "bolder", fontSize: "16px" }}
-                          className=" m-2 fntf"
-                        >
-                          Starting @
-                          <span
-                            style={{
-                              fontWeight: "bolder",
-                              fontSize: "16px",
-                              color: "#AE445A",
-                            }}
-                          >
-                            Rs .{item.price}
-                          </span>
-                        </p>{" "}
-                      </div>
-                      <div className="col-md-4">
-                        <Button
-                          style={{
-                            fontWeight: "bolder",
-                            backgroundColor: "green",
-                            border: "none",
-                            borderRadius: "30px",
-                          }}
-                          className="fntf row"
-                        >
-                          {item.Off}% Off
-                        </Button>
-                      </div>
-                    </div>
 
-                    <div className="row mt-2 mb-2">
-                      <Button
-                        onClick={() => handleShow(item)}
-                        style={{
-                          backgroundColor: "#AE445A",
-                          border: "none",
-                        }}
-                        className="col-md-5 p-1 mt-1 text-center m-auto fntf"
-                      >
-                         GET FREE QUOTE
-                      </Button>
-                    </div>
+                    {isEven ? (
+                      <>
+                        <div className="row mt-2">
+                          <div className="col-md-8">
+                            <p
+                              style={{ fontWeight: "bolder", fontSize: "16px" }}
+                              className=" m-2 fntf"
+                            >
+                              Starting @
+                              <span
+                                style={{
+                                  fontWeight: "bolder",
+                                  fontSize: "16px",
+                                  color: "#AE445A",
+                                }}
+                              >
+                                Rs .{item.price}
+                              </span>
+                            </p>{" "}
+                          </div>
+                          <div className="col-md-4">
+                            <Button
+                              style={{
+                                fontWeight: "bolder",
+                                backgroundColor: "green",
+                                border: "none",
+                                borderRadius: "30px",
+                              }}
+                              className="fntf row"
+                            >
+                              {item.Off}% Off
+                            </Button>
+                          </div>
+                        </div>
+                        <div className="row mt-2 mb-2">
+                          <Button
+                            onClick={() => handleShow(item)}
+                            style={{
+                              backgroundColor: "#AE445A",
+                              border: "none",
+                            }}
+                            className="col-md-5 p-1 mt-1 text-center m-auto fntf"
+                          >
+                            BOOK NOW
+                          </Button>
+                        </div>
+                      </>
+                    ) : null}
                   </div>
                 );
               })}
           </div>
+          {/* <div className="row   m-auto">
+            {categoryData &&
+              categoryData.map((item, index) => {
+                const isEven = index % 2 === 0;
+                let starIcon;
+                let starColor = "";
+                let Rate = 0;
+                let unitrs = "";
+                const starColorClass = {
+                  red: "red-star",
+                  yellow: "yellow-star",
+                  green: "green-star",
+                };
+                if (item.rate >= 1000) {
+                  unitrs = "k";
+                } else if (item.rate >= 100000) {
+                  unitrs = "lakh";
+                } else if (item.rate >= 1000000) {
+                  unitrs = "M";
+                }
+
+                if (item.rate >= 5000) {
+                  starColor = starColorClass.green;
+                } else if (item.rate >= 2000) {
+                  starColor = starColorClass.yellow;
+                } else {
+                  starColor = starColorClass.red;
+                }
+
+                if (item.rate <= 1000) {
+                  starIcon = <StarBorderIcon />;
+                  starColor = starColorClass.red;
+                  Rate = item.rate >= 1000 ? 1 : 0.5;
+                } else if (item.rate <= 3000) {
+                  starIcon = <StarHalfIcon />;
+                  starColor = starColorClass.yellow;
+                  Rate = item.rate >= 2000 ? 2 : 1.5;
+                } else {
+                  starIcon = <StarIcon />;
+                  starColor = starColorClass.green;
+                  Rate =
+                    item.rate >= 5000
+                      ? 5
+                      : item.rate >= 4000
+                      ? 4.8
+                      : item.rate >= 3000
+                      ? 4.5
+                      : 0;
+                }
+
+                return (
+                  <div
+                    className="col-md-3   m-3 p-2   card-container "
+                    style={{ height: "70vh" }}
+                  >
+                    <div className="row text-center">
+                      <img
+                        className="m-auto"
+                        style={{
+                          width: "150px",
+                          height: "100px",
+                          borderRadius: "20px",
+                        }}
+                        alt=""
+                        src={item.img}
+                      />
+                      <p className="fntf fnt24 text-center mt-2">
+                        {item.categoryName}
+                      </p>
+                    </div>
+                    <div className="row ">
+                      {item.discription.map((ele) => (
+                        <>
+                          <span
+                            style={{
+                              fontWeight: "bolder",
+                              listStyleType: "disc",
+                            }}
+                          >
+                            <span>
+                              <img
+                                style={{ width: "15px", height: "15px" }}
+                                src="..\NImages\r.jfif"
+                                alt=""
+                              />
+                            </span>{" "}
+                            <span style={{ fontSize: "13px" }}>{ele}</span>
+                          </span>
+                        </>
+                      ))}
+                      <div className="row text-center">
+                        <p
+                          style={{ fontWeight: "bolder" }}
+                          className="m-2 fntf"
+                        >
+                          Starting @ Rs .{item.price}
+                        </p>
+                        <p
+                          style={{ fontWeight: "bolder", marginLeft: "10px" }}
+                          className="fntf "
+                        >
+                          [{item.Off}% Off]
+                        </p>
+                      </div>
+                    </div>
+                    {isEven ? (
+                      <div className="row">
+                        <Button
+                          onClick={() => handleShow(item)}
+                          style={{
+                            backgroundColor: "#AE445A",
+                            border: "none",
+                          }}
+                          className="col-md-5 p-1 mt-1 text-center m-auto fntf"
+                        >
+                          BOOK NOW
+                        </Button>
+                      </div>
+                    ) : null}
+                  </div>
+                );
+              })}
+          </div> */}
         </div>
       </div>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title
-            className="row text-center fntf m-auto"
-            style={{ fontWeight: "bolder" }}
-          >
-            GET FREE QUOTE{" "}
-          </Modal.Title>
+          <Modal.Title>Book </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Row className="mb-3">
@@ -658,13 +906,22 @@ export default function MiniServices() {
             </Form.Group>
           </Row>
           <Row className="mb-3">
-            <Form.Group as={Col} md="12" controlId="validationCustom01">
+            <Form.Group as={Col} md="6" controlId="validationCustom01">
               <Form.Label> Contact</Form.Label>
               <Form.Control
                 onChange={(e) => setcontact1(e.target.value)}
                 required
                 type="text"
                 placeholder="Contact"
+              />
+            </Form.Group>
+            <Form.Group as={Col} md="6" controlId="validationCustom02">
+              <Form.Label> Address</Form.Label>
+              <Form.Control
+                onChange={(e) => setAddress(e.target.value)}
+                required
+                type="text"
+                placeholder="Address"
               />
             </Form.Group>
           </Row>
@@ -697,21 +954,13 @@ export default function MiniServices() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-
-          <Button
-            onClick={addenquiry}
-            style={{
-              backgroundColor: "#AE445A",
-              border: "none",
-            }}
-            className="col-md-5 p-2  text-center  fntf"
-          >
-            GET  QUOTE
+          <Button variant="primary" onClick={addenquiry}>
+            Save Changes
           </Button>
         </Modal.Footer>
       </Modal>
 
-      <div className="row m-auto mt-5 mdQ">
+      <div className="row m-auto mdQ">
         <p className="row text-center">
           <span className="fntf fnt28" style={{ fontWeight: "bold" }}>
             <img width={30} height={30} src="..\NImages\awards.jpeg" alt="" />{" "}
@@ -754,7 +1003,7 @@ export default function MiniServices() {
           </div>
         </div>
       </div>
-      <div className="mt-3 ">
+      <div className="mt-3  m-auto">
         <div className="text-center">
           <Button
             style={{
@@ -768,7 +1017,7 @@ export default function MiniServices() {
       </div>
 
       <div
-        className="row mt-5 bgclr "
+        className="row mt-5 bgclr  m-auto"
         style={{
           borderTopLeftRadius: "80px",
           borderBottomRightRadius: "80px",
@@ -842,28 +1091,25 @@ export default function MiniServices() {
                   </span>
                 </p>
                 <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  Staff was very good at checking the cleaning area & put all
-                  efforts in cleaning the house. Although the house was cleaned
-                  before their service, it looked much much kind of new after
-                  their service. Nice work by the team & I recommend their
-                  services.
+                  I have taken this service for my 2bhk furnished home. On time
+                  they came with all the equipments which is needed to clean the
+                  entire home and they will do all the work very clean.
                   <p className="fntf text-end" style={{ fontWeight: "bold" }}>
-                    Akhilesh bc
+                    Satish Ravi Chandra
                   </p>
                 </p>
                 <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  Vijay Home Services have done a good job of deep cleaning for
-                  my Villa and kudos to KB team. Highly recommended, if you're
-                  looking for a deep cleaning Services.
+                  I had opted for entire house cleaning services for my duplex
+                  house. KB Team from Vijay home services had areived and
+                  provided excellent services.
                   <p className="fntf text-end" style={{ fontWeight: "bold" }}>
-                    Janardhan Chagaleti
+                    Sushma Shetty
                   </p>
                 </p>
                 <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  The work was done neat and clean, customer service Aruna was
-                  supportive and helped to get the service done. 5 people
-                  arrived and all did a great job 👍. I really loved the
-                  service. I would strongly recommend vijay home service to all
+                  Hi Vijay home services KB team ws very good in work wise, hard
+                  working made my home look neat n tidy staff behaviour ws good
+                  and all the services completed they were in time.
                   <p className="fntf text-end" style={{ fontWeight: "bold" }}>
                     Anil NS
                   </p>
@@ -873,7 +1119,7 @@ export default function MiniServices() {
                   and Team. It’s a villa hose for me it’s a tremendous efforts
                   from morning 9 am to 8 pm.
                   <p className="fntf text-end" style={{ fontWeight: "bold" }}>
-                    Bridgid Vithya
+                    Lakshmi Shivanna
                   </p>
                 </p>{" "}
               </div>
@@ -940,7 +1186,7 @@ export default function MiniServices() {
         </div>
       </div>
 
-      <div className="row mt-5 mdQ">
+      <div className="row mt-5 mdQ  m-auto">
         <div
           style={{ borderRadius: "40px" }}
           className="col-md-6 shadow-sm p-3 mb-5 bg-white "
@@ -1117,7 +1363,7 @@ export default function MiniServices() {
             <iframe
               width="260"
               height="215"
-              src="https://www.youtube.com/embed/qR1-_0JcXjw?si=UKA-vJ_e1dpXy8Wn"
+              src="https://www.youtube.com/embed/eP35Th4xzO4?si=wF0TAdpv1mVe3o_k"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -1243,23 +1489,23 @@ export default function MiniServices() {
       </div>
 
       <div
-        className="row mt-5 text-center  p-3 cs"
+        className="row mt-5 text-center  p-3 cs  m-auto"
         style={{ borderRadius: "55px" }}
       >
-        <div className="row">
+        <div className="row ">
           <p
             className="text-center fnt32 fntf"
             style={{ fontWeight: "bolder" }}
           >
-            Cleanliness, the Ultimate Festive Tradition.
+            Elevate Your Festive Decor with Our Cleaning Magic.
           </p>
           <p className="text-center fnt24 fntf">
             {" "}
-            Celebrate the season with a clean and clutter-free home courtesy of
-            Vijay Home Services.
+            Transform your home into a festive wonderland with our expert
+            cleaning services.{" "}
           </p>
         </div>
-        <div className="row m-3">
+        <div className="row m-3 ">
           <Button
             className="col-md-2 m-auto"
             style={{
@@ -1272,165 +1518,279 @@ export default function MiniServices() {
         </div>
       </div>
 
-      <div className="row mt-5" style={{ backgroundColor: "#ADC4CE" }}>
-        <div className="row " style={{ display: "flex" }}>
+      <div className="row mt-5 m-auto " style={{ backgroundColor: "#ADC4CE" }}>
+        <div className="row p-4  m-auto" style={{ display: "flex" }}>
           <li
             className="col-md-1"
             style={{ fontSize: "12px", listStyleType: "none" }}
           >
-            Home
-          </li>
-          <li
-            className="col-md-1"
-            style={{ fontSize: "12px", listStyleType: "none" }}
-          >
-            Contact
+            <a href="#" style={{ textDecoration: "none", color: "black" }}>
+              Home
+            </a>
           </li>
           <li
             className="col-md-1"
             style={{ fontSize: "12px", listStyleType: "none" }}
           >
-            About Us
+            {" "}
+            <a href="#" style={{ textDecoration: "none", color: "black" }}>
+              Contact
+            </a>
           </li>
           <li
-            className="col-md-2"
+            className="col-md-1"
             style={{ fontSize: "12px", listStyleType: "none" }}
           >
-            Terms and Condition
-          </li>
-          <li
-            className="col-md-2"
-            style={{ fontSize: "12px", listStyleType: "none" }}
-          >
-            Refund and Cancellation
+            {" "}
+            <a href="#" style={{ textDecoration: "none", color: "black" }}>
+              About Us
+            </a>
           </li>
           <li
             className="col-md-2"
             style={{ fontSize: "12px", listStyleType: "none" }}
           >
             {" "}
-            Policy Privacy Policy
+            <a href="#" style={{ textDecoration: "none", color: "black" }}>
+              Terms and Condition
+            </a>
+          </li>
+          <li
+            className="col-md-2"
+            style={{ fontSize: "12px", listStyleType: "none" }}
+          >
+            <a href="#" style={{ textDecoration: "none", color: "black" }}>
+              Refund and Cancellation
+            </a>
+          </li>
+          <li
+            className="col-md-2"
+            style={{ fontSize: "12px", listStyleType: "none" }}
+          >
+            {" "}
+            <a href="#" style={{ textDecoration: "none", color: "black" }}>
+              Policy Privacy Policy
+            </a>
           </li>
           <li
             className="col-md-1"
             style={{ fontSize: "12px", listStyleType: "none" }}
           >
             {" "}
-            VHS Logo
+            <a href="#" style={{ textDecoration: "none", color: "black" }}>
+              VHS Logo
+            </a>
           </li>
           <li
             className="col-md-1"
             style={{ fontSize: "12px", listStyleType: "none" }}
           >
             {" "}
-            Career
+            <a href="#" style={{ textDecoration: "none", color: "black" }}>
+              Career
+            </a>
           </li>
           <li
             className="col-md-1"
             style={{ fontSize: "12px", listStyleType: "none" }}
           >
             {" "}
-            Work with us
+            <a href="#" style={{ textDecoration: "none", color: "black" }}>
+              Work with us
+            </a>
           </li>
         </div>
         <p className="mt-2 m-auto" style={{ border: "1px solid #ECE8DD" }}></p>
 
-        <div className="row">
-          <h3>INDIA</h3>
-          <div className="row " style={{ display: "flex" }}>
+        <div className="row p-2 m-auto">
+          <h3 className="fntf" style={{ fontWeight: "bolder" }}>
+            INDIA
+          </h3>
+          <div className="row p-2 " style={{ display: "flex" }}>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
-              Ahmedabad
+              <span className="me-4">Ahmedabad</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>
+            </li>
+            <li
+              className="col-md-1"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              <span className="me-4">Bangalore</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>
+            </li>
+            <li
+              className="col-md-1"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              <span className="me-4">Lucknow</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>{" "}
+            </li>
+            <li
+              className="col-md-1"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              <span className="me-4">Chennai</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>{" "}
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
               {" "}
-              Bangalore
+              <span className="me-4">Hyderabad</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
-              Lucknow{" "}
-            </li>
-            <li
-              className="col-md-1"
-              style={{ fontSize: "12px", listStyleType: "none" }}
-            >
-              {" "}
-              Chennai
-            </li>
-            <li
-              className="col-md-1"
-              style={{ fontSize: "12px", listStyleType: "none" }}
-            >
-              {" "}
-              Hyderabad
+              <span className="me-4">Pune</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>{" "}
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
               {" "}
-              Pune
+              <span className="me-4">Mumbai</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
               {" "}
-              Mumbai
+              <span className="me-4">Surat</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
-              {" "}
-              Surat
+              <span className="me-4">Vadodara</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
-              Vadodara
+              <span className="me-4">Gurugram</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
-              Gurugram
+              <span className="me-4">NCR</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
-              NCR
+              <span className="me-4">Noida</span>{" "}
+              <span style={{ borderRight: "2px solid grey" }}></span>
             </li>
+          </div>
+
+          <div className="row p-2 m-auto" style={{ display: "flex" }}>
             <li
-              className="col-md-1"
+              className="col-md-2 m-auto"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
-              Noida
+              <div className="row">
+                <div className="col-md-7">
+                  <span className="me-2 m-auto">Sarjapur Road</span>{" "}
+                  <span style={{ borderRight: "2px solid grey" }}></span>
+                </div>
+                <div className="col-md-4">
+                  <span className="me-2 m-auto">Whitefield</span>{" "}
+                  <span style={{ borderRight: "2px solid grey" }}></span>
+                </div>
+              </div>
+            </li>
+
+            <li
+              className="col-md-5 m-auto"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              <div className="row">
+                <div className="col-md-4">
+                  <span className="me-2 m-auto"> Bannerghatta Road</span>{" "}
+                  <span style={{ borderRight: "2px solid grey" }}></span>{" "}
+                </div>
+                <div className="col-md-3">
+                  <span className="me-2 m-auto"> Electronic City</span>{" "}
+                  <span style={{ borderRight: "2px solid grey" }}></span>{" "}
+                </div>
+                <div className="col-md-3">
+                  <span className="me-2 m-auto"> HSR Layout</span>{" "}
+                  <span style={{ borderRight: "2px solid grey" }}></span>
+                </div>
+                <div className="col-md-2">
+                  <span className="me-2 m-auto">Jayanagar</span>{" "}
+                  <span style={{ borderRight: "2px solid grey" }}></span>{" "}
+                </div>
+              </div>
+            </li>
+            <li
+              className="col-md-5 m-auto"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              <div className="row">
+                <div className="col-md-3">
+                  <span className="me-2 m-auto"> JP Nagar</span>{" "}
+                  <span style={{ borderRight: "2px solid grey" }}></span>
+                </div>
+                <div className="col-md-3">
+                  <span className="me-2 m-auto"> Hosur Road </span>{" "}
+                  <span style={{ borderRight: "2px solid grey" }}></span>
+                </div>
+                <div className="col-md-3">
+                  <span className="me-2 m-auto"> Indira Nagar</span>{" "}
+                  <span style={{ borderRight: "2px solid grey" }}></span>
+                </div>
+              </div>
             </li>
           </div>
         </div>
         <p className="mt-2 m-auto" style={{ border: "1px solid #ECE8DD" }}></p>
         <div className="row p-3">
-          <p className="col-md-6 fntf" style={{ fontSize: "14px" }}>
-            {" "}
-            © Copyright 2023 Vijay Home Services. All rights reserved.
+          <p className="col-md-8  m-auto" style={{ fontSize: "13px" }}>
+            <span className="fntf me-2">
+              {" "}
+              © Copyright 2023 Vijay Home Services. All rights reserved.
+              Designed and Developed By
+            </span>
+            <a
+              style={{ textDecoration: "none" }}
+              className="fntf"
+              href="https://nakshatranamahacreations.com/"
+            >
+              Nakshatra Namaha Creations
+            </a>
           </p>
-          <div className="col-md-6 ">
+          <div className="col-md-4 ">
             <div className="row m-auto  ">
-              <div className="col-md-2 m-2 text-end">
-                <img width={100} height={50} src="..\NImages\aps.jfif" alt="" />
+              <div className="col-md-2 m-auto ">
+                <img
+                  width={100}
+                  height={50}
+                  src="..\NImages\Screenshot (19).png"
+                  alt=""
+                />
               </div>
-              <div className="col-md-2 m-2 text-end">
-                <img width={100} height={50} src="..\NImages\pl.jfif" alt="" />
+              <div className="col-md-2 m-auto ">
+                <img
+                  style={{ borderRadius: "5px" }}
+                  width={100}
+                  height={50}
+                  src="..\NImages\Screenshot (20).png"
+                  alt=""
+                />
               </div>
             </div>
           </div>

@@ -319,6 +319,7 @@ export default function Painting() {
         if (response.status === 200) {
           setShow(false);
           alert("Thank you for booking our sevice. We will contact you soon.");
+          window.location.href = "/WellcomePage";
         }
       });
     } catch (error) {
@@ -380,28 +381,46 @@ export default function Painting() {
         </div> */}
         <div className="row   m-auto">
           <Form className="shadow m-3 p-5 mb-5 bg-white rounded m-auto ">
-            <div className="row m-auto p-5">
-              <h1 className="row fntf m-auto" style={{ fontWeight: "bold" }}>
-                Elevate Your Festive Decor with Our Painting Magic.
-              </h1>
-              <p className="col-md-8 fntf fnt16 m-auto" style={{ fontWeight: "bold" }}>
-                Transform your home into a festive wonderland with our expert
-                painting services.
-              </p>
-              <p className="col-md-8 text-center fntf fnt16 m-auto" style={{ fontWeight: "bold" }}>
+            <div className="row m-auto p-5 ">
+              <div className="row text-center">
+                <h1 className=" fntf  " style={{ fontWeight: "bold" }}>
+                  Festival Painting Offer
+                </h1>
+              </div>
+              <p
+                className="col-md-8 text-center fntf fnt16 m-auto"
+                style={{ fontWeight: "bold", color: "#AE445A" }}
+              >
                 Painting service Starting At Rs 7/-SQFT*
               </p>
+
               <div className="row">
                 <Button className="col-md-3 mt-5 btnhr1  m-auto fntf btnhr">
-                  BOOK OUR SERVICE{" "}
+                  GET FREE ESTIMATE
                 </Button>{" "}
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-5 p-2 text-center  mdQ  m-auto btnhr" style={{border:"1px solid #AE445A"}}>
+                <p className="row fntf m-auto" style={{ fontSize: "15px", fontWeight: "bolder" }}>
+                
+                    Upto 10% Cashback on all Painting Booking above Rs 20,000/-
+                    
+                
+                </p>
+                <p
+                  className="row fntf m-auto "
+                  style={{ fontSize: "15px", fontWeight: "bolder" }}
+                >
+                  Use cashback points for booking services within 6 months.
+                </p>
               </div>
             </div>
           </Form>
         </div>
       </div>
 
-      <div className="row text-center mdQ">
+      {/* <div className="row text-center mdQ">
         <p className="col-md-6 m-auto">
           <span className="m-auto">
             <img width={50} height={50} alt="" src="..\NImages\party-hat.png" />{" "}
@@ -427,8 +446,25 @@ export default function Painting() {
           Upto 100% Cashback on all painting booking above Rs 20,000/- Cashback
           points to be used book any other services in next 6 months
         </p>
-      </div>
-      <div className="row m-auto ">
+      </div> */}
+
+      {/* <div className="row text-center mt-5 mdQ  m-auto">
+        <p className="col-md-6 m-auto">
+          <span
+            style={{ fontSize: "25px", fontWeight: "bolder" }}
+            className=" fntf m-auto"
+          >
+            Upto 10% Cashback on all Painting Booking above Rs 20,000/- .
+          </span>
+        </p>
+        <p
+          className=" fntf m-auto col-md-8"
+          style={{ fontSize: "15px", fontWeight: "bolder" }}
+        >
+          Use cashback points for booking services within 6 months.
+        </p>
+      </div> */}
+      <div className="row  m-auto ">
         <div className="col-md-12 m-auto">
           {/* {categoryData &&
             categoryData.map((item, index) => {
@@ -549,7 +585,7 @@ export default function Painting() {
               );
             })} */}
           <div
-            className="row m-auto mt-5"
+            className="row m-auto mt-1"
             style={{
               display: "flex",
               justifyContent: "center",
@@ -631,7 +667,7 @@ export default function Painting() {
                         }}
                         className="col-md-5 p-1 mt-1 text-center m-auto fntf"
                       >
-                        BOOK NOW
+                        GET FREE QUOTE
                       </Button>
                     </div>
                   </div>
@@ -643,7 +679,12 @@ export default function Painting() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Book </Modal.Title>
+          <Modal.Title
+            className="row text-center fntf m-auto"
+            style={{ fontWeight: "bolder" }}
+          >
+            GET FREE QUOTE{" "}
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Row className="mb-3">
@@ -667,22 +708,13 @@ export default function Painting() {
             </Form.Group>
           </Row>
           <Row className="mb-3">
-            <Form.Group as={Col} md="6" controlId="validationCustom01">
+            <Form.Group as={Col} md="12" controlId="validationCustom01">
               <Form.Label> Contact</Form.Label>
               <Form.Control
                 onChange={(e) => setcontact1(e.target.value)}
                 required
                 type="text"
                 placeholder="Contact"
-              />
-            </Form.Group>
-            <Form.Group as={Col} md="6" controlId="validationCustom02">
-              <Form.Label> Address</Form.Label>
-              <Form.Control
-                onChange={(e) => setAddress(e.target.value)}
-                required
-                type="text"
-                placeholder="Address"
               />
             </Form.Group>
           </Row>
@@ -715,8 +747,16 @@ export default function Painting() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={addenquiry}>
-            Save Changes
+
+          <Button
+            onClick={addenquiry}
+            style={{
+              backgroundColor: "#AE445A",
+              border: "none",
+            }}
+            className="col-md-5 p-2  text-center  fntf"
+          >
+            GET  QUOTE
           </Button>
         </Modal.Footer>
       </Modal>

@@ -275,6 +275,10 @@
   transition: border-bottom 0.3s ease-in-out;
   background-color: #dde6ed;
 }
+.btnhr3:hover{
+border:1px solid white;
+color: #ae445a;
+}
 .btnhr1 {
   background-color: #ae445a !important;
   border: none !important;

@@ -378,6 +378,7 @@ export default function CommercialServices() {
         if (response.status === 200) {
           setShow(false);
           alert("Thank you for booking our sevice. We will contact you soon.");
+          window.location.href = "/WellcomePage";
         }
       });
     } catch (error) {
@@ -487,7 +488,7 @@ export default function CommercialServices() {
           </div>
         );
       })} */}
-      <div className="row   m-auto">
+      {/* <div className="row   m-auto">
         <Form className="shadow m-3 p-5 mb-5 bg-white rounded m-auto ">
           <div className="row">
             <p
@@ -507,8 +508,8 @@ export default function CommercialServices() {
             </p>
           </div>
         </Form>
-      </div>
-      <div className="row text-center mt-1 mdQ">
+      </div> */}
+      {/* <div className="row text-center mt-1 mdQ">
         <p className="col-md-6 m-auto">
           <span className="m-auto">
             <img width={50} height={50} alt="" src="..\NImages\party-hat.png" />{" "}
@@ -527,7 +528,7 @@ export default function CommercialServices() {
           Get your home festival-ready with our exclusive Commercial Cleaning
           service offers at affordable price.
         </p>
-      </div>
+      </div> */}
       {/* <Carousel responsive={responsive}>
         {categoryData &&
           categoryData.map((item, index) => {
@@ -773,7 +774,7 @@ export default function CommercialServices() {
                         }}
                         className="col-md-5 p-1 mt-1 text-center m-auto fntf"
                       >
-                        BOOK NOW
+                        GET FREE QUOTE
                       </Button>
                     </div>
                   </div>
@@ -785,7 +786,12 @@ export default function CommercialServices() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Book </Modal.Title>
+          <Modal.Title
+            className="row text-center fntf m-auto"
+            style={{ fontWeight: "bolder" }}
+          >
+            GET FREE QUOTE{" "}
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Row className="mb-3">
@@ -809,22 +815,13 @@ export default function CommercialServices() {
             </Form.Group>
           </Row>
           <Row className="mb-3">
-            <Form.Group as={Col} md="6" controlId="validationCustom01">
+            <Form.Group as={Col} md="12" controlId="validationCustom01">
               <Form.Label> Contact</Form.Label>
               <Form.Control
                 onChange={(e) => setcontact1(e.target.value)}
                 required
                 type="text"
                 placeholder="Contact"
-              />
-            </Form.Group>
-            <Form.Group as={Col} md="6" controlId="validationCustom02">
-              <Form.Label> Address</Form.Label>
-              <Form.Control
-                onChange={(e) => setAddress(e.target.value)}
-                required
-                type="text"
-                placeholder="Address"
               />
             </Form.Group>
           </Row>
@@ -857,8 +854,16 @@ export default function CommercialServices() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={addenquiry}>
-            Save Changes
+
+          <Button
+            onClick={addenquiry}
+            style={{
+              backgroundColor: "#AE445A",
+              border: "none",
+            }}
+            className="col-md-5 p-2  text-center  fntf"
+          >
+            GET  QUOTE
           </Button>
         </Modal.Footer>
       </Modal>

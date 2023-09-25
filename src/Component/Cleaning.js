@@ -281,40 +281,40 @@ export default function Cleaning() {
         },
         {
           id: 2,
-          img: "../NImages/Nsofa.jfif",
+          img: "/NImages/vcnt.jfif",
           rate: "5000.2",
-          price: "1003",
-          Off: "15",
+          price: "2300",
+          Off: "0",
           discription: [
-            "Mechanized cleaning and extraction process for upholstered sofa.",
-            // "Dry Vacuum to extract loose dust and Applications of Chemical Foam & Scrubbing.",
+            "Cupboard Cleaning from outside and inside.",
+            "Dry dusting of Walls and ceiling.",
           ],
-          categoryName: "Sofa Cleaning",
+          categoryName: "Vacant Flat Cleaning",
         },
-        {
-          id: 3,
-          img: "../NImages/nmatress.jfif",
-          rate: "404.2",
-          price: "589",
-          Off: "26",
-          discription: [
-            "Dust extraction, Sanitization by steam, Extraction of Residual Moisture.",
-            // "Vacuuming of dust with vacuum cleaners with HEPA filters for maximum impact.",
-          ],
-          categoryName: "Mattress Cleaning",
-        },
-        {
-          id: 4,
-          img: "../NImages/ncarpet.jfif",
-          rate: "404.2",
-          price: "354",
-          Off: "21",
-          discription: [
-            "Our high power suction equipment will suck and remove all the dust ",
-            // "We shampoo your carpet with chemical foam to remove and dislodge the finest particles of grime.",
-          ],
-          categoryName: "Carpet Cleaning",
-        },
+        // {
+        //   id: 3,
+        //   img: "../NImages/nmatress.jfif",
+        //   rate: "404.2",
+        //   price: "589",
+        //   Off: "26",
+        //   discription: [
+        //     "Dust extraction, Sanitization by steam, Extraction of Residual Moisture.",
+        //     // "Vacuuming of dust with vacuum cleaners with HEPA filters for maximum impact.",
+        //   ],
+        //   categoryName: "Mattress Cleaning",
+        // },
+        // {
+        //   id: 4,
+        //   img: "../NImages/ncarpet.jfif",
+        //   rate: "404.2",
+        //   price: "354",
+        //   Off: "21",
+        //   discription: [
+        //     "Our high power suction equipment will suck and remove all the dust ",
+        //     // "We shampoo your carpet with chemical foam to remove and dislodge the finest particles of grime.",
+        //   ],
+        //   categoryName: "Carpet Cleaning",
+        // },
       ],
       bgimg: "/NImages/cleaningbnr.jfif",
       demovideo: "/videos/production_id_4145662 (2160p).mp4",
@@ -385,6 +385,7 @@ export default function Cleaning() {
         if (response.status === 200) {
           setShow(false);
           alert("Thank you for booking our sevice. We will contact you soon.");
+          window.location.href = "/WellcomePage";
         }
       });
     } catch (error) {
@@ -466,7 +467,7 @@ export default function Cleaning() {
         </div>
       </div>
 
-      <div className="row text-center mt-5 mdQ  m-auto">
+      {/* <div className="row text-center mt-5 mdQ  m-auto">
         <p className="col-md-6 m-auto">
           <span className="m-auto">
             <img width={50} height={50} alt="" src="..\NImages\party-hat.png" />{" "}
@@ -485,7 +486,7 @@ export default function Cleaning() {
           Get your home festival-ready with our exclusive cleaning service
           offers at affordable price.
         </p>
-      </div>
+      </div> */}
       <div className="row m-auto ">
         <div className="col-md-12 m-auto">
           {/* {categoryData &&
@@ -702,54 +703,55 @@ export default function Cleaning() {
                       ))}
                     </div>
 
-                    {isEven ? (
-                      <>
-                        <div className="row mt-2">
-                          <div className="col-md-8">
-                            <p
-                              style={{ fontWeight: "bolder", fontSize: "16px" }}
-                              className=" m-2 fntf"
-                            >
-                              Starting @
-                              <span
-                                style={{
-                                  fontWeight: "bolder",
-                                  fontSize: "16px",
-                                  color: "#AE445A",
-                                }}
-                              >
-                                Rs .{item.price}
-                              </span>
-                            </p>{" "}
-                          </div>
-                          <div className="col-md-4">
-                            <Button
+                    {/* {isEven ? ( */}
+                    <>
+                      <div className="row mt-2">
+                        <div className="col-md-8">
+                          <p
+                            style={{ fontWeight: "bolder", fontSize: "16px" }}
+                            className=" m-2 fntf"
+                          >
+                            Starting @
+                            <span
                               style={{
                                 fontWeight: "bolder",
-                                backgroundColor: "green",
-                                border: "none",
-                                borderRadius: "30px",
+                                fontSize: "16px",
+                                color: "#AE445A",
                               }}
-                              className="fntf row"
                             >
-                              {item.Off}% Off
-                            </Button>
-                          </div>
+                              Rs .{item.price}
+                            </span>
+                          </p>{" "}
                         </div>
-                        <div className="row mt-2 mb-2">
+                        <div className="col-md-4">
                           <Button
-                            onClick={() => handleShow(item)}
                             style={{
-                              backgroundColor: "#AE445A",
+                              fontWeight: "bolder",
+                              backgroundColor: "green",
                               border: "none",
+                              borderRadius: "30px",
                             }}
-                            className="col-md-5 p-1 mt-1 text-center m-auto fntf"
+                            className="fntf row"
                           >
-                            BOOK NOW
+                            {item.Off}% Off
                           </Button>
                         </div>
-                      </>
-                    ) : null}
+                      </div>
+                      <div className="row mt-2 mb-2">
+                        <Button
+                          onClick={() => handleShow(item)}
+                          style={{
+                            backgroundColor: "#AE445A",
+                            border: "none",
+                          }}
+                          className="col-md-5 p-1 mt-1 text-center m-auto fntf"
+                        >
+                          GET FREE QUOTE
+                        </Button>
+                        
+                      </div>
+                    </>
+                    {/* ) : null} */}
                   </div>
                 );
               })}
@@ -882,7 +884,12 @@ export default function Cleaning() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Book </Modal.Title>
+          <Modal.Title
+            className="row text-center fntf m-auto"
+            style={{ fontWeight: "bolder" }}
+          >
+            GET FREE QUOTE{" "}
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Row className="mb-3">
@@ -906,22 +913,13 @@ export default function Cleaning() {
             </Form.Group>
           </Row>
           <Row className="mb-3">
-            <Form.Group as={Col} md="6" controlId="validationCustom01">
+            <Form.Group as={Col} md="12" controlId="validationCustom01">
               <Form.Label> Contact</Form.Label>
               <Form.Control
                 onChange={(e) => setcontact1(e.target.value)}
                 required
                 type="text"
                 placeholder="Contact"
-              />
-            </Form.Group>
-            <Form.Group as={Col} md="6" controlId="validationCustom02">
-              <Form.Label> Address</Form.Label>
-              <Form.Control
-                onChange={(e) => setAddress(e.target.value)}
-                required
-                type="text"
-                placeholder="Address"
               />
             </Form.Group>
           </Row>
@@ -954,13 +952,21 @@ export default function Cleaning() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={addenquiry}>
-            Save Changes
+
+          <Button
+            onClick={addenquiry}
+            style={{
+              backgroundColor: "#AE445A",
+              border: "none",
+            }}
+            className="col-md-5 p-2  text-center  fntf"
+          >
+            GET  QUOTE
           </Button>
         </Modal.Footer>
       </Modal>
 
-      <div className="row m-auto mdQ">
+      <div className="row m-auto mt-5 mdQ">
         <p className="row text-center">
           <span className="fntf fnt28" style={{ fontWeight: "bold" }}>
             <img width={30} height={30} src="..\NImages\awards.jpeg" alt="" />{" "}
