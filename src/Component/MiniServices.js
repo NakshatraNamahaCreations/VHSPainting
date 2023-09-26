@@ -285,41 +285,42 @@ export default function MiniServices() {
   const addenquiry = async (e) => {
     e.preventDefault();
 
-    // if (!Name || !Email || !contact1 || !City) {
-    //   alert("Please enter all fields");
-    // } else {
+    if (!Name || !Email || !contact1 || !City) {
+      alert("Please enter all fields");
+    } else {
+      try {
+        const formattedDate = moment().format("MM-DD-YYYY");
 
-    try {
-      const formattedDate = moment().format("MM-DD-YYYY");
+        const config = {
+          url: "/addenquiry",
+          method: "post",
+          baseURL: "http://api.vijayhomeservicebengaluru.in/api",
 
-      const config = {
-        url: "/addenquiry",
-        method: "post",
-        baseURL: "http://api.vijayhomeservicebengaluru.in/api",
-
-        headers: { "content-type": "application/json" },
-        data: {
-          enquirydate: formattedDate,
-          name: Name,
-          contact1: contact1,
-          email: Email,
-          address: Address,
-          category: selectedCategory,
-          city: City,
-          intrestedfor: serviceBookData?.categoryName,
-        },
-      };
-      await axios(config).then(function (response) {
-        if (response.status === 200) {
-          AddEnquiryfollowup(response.data.data);
+          headers: { "content-type": "application/json" },
+          data: {
+            enquirydate: formattedDate,
+            name: Name,
+            contact1: contact1,
+            email: Email,
+            address: Address,
+            category: selectedCategory,
+            city: City,
+            reference1: "Landingpage",
+            intrestedfor: serviceBookData?.categoryName,
+          },
+        };
+        await axios(config).then(function (response) {
+          if (response.status === 200) {
+            AddEnquiryfollowup(response.data.data);
+          }
+        });
+      } catch (error) {
+        console.error(error);
+        if (error.response) {
+          alert(error.response.data.error);
+        } else {
+          alert("An error occurred. Please try again later.");
         }
-      });
-    } catch (error) {
-      console.error(error);
-      if (error.response) {
-        alert(error.response.data.error);
-      } else {
-        alert("An error occurred. Please try again later.");
       }
     }
   };
@@ -343,7 +344,6 @@ export default function MiniServices() {
       await axios(config).then(function (response) {
         if (response.status === 200) {
           setShow(false);
-          alert("Thank you for booking our sevice. We will contact you soon.");
           window.location.href = "/WellcomePage";
         }
       });
@@ -398,232 +398,193 @@ export default function MiniServices() {
 
   return (
     <>
-      <Header />
+      <div className="col-md-12">
+        <Header />
+      </div>
 
-      {filteredData?.map((ele, index) => {
-        const bgImg = ele.bgimg;
-        const includesCategory = bgImg.includes(selectedCategory);
-        const bgStyle = {
-          backgroundImage: `url(${bgImg})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center center",
-          borderTopRightRadius: "100px",
-          borderBottomLeftRadius: "320px",
-        };
-
-        return (
-          <div
-            key={index}
-            // className={`row mdQ mb-5 bg_img ${
-            //   includesCategory ? "painting-bg" : "cleaning-bg"
-            // }`}
-            // style={bgStyle}
-          >
-            <div className="col-md-12  p-5 ">
-              <div className="row text-center">
-                <p
-                  className=" fntf fnt32 m-auto"
-                  style={{
-                    fontSize: "35px",
-                    fontWeight: "bolder",
-                  }}
-                >
-                  Small Space, Big Clean! Discover the Magic of Mini Cleaning
-                  Services with Vijay Home Services Today!.
-                </p>
-                <p
-                  className=" fntf fnt32 m-auto"
-                  style={{
-                    fontSize: "20px",
-                  }}
-                >
-                  Pay After Service | 100% Satisfaction or FREE Rework*
-                </p>
-                <div className="row  ">
-                  <Button
-                    className="col-md-2 mt-5   m-auto fntf"
-                    style={{
-                      backgroundColor: "#AE445A",
-                      border: "none",
-                      color: "colr",
-                    }}
-                  >
-                    BOOK OUR SERVICE{" "}
-                  </Button>{" "}
-                </div>
-              </div>
+      <div className="col-md-12 body1">
+        <div className="row m-0">
+          {" "}
+          <div className="row text-center">
+            <p
+              className=" fntf fnt32 m-auto"
+              style={{
+                fontSize: "35px",
+                fontWeight: "bolder",
+              }}
+            >
+              Small Space, Big Clean! Discover the Magic of Mini Cleaning
+              Services with Vijay Home Services Today!.
+            </p>
+            <p
+              className=" fntf fnt32 m-auto"
+              style={{
+                fontSize: "20px",
+              }}
+            >
+              Pay After Service | 100% Satisfaction or FREE Rework*
+            </p>
+            <div className="row  ">
+              <Button
+                onClick={handleShow}
+                className="col-md-2 mt-5   m-auto fntf"
+                style={{
+                  backgroundColor: "#AE445A",
+                  border: "none",
+                  color: "colr",
+                }}
+              >
+                BOOK OUR SERVICE{" "}
+              </Button>{" "}
             </div>
           </div>
-        );
-      })}
-
-      <div className="row text-center mdQ">
-        <p className="col-md-6 m-auto">
-          <span className="m-auto">
-            <img width={50} height={50} alt="" src="..\NImages\party-hat.png" />{" "}
-          </span>
-          <span
-            style={{ fontSize: "35px", fontWeight: "bolder" }}
-            className=" fntf m-auto"
-          >
-            Exclusive Festival Offers
-          </span>
-        </p>
-        <p
-          className=" fntf m-auto col-md-8"
-          style={{ fontSize: "15px", fontWeight: "bolder" }}
-        >
-          Get your home festival-ready with our exclusive Mini Cleaning service
-          offers at affordable price.
-        </p>
+        </div>
       </div>
-      <div className="row  m-auto ">
-        <div className="col-md-12 m-auto">
-          <div
-            className="row m-auto mt-5"
-            style={{
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            {" "}
-            {categoryData &&
-              categoryData.map((item, index) => {
-                const isEven = index % 2 === 0;
-                let starIcon;
-                let starColor = "";
-                let Rate = 0;
-                let unitrs = "";
-                const starColorClass = {
-                  red: "red-star",
-                  yellow: "yellow-star",
-                  green: "green-star",
-                };
-                if (item.rate >= 1000) {
-                  unitrs = "k";
-                } else if (item.rate >= 100000) {
-                  unitrs = "lakh";
-                } else if (item.rate >= 1000000) {
-                  unitrs = "M";
-                }
 
-                if (item.rate >= 5000) {
-                  starColor = starColorClass.green;
-                } else if (item.rate >= 2000) {
-                  starColor = starColorClass.yellow;
-                } else {
-                  starColor = starColorClass.red;
-                }
+      <div className="Container  m-auto ">
+        <div
+          className="row m-auto mt-5"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          {" "}
+          {categoryData &&
+            categoryData.map((item, index) => {
+              const isEven = index % 2 === 0;
+              let starIcon;
+              let starColor = "";
+              let Rate = 0;
+              let unitrs = "";
+              const starColorClass = {
+                red: "red-star",
+                yellow: "yellow-star",
+                green: "green-star",
+              };
+              if (item.rate >= 1000) {
+                unitrs = "k";
+              } else if (item.rate >= 100000) {
+                unitrs = "lakh";
+              } else if (item.rate >= 1000000) {
+                unitrs = "M";
+              }
 
-                if (item.rate <= 1000) {
-                  starIcon = <StarBorderIcon />;
-                  starColor = starColorClass.red;
-                  Rate = item.rate >= 1000 ? 1 : 0.5;
-                } else if (item.rate <= 3000) {
-                  starIcon = <StarHalfIcon />;
-                  starColor = starColorClass.yellow;
-                  Rate = item.rate >= 2000 ? 2 : 1.5;
-                } else {
-                  starIcon = <StarIcon />;
-                  starColor = starColorClass.green;
-                  Rate =
-                    item.rate >= 5000
-                      ? 5
-                      : item.rate >= 4000
-                      ? 4.8
-                      : item.rate >= 3000
-                      ? 4.5
-                      : 0;
-                }
+              if (item.rate >= 5000) {
+                starColor = starColorClass.green;
+              } else if (item.rate >= 2000) {
+                starColor = starColorClass.yellow;
+              } else {
+                starColor = starColorClass.red;
+              }
 
-                return (
-                  <div className="col-md-3 m-2  card-container">
-                    <div className="row ">
-                      <img
-                        className="col-md-12 m-0 p-0 "
-                        style={{
-                          width: "440px",
-                          height: "200px",
-                          // borderRadius: "20px",
-                        }}
-                        alt=""
-                        src={item.img}
-                      />
-                      <p className="fntf fnt24 text-center mt-2">
-                        {item.categoryName}
-                      </p>
-                    </div>
-                    <div className="row " style={{ height: "120px" }}>
-                      {item.discription.map((ele) => (
-                        <>
-                          <span
-                            style={{
-                              // fontWeight: "bolder",
-                              listStyleType: "disc",
-                            }}
-                          >
-                            <span>
-                              <img
-                                style={{ width: "15px", height: "15px" }}
-                                src="..\NImages\r.jfif"
-                                alt=""
-                              />
-                            </span>{" "}
-                            <span style={{ fontSize: "13px" }}>{ele}</span>
-                          </span>
-                        </>
-                      ))}
-                    </div>
-                    <div className="row mt-2">
-                      <div className="col-md-8">
-                        <p
-                          style={{ fontWeight: "bolder", fontSize: "16px" }}
-                          className=" m-2 fntf"
+              if (item.rate <= 1000) {
+                starIcon = <StarBorderIcon />;
+                starColor = starColorClass.red;
+                Rate = item.rate >= 1000 ? 1 : 0.5;
+              } else if (item.rate <= 3000) {
+                starIcon = <StarHalfIcon />;
+                starColor = starColorClass.yellow;
+                Rate = item.rate >= 2000 ? 2 : 1.5;
+              } else {
+                starIcon = <StarIcon />;
+                starColor = starColorClass.green;
+                Rate =
+                  item.rate >= 5000
+                    ? 5
+                    : item.rate >= 4000
+                    ? 4.8
+                    : item.rate >= 3000
+                    ? 4.5
+                    : 0;
+              }
+
+              return (
+                <div className="col-md-3 m-2  card-container">
+                  <div className="row ">
+                    <img
+                      className="col-md-12 m-0 p-0 "
+                      style={{
+                        width: "440px",
+                        height: "200px",
+                        // borderRadius: "20px",
+                      }}
+                      alt=""
+                      src={item.img}
+                    />
+                    <p className="fntf fnt24 text-center mt-2">
+                      {item.categoryName}
+                    </p>
+                  </div>
+                  <div className="row " style={{ height: "120px" }}>
+                    {item.discription.map((ele) => (
+                      <>
+                        <span
+                          style={{
+                            // fontWeight: "bolder",
+                            listStyleType: "disc",
+                          }}
                         >
-                          Starting @
-                          <span
-                            style={{
-                              fontWeight: "bolder",
-                              fontSize: "16px",
-                              color: "#AE445A",
-                            }}
-                          >
-                            Rs .{item.price}
-                          </span>
-                        </p>{" "}
-                      </div>
-                      <div className="col-md-4">
-                        <Button
+                          <span>
+                            <img
+                              style={{ width: "15px", height: "15px" }}
+                              src="..\NImages\r.jfif"
+                              alt=""
+                            />
+                          </span>{" "}
+                          <span style={{ fontSize: "13px" }}>{ele}</span>
+                        </span>
+                      </>
+                    ))}
+                  </div>
+                  <div className="row mt-2">
+                    <div className="col-md-8">
+                      <p
+                        style={{ fontWeight: "bolder", fontSize: "16px" }}
+                        className=" m-2 fntf"
+                      >
+                        Starting @
+                        <span
                           style={{
                             fontWeight: "bolder",
-                            backgroundColor: "green",
-                            border: "none",
-                            borderRadius: "30px",
+                            fontSize: "16px",
+                            color: "#AE445A",
                           }}
-                          className="fntf row"
                         >
-                          {item.Off}% Off
-                        </Button>
-                      </div>
+                          Rs .{item.price}
+                        </span>
+                      </p>{" "}
                     </div>
-
-                    <div className="row mt-2 mb-2">
+                    <div className="col-md-4">
                       <Button
-                        onClick={() => handleShow(item)}
                         style={{
-                          backgroundColor: "#AE445A",
+                          fontWeight: "bolder",
+                          backgroundColor: "green",
                           border: "none",
+                          borderRadius: "30px",
                         }}
-                        className="col-md-5 p-1 mt-1 text-center m-auto fntf"
+                        className="fntf row "
                       >
-                         GET FREE QUOTE
+                        {item.Off}% Off
                       </Button>
                     </div>
                   </div>
-                );
-              })}
-          </div>
+
+                  <div className="row mt-2 mb-2">
+                    <Button
+                      onClick={() => handleShow(item)}
+                      style={{
+                        backgroundColor: "#AE445A",
+                        border: "none",
+                      }}
+                      className="col-md-5 p-1 mt-1 text-center m-auto fntf btn_mdQ"
+                    >
+                      GET FREE QUOTE
+                    </Button>
+                  </div>
+                </div>
+              );
+            })}
         </div>
       </div>
 
@@ -706,194 +667,175 @@ export default function MiniServices() {
             }}
             className="col-md-5 p-2  text-center  fntf"
           >
-            GET  QUOTE
+            GET QUOTE
           </Button>
         </Modal.Footer>
       </Modal>
+      <div className="container  mt-5 mdQ2">
+        <div className="row m-auto  ">
+          <p className="row text-center">
+            <span className="fntf fnt28" style={{ fontWeight: "bold" }}>
+              <img width={30} height={30} src="..\NImages\awards.jpeg" alt="" />{" "}
+              Our Accolades Illuminate Our Commitment to Excellence
+            </span>
+          </p>
 
-      <div className="row m-auto mt-5 mdQ">
-        <p className="row text-center">
-          <span className="fntf fnt28" style={{ fontWeight: "bold" }}>
-            <img width={30} height={30} src="..\NImages\awards.jpeg" alt="" />{" "}
-            Our Accolades Illuminate Our Commitment to Excellence
-          </span>
-        </p>
+          <img
+            className="col-md-3  "
+            src="..\NImages\225eb768-eff3-4ddf-b190-2d869819011b.jfif"
+            alt=""
+            width={300}
+            height={300}
+          />
 
-        <div className="row">
-          <div className="col-md-3 p-1">
-            <img
-              src="..\NImages\4d31001c-206d-403e-bdfa-b46868381a46.jfif"
-              alt=""
-              width={300}
-              height={300}
-            />
-          </div>
-          <div className="col-md-3 p-1">
-            <img
-              src="..\NImages\49fd3755-f3eb-4fc1-bc68-45bc1ddb7a05.jfif"
-              alt=""
-              width={300}
-              height={300}
-            />
-          </div>
-          <div className="col-md-3 p-1">
-            <img
-              src="..\NImages\225eb768-eff3-4ddf-b190-2d869819011b.jfif"
-              alt=""
-              width={300}
-              height={300}
-            />
-          </div>
-          <div className="col-md-3 p-1">
-            <img
-              src="..\NImages\c39780d3-5fdc-44ed-9bc8-c4c8455d14af.jfif"
-              alt=""
-              width={300}
-              height={300}
-            />
-          </div>
-        </div>
-      </div>
-      <div className="mt-3 ">
-        <div className="text-center">
-          <Button
-            style={{
-              backgroundColor: "#AE445A",
-              border: "none",
-            }}
-          >
-            BOOK NOW
-          </Button>
+          <img
+            className="col-md-3  "
+            src="..\NImages\4d31001c-206d-403e-bdfa-b46868381a46.jfif"
+            alt=""
+            width={300}
+            height={300}
+          />
+
+          <img
+            className="col-md-3  "
+            src="..\NImages\49fd3755-f3eb-4fc1-bc68-45bc1ddb7a05.jfif"
+            alt=""
+            width={300}
+            height={300}
+          />
+
+          <img
+            className="col-md-3  "
+            src="..\NImages\c39780d3-5fdc-44ed-9bc8-c4c8455d14af.jfif"
+            alt=""
+            width={300}
+            height={300}
+          />
         </div>
       </div>
 
       <div
-        className="row mt-5 bgclr "
+        className="container mt-5 bgclr   "
         style={{
           borderTopLeftRadius: "80px",
           borderBottomRightRadius: "80px",
         }}
       >
-        <div className="row p-2 mdQ">
-          <div className="row">
-            <div className="col-md-5 m-auto">
-              <p
-                style={{
-                  fontSize: "28px",
-                  fontWeight: "bolder",
-                  color: "black",
-                }}
-                className="text-center fnt28"
-              >
-                About Vijay Home Services
-              </p>
-              <p className="bclr p-1 ">
-                <span className="me-2 ">
-                  <VerifiedUserIcon
-                    style={{ color: "#279EFF", fontSize: "15px" }}
+        <div className="row btn_g  mdQ2">
+          <div className="col-md-5 m-auto ">
+            <p
+              style={{
+                fontSize: "28px",
+                fontWeight: "bolder",
+                color: "black",
+              }}
+              className="text-center fnt28"
+            >
+              About Vijay Home Services
+            </p>
+            <p className="bclr p-1 ">
+              <span className="me-2 ">
+                <VerifiedUserIcon
+                  style={{ color: "#279EFF", fontSize: "15px" }}
+                />
+              </span>{" "}
+              <span className="m-auto fntf" style={{ fontSize: "14px" }}>
+                Get top-quapty service at unbeatable prices from our ISO
+                certified company.
+              </span>
+            </p>
+            <p className="bclr p-2">
+              <span className="me-2">
+                <ThumbUpIcon style={{ color: "#279EFF", fontSize: "15px" }} />
+              </span>
+              <span className="m-auto fntf" style={{ fontSize: "14px" }}>
+                100% Satisfaction or FREE Rework*
+              </span>
+            </p>
+            <p className="bclr p-2">
+              <span className="me-2">
+                <GroupIcon style={{ color: "#279EFF", fontSize: "15px" }} />
+              </span>
+              <span className="m-auto fntf" style={{ fontSize: "14px" }}>
+                Trained Professionals | No Sub Contract
+              </span>
+            </p>
+            <p className="bclr p-2">
+              <span className="me-2">
+                <StarIcon style={{ color: "#279EFF", fontSize: "15px" }} />
+              </span>
+              <span className="m-auto fntf" style={{ fontSize: "14px" }}>
+                Trusted by 31+ Lakh customers | 15+ Years
+              </span>
+            </p>
+          </div>
+          <div className="col-md-5 m-auto">
+            <div className="row">
+              <p className="row ">
+                <span className="col-md-2 ">
+                  <img
+                    width={30}
+                    height={30}
+                    src="..\NImages\f350ae1f-1bb7-4cb0-9ffc-5591756e38f9.jfif"
+                    alt=""
                   />
-                </span>{" "}
-                <span className="m-auto fntf" style={{ fontSize: "14px" }}>
-                  Get top-quapty service at unbeatable prices from our ISO
-                  certified company.
+                </span>
+                <span className="col-md-9 fntf" style={{ fontWeight: "bold" }}>
+                  Voices of Satisfaction: Our Happy Clients Speak
                 </span>
               </p>
-              <p className="bclr p-2">
-                <span className="me-2">
-                  <ThumbUpIcon style={{ color: "#279EFF", fontSize: "15px" }} />
-                </span>
-                <span className="m-auto fntf" style={{ fontSize: "14px" }}>
-                  100% Satisfaction or FREE Rework*
-                </span>
+              <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
+                Staff was very good at checking the cleaning area & put all
+                efforts in cleaning the house. Although the house was cleaned
+                before their service, it looked much much kind of new after
+                their service. Nice work by the team & I recommend their
+                services.
+                <p className="fntf text-end" style={{ fontWeight: "bold" }}>
+                  Akhilesh bc
+                </p>
               </p>
-              <p className="bclr p-2">
-                <span className="me-2">
-                  <GroupIcon style={{ color: "#279EFF", fontSize: "15px" }} />
-                </span>
-                <span className="m-auto fntf" style={{ fontSize: "14px" }}>
-                  Trained Professionals | No Sub Contract
-                </span>
+              <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
+                Vijay Home Services have done a good job of deep cleaning for my
+                Villa and kudos to KB team. Highly recommended, if you're
+                looking for a deep cleaning Services.
+                <p className="fntf text-end" style={{ fontWeight: "bold" }}>
+                  Janardhan Chagaleti
+                </p>
               </p>
-              <p className="bclr p-2">
-                <span className="me-2">
-                  <StarIcon style={{ color: "#279EFF", fontSize: "15px" }} />
-                </span>
-                <span className="m-auto fntf" style={{ fontSize: "14px" }}>
-                  Trusted by 31+ Lakh customers | 15+ Years
-                </span>
+              <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
+                The work was done neat and clean, customer service Aruna was
+                supportive and helped to get the service done. 5 people arrived
+                and all did a great job 👍. I really loved the service. I would
+                strongly recommend vijay home service to all
+                <p className="fntf text-end" style={{ fontWeight: "bold" }}>
+                  Anil NS
+                </p>
               </p>
-            </div>
-            <div className="col-md-5 m-auto">
-              <div className="row">
-                <p className="row ">
-                  <span className="col-md-2 ">
-                    <img
-                      width={30}
-                      height={30}
-                      src="..\NImages\f350ae1f-1bb7-4cb0-9ffc-5591756e38f9.jfif"
-                      alt=""
-                    />
-                  </span>
-                  <span
-                    className="col-md-9 fntf"
-                    style={{ fontWeight: "bold" }}
-                  >
-                    Voices of Satisfaction: Our Happy Clients Speak
-                  </span>
+              <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
+                Vijay home service, for KB and team: it’s wonderful job by KB
+                and Team. It’s a villa hose for me it’s a tremendous efforts
+                from morning 9 am to 8 pm.
+                <p className="fntf text-end" style={{ fontWeight: "bold" }}>
+                  Bridgid Vithya
                 </p>
-                <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  Staff was very good at checking the cleaning area & put all
-                  efforts in cleaning the house. Although the house was cleaned
-                  before their service, it looked much much kind of new after
-                  their service. Nice work by the team & I recommend their
-                  services.
-                  <p className="fntf text-end" style={{ fontWeight: "bold" }}>
-                    Akhilesh bc
-                  </p>
-                </p>
-                <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  Vijay Home Services have done a good job of deep cleaning for
-                  my Villa and kudos to KB team. Highly recommended, if you're
-                  looking for a deep cleaning Services.
-                  <p className="fntf text-end" style={{ fontWeight: "bold" }}>
-                    Janardhan Chagaleti
-                  </p>
-                </p>
-                <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  The work was done neat and clean, customer service Aruna was
-                  supportive and helped to get the service done. 5 people
-                  arrived and all did a great job 👍. I really loved the
-                  service. I would strongly recommend vijay home service to all
-                  <p className="fntf text-end" style={{ fontWeight: "bold" }}>
-                    Anil NS
-                  </p>
-                </p>
-                <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  Vijay home service, for KB and team: it’s wonderful job by KB
-                  and Team. It’s a villa hose for me it’s a tremendous efforts
-                  from morning 9 am to 8 pm.
-                  <p className="fntf text-end" style={{ fontWeight: "bold" }}>
-                    Bridgid Vithya
-                  </p>
-                </p>{" "}
-              </div>
+              </p>{" "}
             </div>
           </div>
         </div>
       </div>
 
-      <div className="row mt-5 m-auto mdQ">
-        <p className="row text-center">
-          <span className="fntf fnt28" style={{ fontWeight: "bold" }}>
-            <img width={50} height={50} src="..\NImages\statrs.jpeg" alt="" />{" "}
-            Real Stories, Real Satisfaction: Hear What Our Valued Customers Have
-            to Say!
-          </span>
-        </p>
-        <div className="row m-auto">
-          <div className="col-md-3 m-auto">
+      <div className="container mt-5 ">
+        <div className="row  ">
+          <p className="row text-center">
+            <span className="fntf fnt28" style={{ fontWeight: "bold" }}>
+              <img width={50} height={50} src="..\NImages\statrs.jpeg" alt="" />{" "}
+              Real Stories, Real Satisfaction: Hear What Our Valued Customers
+              Have to Say!
+            </span>
+          </p>
+          <div className="row  m-auto">
             <iframe
-              width="260"
+              className="col-md-3 mdc"
               height="215"
               src="https://www.youtube.com/embed/eP35Th4xzO4?si=wF0TAdpv1mVe3o_k"
               title="YouTube video player"
@@ -901,23 +843,9 @@ export default function MiniServices() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
             ></iframe>
-          </div>
-          <div className="col-md-3  m-auto">
+
             <iframe
-              width="260"
-              height="215"
-              className="m-2"
-              src="https://www.youtube.com/embed/hqrF3D2r_dk?si=iE-UpmhLdopBYd9y"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div className="col-md-3  m-auto">
-            <iframe
-              width="260"
-              className="m-2"
+              className="col-md-3 mdc"
               height="215"
               src="https://www.youtube.com/embed/hqrF3D2r_dk?si=iE-UpmhLdopBYd9y"
               title="YouTube video player"
@@ -925,10 +853,20 @@ export default function MiniServices() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
             ></iframe>
-          </div>
-          <div className="col-md-3  m-auto">
+
             <iframe
               width="260"
+              className="col-md-3 mdc"
+              height="215"
+              src="https://www.youtube.com/embed/hqrF3D2r_dk?si=iE-UpmhLdopBYd9y"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+
+            <iframe
+              className="col-md-3 mdc"
               height="215"
               src="https://www.youtube.com/embed/eP35Th4xzO4?si=wF0TAdpv1mVe3o_k"
               title="YouTube video player"
@@ -940,7 +878,7 @@ export default function MiniServices() {
         </div>
       </div>
 
-      <div className="row mt-5 mdQ">
+      <div className="row mt-5 mdQ   m-auto">
         <div
           style={{ borderRadius: "40px" }}
           className="col-md-6 shadow-sm p-3 mb-5 bg-white "
@@ -1102,61 +1040,57 @@ export default function MiniServices() {
         </div>
       </div>
 
-      <div className="row mt-5 m-auto mdQ">
-        <p className="row m-auto">
-          <span className="col-md-2 "></span>
-          <span
-            className="col-md-9 fntf text-center"
-            style={{ fontWeight: "bolder", fontSize: "35px" }}
-          >
-            Few More Happy Customers!
-          </span>
-        </p>
-        <div className="row m-auto">
-          <div className="col-md-3 m-auto">
-            <iframe
-              width="260"
-              height="215"
-              src="https://www.youtube.com/embed/qR1-_0JcXjw?si=UKA-vJ_e1dpXy8Wn"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div className="col-md-3  m-auto">
-            <iframe
-              width="260"
-              height="215"
-              src="https://www.youtube.com/embed/X56YP45fstQ?si=lO-cUj7R4SParJNG"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div className="col-md-3  m-auto">
-            <iframe
-              width="260"
-              height="215"
-              src="https://www.youtube.com/embed/6QIDGy_ysB0?si=WQIyMxi3XLqdZiVN"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div className="col-md-3  m-auto">
-            <iframe
-              width="260"
-              height="215"
-              src="https://www.youtube.com/embed/X56YP45fstQ?si=lO-cUj7R4SParJNG"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
+      <div className="container mt-5 ">
+        <div className="row mt-5 m-auto ">
+          <p className="row m-auto">
+            <span className="col-md-2 "></span>
+            <span
+              className="col-md-9 fntf text-center"
+              style={{ fontWeight: "bolder", fontSize: "35px" }}
+            >
+              Few More Happy Customers!
+            </span>
+          </p>
+
+          <iframe
+            className="col-md-3 mdc"
+            height="215"
+            src="https://www.youtube.com/embed/eP35Th4xzO4?si=wF0TAdpv1mVe3o_k"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+
+          <iframe
+            className="col-md-3 mdc"
+            height="215"
+            src="https://www.youtube.com/embed/X56YP45fstQ?si=lO-cUj7R4SParJNG"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+
+          <iframe
+            className="col-md-3 mdc"
+            height="215"
+            src="https://www.youtube.com/embed/6QIDGy_ysB0?si=WQIyMxi3XLqdZiVN"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+
+          <iframe
+            className="col-md-3 mdc"
+            height="215"
+            src="https://www.youtube.com/embed/X56YP45fstQ?si=lO-cUj7R4SParJNG"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
 
@@ -1243,7 +1177,7 @@ export default function MiniServices() {
       </div>
 
       <div
-        className="row mt-5 text-center  p-3 cs"
+        className="row mt-5 text-center  p-3 cs  m-auto"
         style={{ borderRadius: "55px" }}
       >
         <div className="row">
@@ -1259,178 +1193,1224 @@ export default function MiniServices() {
             Vijay Home Services.
           </p>
         </div>
-        <div className="row m-3">
-          <Button
-            className="col-md-2 m-auto"
-            style={{
-              backgroundColor: "#AE445A",
-              border: "none",
-            }}
-          >
-            BOOK NOW
-          </Button>{" "}
-        </div>
       </div>
-
-      <div className="row mt-5" style={{ backgroundColor: "#ADC4CE" }}>
-        <div className="row " style={{ display: "flex" }}>
-          <li
-            className="col-md-1"
-            style={{ fontSize: "12px", listStyleType: "none" }}
-          >
-            Home
-          </li>
-          <li
-            className="col-md-1"
-            style={{ fontSize: "12px", listStyleType: "none" }}
-          >
-            Contact
-          </li>
-          <li
-            className="col-md-1"
-            style={{ fontSize: "12px", listStyleType: "none" }}
-          >
-            About Us
-          </li>
-          <li
-            className="col-md-2"
-            style={{ fontSize: "12px", listStyleType: "none" }}
-          >
-            Terms and Condition
-          </li>
-          <li
-            className="col-md-2"
-            style={{ fontSize: "12px", listStyleType: "none" }}
-          >
-            Refund and Cancellation
-          </li>
-          <li
-            className="col-md-2"
-            style={{ fontSize: "12px", listStyleType: "none" }}
-          >
-            {" "}
-            Policy Privacy Policy
-          </li>
-          <li
-            className="col-md-1"
-            style={{ fontSize: "12px", listStyleType: "none" }}
-          >
-            {" "}
-            VHS Logo
-          </li>
-          <li
-            className="col-md-1"
-            style={{ fontSize: "12px", listStyleType: "none" }}
-          >
-            {" "}
-            Career
-          </li>
-          <li
-            className="col-md-1"
-            style={{ fontSize: "12px", listStyleType: "none" }}
-          >
-            {" "}
-            Work with us
-          </li>
-        </div>
-        <p className="mt-2 m-auto" style={{ border: "1px solid #ECE8DD" }}></p>
-
+      <div className="row mt-5 m-auto " style={{ backgroundColor: "#ADC4CE" }}>
         <div className="row">
-          <h3>INDIA</h3>
-          <div className="row " style={{ display: "flex" }}>
+          <div className="row grid-container3   p-2">
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
-              Ahmedabad
+              <a href="#" style={{ textDecoration: "none", color: "black" }}>
+                Home
+              </a>
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
               {" "}
-              Bangalore
-            </li>
-            <li
-              className="col-md-1"
-              style={{ fontSize: "12px", listStyleType: "none" }}
-            >
-              Lucknow{" "}
-            </li>
-            <li
-              className="col-md-1"
-              style={{ fontSize: "12px", listStyleType: "none" }}
-            >
-              {" "}
-              Chennai
+              <a href="#" style={{ textDecoration: "none", color: "black" }}>
+                Contact
+              </a>
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
               {" "}
-              Hyderabad
+              <a href="#" style={{ textDecoration: "none", color: "black" }}>
+                About Us
+              </a>
+            </li>
+            <li
+              className="col-md-2"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              {" "}
+              <a href="#" style={{ textDecoration: "none", color: "black" }}>
+                Terms and Condition
+              </a>
+            </li>
+            <li
+              className="col-md-2"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              <a href="#" style={{ textDecoration: "none", color: "black" }}>
+                Refund and Cancellation
+              </a>
+            </li>
+            <li
+              className="col-md-2"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              {" "}
+              <a href="#" style={{ textDecoration: "none", color: "black" }}>
+                Policy Privacy Policy
+              </a>
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
               {" "}
-              Pune
+              <a href="#" style={{ textDecoration: "none", color: "black" }}>
+                VHS Logo
+              </a>
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
               {" "}
-              Mumbai
+              <a href="#" style={{ textDecoration: "none", color: "black" }}>
+                Career
+              </a>
             </li>
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
             >
               {" "}
-              Surat
-            </li>
-            <li
-              className="col-md-1"
-              style={{ fontSize: "12px", listStyleType: "none" }}
-            >
-              Vadodara
-            </li>
-            <li
-              className="col-md-1"
-              style={{ fontSize: "12px", listStyleType: "none" }}
-            >
-              Gurugram
-            </li>
-            <li
-              className="col-md-1"
-              style={{ fontSize: "12px", listStyleType: "none" }}
-            >
-              NCR
-            </li>
-            <li
-              className="col-md-1"
-              style={{ fontSize: "12px", listStyleType: "none" }}
-            >
-              Noida
+              <a href="#" style={{ textDecoration: "none", color: "black" }}>
+                Work with us
+              </a>
             </li>
           </div>
-        </div>
-        <p className="mt-2 m-auto" style={{ border: "1px solid #ECE8DD" }}></p>
-        <div className="row p-3">
-          <p className="col-md-6 fntf" style={{ fontSize: "14px" }}>
-            {" "}
-            © Copyright 2023 Vijay Home Services. All rights reserved.
-          </p>
-          <div className="col-md-6 ">
-            <div className="row m-auto  ">
-              <div className="col-md-2 m-2 text-end">
-                <img width={100} height={50} src="..\NImages\aps.jfif" alt="" />
+          <p
+            className="mt-2 m-auto"
+            style={{ border: "1px solid #ECE8DD" }}
+          ></p>
+
+          <div className="container p-2">
+            <div className="row p-2">
+              <h3 className="fntf" style={{ fontWeight: "bolder" }}>
+                INDIA
+              </h3>
+              <div class=" grid-container p-2 mt-3 ">
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Ahmedabad
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Bangalore
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Lucknow
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Chennai
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Hyderabad
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Pune
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Mumbai
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Surat
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Vadodara
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Gurugram
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    NCR
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Noida
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
               </div>
-              <div className="col-md-2 m-2 text-end">
-                <img width={100} height={50} src="..\NImages\pl.jfif" alt="" />
+              <div class="grid-container1 p-1  mt-3">
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Sarjapur Road
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Whitefield
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Bannerghatta Road
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Electronic City
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    HSR Layout
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Jayanagar
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    JP Nagar
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Hosur Road
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Indira Nagar
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+              </div>
+              <div class="grid-container1 p-1 mt-3">
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Koramangala
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Hesaraghatta Main Road
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Devanahalli
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Marathahalli
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Hebbal
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Kanakapura Road
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Anekal
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Hennur Road
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+              </div>
+              <div class="grid-container1 p-1 mt-3">
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    CV Raman Nagar
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Kalyan Nagar
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    RT Nagar
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Jalahalli
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    HRBR Layout
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    BTM Layout
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Ramamurthy Nagar
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Brooke Field
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Jakkur
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+              </div>
+              <div class="grid-container1 p-1  mt-3">
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Dollars Colony
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Abbigere
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Rajanukunte
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    GM Palya
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Kundalahalli
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Madiwala
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Fraser Town
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Chandapur
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Gottigere
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    BasavaNagar
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+              </div>
+              <div class="grid-container1 p-1  mt-3">
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Nagarbhavi
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Belandur
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Hoskote
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Chamarajpet
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Richards Town
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Lavelle Road
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Kodigehalli
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Chikkajala
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Hanumanth Nagar
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+              </div>
+              <div class="grid-container1 p-1  mt-3">
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Akshaya Nagar
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Thanisandra
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Sarjapur
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Hegde Nagar
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Jigani
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Industrial Area
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    House Road
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Mathikere Rest
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Begur Road
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Rajajinagar
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+              </div>
+              <div class="grid-container1 p-1  mt-3">
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    MG Road
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    HBR Layout
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Banaswadi
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Uttarahalli
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Airport Road
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Thippasandra
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Banashankari
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Bagalur
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    KR Puram
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+              </div>
+              <div class="grid-container1 p-1  mt-3">
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Bommanahalli
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    OMBR Layout
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Mysore Road
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Silkboard
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    RMV Extension Stage
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Old Madras Road
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Kasturi Nagar
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Tumkur Road
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+              </div>
+              <div class="grid-container1 p-1  mt-3">
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Richmond Road
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Vidyaranyapura
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Mahadevapura
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Rajarajeshwari Nagar
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Malleshwaram
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    AECS Layout
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Chikkaballapur
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Defence Colony
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+              </div>
+              <div class="grid-container1 p-1  mt-3">
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Kanaka Nagar
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Hulimavu
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Thyagaraj Nagar
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Basaveshwaranagar
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Airport Area
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Kumaraswamy Layout
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Sanjay Nagar
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Hoskote
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+              </div>
+              <div class="grid-container1 p-1  mt-3">
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Kudlu Gate
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    RBI Layout
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Palace Road
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Hoodi Village
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Millers Road
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Huskur
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Vijaya Bank Layout
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Shanti Nagar
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Hebbal Kempapura
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+              </div>
+              <div class="grid-container1 p-1  mt-3">
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Tippasandra
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Naganathapura
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Yeshwantpur
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Jeevan Bima Nagar
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Cox Town
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Ulsoor
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Benson Town
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    ITPL
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Doddaballapur
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+              </div>
+              <div class="grid-container1 p-1  mt-3">
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Kaggadaspura Nagwar
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Attibele
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Padmanabhanagar
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Vijayanagar
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Kengeri
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Peenya
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Magadi Road
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Nelamangala
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Sahakar Nagar
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+              </div>
+              <div class="grid-container1 p-1  mt-3">
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Dodballapur Road
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Outer Ring Road
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Vigyan Nagar
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Basavanagudi
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Mallesh Palaya
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Peenya
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Cookes Town
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Old Airport Road
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+              </div>
+              <div class="grid-container1  mt-3">
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Bellary Road
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Sadaramangala
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Anjanapura
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Majestic
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Vasanth Nagar
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Wilson Garden
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    ISRO Layout
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    HMT Layout
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Nagawara
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+              </div>
+              <div class="grid-container1  mt-3">
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Doddaballapur Road
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Central Silk Board
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Nandi Hills
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    GangaNagar
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Bommasandra
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Pai Layout
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Sadaramangala
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Prashanth Nagar
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+              </div>
+              <div class="grid-container1  mt-3">
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Hennur
+                  </a>
+
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Raj Bhavan
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    VidyaNagar
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Bilekahalli
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Manek Chowk
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Chambal River
+                  </a>
+                  <span className="homdat"></span>
+                </div>{" "}
+                <div class="grid-item">
+                  <a className="fnt12 amazon_fnt li_f pdnl " href="#">
+                    Indraprastha
+                  </a>
+                  <span className="homdat"></span>
+                </div>
+              </div>{" "}
+            </div>
+          </div>
+          <p
+            className="mt-2 m-auto"
+            style={{ border: "1px solid #ECE8DD" }}
+          ></p>
+
+          <div className="row p-2">
+            <p className="col-md-8  m-auto" style={{ fontSize: "13px" }}>
+              <span className="fntf me-2">
+                {" "}
+                © Copyright 2023 Vijay Home Services. All rights reserved.
+                Designed and Developed By
+              </span>
+              <a
+                style={{ textDecoration: "none" }}
+                className="fntf"
+                href="https://nakshatranamahacreations.com/"
+              >
+                Nakshatra Namaha Creations
+              </a>
+            </p>
+            <div className="col-md-4 ">
+              <div className=" row grid-footer">
+                <div className="col-md-2 m-auto ">
+                  <img
+                    width={100}
+                    height={50}
+                    src="..\NImages\Screenshot (19).png"
+                    alt=""
+                  />
+                </div>
+                <div className="col-md-2 m-auto ">
+                  <img
+                    style={{ borderRadius: "5px" }}
+                    width={100}
+                    height={50}
+                    src="..\NImages\Screenshot (20).png"
+                    alt=""
+                  />
+                </div>
               </div>
             </div>
           </div>

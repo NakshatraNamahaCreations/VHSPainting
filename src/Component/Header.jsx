@@ -9,7 +9,7 @@ export default function Header() {
   const pathname = window.location.pathname;
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar expand="lg">
         <Container>
           <Navbar.Brand href="/" className="col-md-6">
             <img src="..\images\vhs-lgo.png" width={40} height={40} />
