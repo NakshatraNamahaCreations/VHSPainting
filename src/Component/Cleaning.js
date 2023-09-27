@@ -658,7 +658,7 @@ export default function Cleaning() {
           </Row>
           <Row className="mb-3">
             <Form.Group as={Col} controlId="validationCustom01">
-              <Form.Label> category</Form.Label>
+              <Form.Label> Category</Form.Label>
               <Form.Control
                 value={serviceBookData?.categoryName}
                 required

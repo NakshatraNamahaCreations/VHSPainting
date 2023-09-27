@@ -255,7 +255,7 @@ export default function MiniServices() {
           id: 2,
           img: "../NImages/Nsofa.jfif",
           rate: "5000.2",
-          price: "1003",
+          price: "149",
           Off: "15",
           discription: [
             "Mechanized cleaning and extraction process for upholstered sofa.",
@@ -631,7 +631,7 @@ export default function MiniServices() {
           </Row>
           <Row className="mb-3">
             <Form.Group as={Col} controlId="validationCustom01">
-              <Form.Label> category</Form.Label>
+              <Form.Label> Category</Form.Label>
               <Form.Control
                 value={serviceBookData?.categoryName}
                 required
