@@ -168,37 +168,37 @@ export default function CommercialServices() {
     },
   ];
 
-  const [start1, setStart1] = useState(0);
+  // const [start1, setStart1] = useState(0);
 
-  const onNextClick1 = () => {
-    setStart1((start1 + 1) % slidesData1.length);
-  };
+  // const onNextClick1 = () => {
+  //   setStart1((start1 + 1) % slidesData1.length);
+  // };
 
-  const onPrevClick1 = () => {
-    setStart1((start1 - 1 + slidesData1.length) % slidesData1.length);
-  };
+  // const onPrevClick1 = () => {
+  //   setStart1((start1 - 1 + slidesData1.length) % slidesData1.length);
+  // };
 
-  const onDotClick1 = (index) => {
-    setStart1(index);
-  };
+  // const onDotClick1 = (index) => {
+  //   setStart1(index);
+  // };
 
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 2000, min: 1024 },
-      items: 3,
-      slidesToSlide: 1,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-      slidesToSlide: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      slidesToSlide: 1,
-    },
-  };
+  // const responsive = {
+  //   desktop: {
+  //     breakpoint: { max: 2000, min: 1024 },
+  //     items: 3,
+  //     slidesToSlide: 1,
+  //   },
+  //   tablet: {
+  //     breakpoint: { max: 1024, min: 464 },
+  //     items: 2,
+  //     slidesToSlide: 1,
+  //   },
+  //   mobile: {
+  //     breakpoint: { max: 464, min: 0 },
+  //     items: 1,
+  //     slidesToSlide: 1,
+  //   },
+  // };
 
   const faqs = [
     {
@@ -339,7 +339,7 @@ export default function CommercialServices() {
             category: selectedCategory,
             city: City,
             reference1: "Landingpage",
-            intrestedfor: serviceBookData?.categoryName,
+            intrestedfor: serviceBookData?.categoryName || selectedcategory,
           },
         };
         await axios(config).then(function (response) {
@@ -390,7 +390,7 @@ export default function CommercialServices() {
     }
     // }
   };
-
+  const [selectedcategory, setSelectedCategory] = useState("");
   const getCity = async () => {
     try {
       let res = await axios.get(
@@ -580,7 +580,7 @@ export default function CommercialServices() {
                             color: "#AE445A",
                           }}
                         >
-                          Rs .{item.price}
+                    Rs. {item.price}
                         </span>
                       </p>{" "}
                     </div>
@@ -634,7 +634,6 @@ export default function CommercialServices() {
                 onChange={(e) => setName(e.target.value)}
                 required
                 type="text"
-                placeholder="First name"
               />
             </Form.Group>
             <Form.Group as={Col} md="6" controlId="validationCustom02">
@@ -643,31 +642,43 @@ export default function CommercialServices() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 type="text"
-                placeholder="Email "
               />
             </Form.Group>
           </Row>
           <Row className="mb-3">
             <Form.Group as={Col} md="12" controlId="validationCustom01">
-              <Form.Label> Contact</Form.Label>
+              <Form.Label> Phone No.</Form.Label>
               <Form.Control
                 onChange={(e) => setcontact1(e.target.value)}
                 required
                 type="text"
-                placeholder="Contact"
               />
             </Form.Group>
           </Row>
           <Row className="mb-3">
             <Form.Group as={Col} controlId="validationCustom01">
               <Form.Label> Category</Form.Label>
-              <Form.Control
-                value={serviceBookData?.categoryName}
-                required
-                type="text"
-                placeholder="Category"
-              />
+              {serviceBookData?.categoryName === null ||
+              serviceBookData?.categoryName === undefined ? (
+                <Form.Select
+                  value={selectedcategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                >
+                  {categoryData &&
+                    categoryData.map((ele) => (
+                      <option>{ele.categoryName}</option>
+                    ))}
+                </Form.Select>
+              ) : (
+                <Form.Control
+                  value={serviceBookData?.categoryName}
+                  required
+                  type="text"
+                  placeholder="Category"
+                />
+              )}
             </Form.Group>
+
             <Form.Group as={Col} controlId="validationCustom01">
               <Form.Label> City</Form.Label>
 

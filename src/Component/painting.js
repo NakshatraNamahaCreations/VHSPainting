@@ -223,7 +223,7 @@ export default function Painting() {
           rate: "2025",
           price: "45",
 
-          img: "/NImages/exterios.jpg",
+          img: "/NImages/windowupd.jfif",
         },
         {
           id: 8,
@@ -280,7 +280,7 @@ export default function Painting() {
             category: selectedCategory,
             city: City,
             reference1: "Landingpage",
-            intrestedfor: serviceBookData?.categoryName,
+            intrestedfor: serviceBookData?.categoryName || selectedcategory,
           },
         };
         await axios(config).then(function (response) {
@@ -344,6 +344,7 @@ export default function Painting() {
       alert("can't able to get");
     }
   };
+  const [selectedcategory, setSelectedCategory] = useState("");
 
   const getenquiry = async () => {
     try {
@@ -585,7 +586,6 @@ export default function Painting() {
                 onChange={(e) => setName(e.target.value)}
                 required
                 type="text"
-                placeholder="First name"
               />
             </Form.Group>
             <Form.Group as={Col} md="6" controlId="validationCustom02">
@@ -594,31 +594,43 @@ export default function Painting() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 type="text"
-                placeholder="Email "
               />
             </Form.Group>
           </Row>
           <Row className="mb-3">
             <Form.Group as={Col} md="12" controlId="validationCustom01">
-              <Form.Label> Contact</Form.Label>
+              <Form.Label> Phone No.</Form.Label>
               <Form.Control
                 onChange={(e) => setcontact1(e.target.value)}
                 required
                 type="text"
-                placeholder="Contact"
               />
             </Form.Group>
           </Row>
           <Row className="mb-3">
             <Form.Group as={Col} controlId="validationCustom01">
               <Form.Label> Category</Form.Label>
-              <Form.Control
-                value={serviceBookData?.categoryName}
-                required
-                type="text"
-                placeholder="Category"
-              />
+              {serviceBookData?.categoryName === null ||
+              serviceBookData?.categoryName === undefined ? (
+                <Form.Select
+                  value={selectedcategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                >
+                  {categoryData &&
+                    categoryData.map((ele) => (
+                      <option>{ele.categoryName}</option>
+                    ))}
+                </Form.Select>
+              ) : (
+                <Form.Control
+                  value={serviceBookData?.categoryName}
+                  required
+                  type="text"
+                  placeholder="Category"
+                />
+              )}
             </Form.Group>
+
             <Form.Group as={Col} controlId="validationCustom01">
               <Form.Label> City</Form.Label>
 

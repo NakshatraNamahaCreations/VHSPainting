@@ -10,8 +10,10 @@ import MiniServices from "./Component/MiniServices";
 import CommercialServices from "./Component/CommercialServices";
 import WellcomePage from "./Component/WellcomePage";
 // import Home from "./Component/Home";
-
+import ReactGA from "react-ga";
 function App() {
+  const TrackingId = "AW-934679256";
+  ReactGA.initialize(TrackingId);
   return (
     <>
       <Routes>
@@ -20,7 +22,7 @@ function App() {
         <Route path="/painting" element={<Painting />} />
         <Route path="/MiniServices" element={<MiniServices />} />
         <Route path="/CommercialServices" element={<CommercialServices />} />
-        <Route path="/WellcomePage" element={<WellcomePage />} />        
+        <Route path="/WellcomePage" element={<WellcomePage />} />
       </Routes>
     </>
   );

@@ -37,7 +37,7 @@ export default function MiniServices() {
   const selectedCategory = new URLSearchParams(location.search).get(
     "selectedCategory"
   );
-
+  const [selectedcategory, setSelectedCategory] = useState("");
   const [show, setShow] = useState(false);
   const [serviceBookData, setServiceBookData] = useState(null);
   const [Name, setName] = useState("");
@@ -306,7 +306,7 @@ export default function MiniServices() {
             category: selectedCategory,
             city: City,
             reference1: "Landingpage",
-            intrestedfor: serviceBookData?.categoryName,
+            intrestedfor: serviceBookData?.categoryName || selectedcategory,
           },
         };
         await axios(config).then(function (response) {
@@ -551,7 +551,7 @@ export default function MiniServices() {
                             color: "#AE445A",
                           }}
                         >
-                          Rs .{item.price}
+                             Rs. {item.price}
                         </span>
                       </p>{" "}
                     </div>
@@ -605,7 +605,6 @@ export default function MiniServices() {
                 onChange={(e) => setName(e.target.value)}
                 required
                 type="text"
-                placeholder="First name"
               />
             </Form.Group>
             <Form.Group as={Col} md="6" controlId="validationCustom02">
@@ -614,31 +613,43 @@ export default function MiniServices() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 type="text"
-                placeholder="Email "
               />
             </Form.Group>
           </Row>
           <Row className="mb-3">
             <Form.Group as={Col} md="12" controlId="validationCustom01">
-              <Form.Label> Contact</Form.Label>
+              <Form.Label> Phone No.</Form.Label>
               <Form.Control
                 onChange={(e) => setcontact1(e.target.value)}
                 required
                 type="text"
-                placeholder="Contact"
               />
             </Form.Group>
           </Row>
           <Row className="mb-3">
             <Form.Group as={Col} controlId="validationCustom01">
               <Form.Label> Category</Form.Label>
-              <Form.Control
-                value={serviceBookData?.categoryName}
-                required
-                type="text"
-                placeholder="Category"
-              />
+              {serviceBookData?.categoryName === null ||
+              serviceBookData?.categoryName === undefined ? (
+                <Form.Select
+                  value={selectedcategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                >
+                  {categoryData &&
+                    categoryData.map((ele) => (
+                      <option>{ele.categoryName}</option>
+                    ))}
+                </Form.Select>
+              ) : (
+                <Form.Control
+                  value={serviceBookData?.categoryName}
+                  required
+                  type="text"
+                  placeholder="Category"
+                />
+              )}
             </Form.Group>
+
             <Form.Group as={Col} controlId="validationCustom01">
               <Form.Label> City</Form.Label>
 

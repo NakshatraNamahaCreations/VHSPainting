@@ -171,7 +171,7 @@ export default function Cleaning() {
   const onNextClick1 = () => {
     setStart1((start1 + 1) % slidesData1.length);
   };
-
+  const [selectedcategory, setSelectedCategory] = useState("");
   const onPrevClick1 = () => {
     setStart1((start1 - 1 + slidesData1.length) % slidesData1.length);
   };
@@ -346,7 +346,7 @@ export default function Cleaning() {
             category: selectedCategory,
             city: City,
             reference1: "Landingpage",
-            intrestedfor: serviceBookData?.categoryName,
+            intrestedfor: serviceBookData?.categoryName || selectedcategory,
           },
         };
         await axios(config).then(function (response) {
@@ -534,7 +534,7 @@ export default function Cleaning() {
                       style={{
                         width: "440px",
                         height: "200px",
-                        // borderRadius: "20px",
+                       
                       }}
                       alt=""
                       src={item.img}
@@ -548,7 +548,7 @@ export default function Cleaning() {
                       <>
                         <span
                           style={{
-                            // fontWeight: "bolder",
+                           
                             listStyleType: "disc",
                           }}
                         >
@@ -578,7 +578,7 @@ export default function Cleaning() {
                             color: "#AE445A",
                           }}
                         >
-                          Rs .{item.price}
+                          Rs. {item.price}
                         </span>
                       </p>{" "}
                     </div>
@@ -632,7 +632,6 @@ export default function Cleaning() {
                 onChange={(e) => setName(e.target.value)}
                 required
                 type="text"
-                placeholder="First name"
               />
             </Form.Group>
             <Form.Group as={Col} md="6" controlId="validationCustom02">
@@ -641,31 +640,43 @@ export default function Cleaning() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 type="text"
-                placeholder="Email "
               />
             </Form.Group>
           </Row>
           <Row className="mb-3">
             <Form.Group as={Col} md="12" controlId="validationCustom01">
-              <Form.Label> Contact</Form.Label>
+              <Form.Label> Phone No.</Form.Label>
               <Form.Control
                 onChange={(e) => setcontact1(e.target.value)}
                 required
                 type="text"
-                placeholder="Contact"
               />
             </Form.Group>
           </Row>
           <Row className="mb-3">
             <Form.Group as={Col} controlId="validationCustom01">
               <Form.Label> Category</Form.Label>
-              <Form.Control
-                value={serviceBookData?.categoryName}
-                required
-                type="text"
-                placeholder="Category"
-              />
+              {serviceBookData?.categoryName === null ||
+              serviceBookData?.categoryName === undefined ? (
+                <Form.Select
+                  value={selectedcategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                >
+                  {categoryData &&
+                    categoryData.map((ele) => (
+                      <option>{ele.categoryName}</option>
+                    ))}
+                </Form.Select>
+              ) : (
+                <Form.Control
+                  value={serviceBookData?.categoryName}
+                  required
+                  type="text"
+                  placeholder="Category"
+                />
+              )}
             </Form.Group>
+
             <Form.Group as={Col} controlId="validationCustom01">
               <Form.Label> City</Form.Label>
 
