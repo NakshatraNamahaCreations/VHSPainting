@@ -223,7 +223,7 @@ export default function Painting() {
           rate: "2025",
           price: "45",
 
-          img: "/NImages/windowupd.jfif",
+          img: "/NImages/extriorpng.jfif",
         },
         {
           id: 8,
@@ -231,7 +231,7 @@ export default function Painting() {
           rate: "45",
           price: "45",
 
-          img: "/NImages/officepainit.jpg",
+          img: "/NImages/factorpng.jfif",
         },
         {
           id: 8,
@@ -239,7 +239,7 @@ export default function Painting() {
           rate: "345",
           price: "45",
 
-          img: "/NImages/interior.jpg",
+          img: "/NImages/intrirorpng.jfif",
         },
         {
           id: 8,
@@ -247,7 +247,7 @@ export default function Painting() {
           rate: "5045",
           price: "45",
 
-          img: "/NImages/factory.jpg",
+          img: "/NImages/windowupd.jfif",
         },
       ],
       bgimg: "/NImages/pnt.avif",
