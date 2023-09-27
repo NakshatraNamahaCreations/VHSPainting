@@ -424,10 +424,10 @@ export default function MiniServices() {
             >
               Pay After Service | 100% Satisfaction or FREE Rework*
             </p>
-            <div className="row  ">
+            <div className="row m-auto ">
               <Button
                 onClick={handleShow}
-                className="col-md-2 mt-5   m-auto fntf"
+                className="col-md-2 mt-5 btn_mdQ1   fntf"
                 style={{
                   backgroundColor: "#AE445A",
                   border: "none",
@@ -537,7 +537,7 @@ export default function MiniServices() {
                       </>
                     ))}
                   </div>
-                  <div className="row mt-2">
+                  <div className="row mt-2  grid-card">
                     <div className="col-md-8">
                       <p
                         style={{ fontWeight: "bolder", fontSize: "16px" }}
@@ -555,7 +555,7 @@ export default function MiniServices() {
                         </span>
                       </p>{" "}
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-4 ">
                       <Button
                         style={{
                           fontWeight: "bolder",
@@ -577,7 +577,7 @@ export default function MiniServices() {
                         backgroundColor: "#AE445A",
                         border: "none",
                       }}
-                      className="col-md-5 p-1 mt-1 text-center m-auto fntf btn_mdQ"
+                      className="col-md-5 p-1 mt-1 text-center m-auto fntf btn_mdQ "
                     >
                       GET FREE QUOTE
                     </Button>
@@ -770,7 +770,7 @@ export default function MiniServices() {
             </p>
           </div>
           <div className="col-md-5 m-auto">
-            <div className="row">
+            <div className="row mdQ2">
               <p className="row ">
                 <span className="col-md-2 ">
                   <img
@@ -1195,7 +1195,7 @@ export default function MiniServices() {
         </div>
       </div>
       <div className="row mt-5 m-auto " style={{ backgroundColor: "#ADC4CE" }}>
-        <div className="row">
+        <div className=" container">
           <div className="row grid-container3   p-2">
             <li
               className="col-md-1"
@@ -1283,7 +1283,7 @@ export default function MiniServices() {
           ></p>
 
           <div className="container p-2">
-            <div className="row p-2">
+            <div className="row ">
               <h3 className="fntf" style={{ fontWeight: "bolder" }}>
                 INDIA
               </h3>

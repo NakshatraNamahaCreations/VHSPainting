@@ -20,7 +20,6 @@ export default function Header() {
                 fontWeight: "bold",
               }}
             >
-              {" "}
               Vijay Home Services
             </span>
           </Navbar.Brand>

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -25,7 +25,8 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
-    <link rel="icon" type="image/x-icon" href="%PUBLIC_URL%/NImages/vhspng.jfif" />
+    <link rel="icon" href="%PUBLIC_URL%/images/vhs-lgo.png" />
+
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -35,8 +36,9 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title id="pageTitle">Vijay Home Service</title>
   </head>
+
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
@@ -50,5 +52,86 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <script>
+      var pathname = window.location.pathname;
+
+      function updateTitle() {
+        var pageTitle = pathname.split("/").filter(Boolean).join(" ");
+
+        pageTitle = pageTitle.replace(/\b\w/g, function (char) {
+          return char.toUpperCase();
+        });
+
+        document.getElementById("pageTitle").innerText =
+          "Vijay Home Service " + " " + pageTitle;
+      }
+
+      updateTitle();
+
+      window.addEventListener("popstate", function () {
+        pathname = window.location.pathname;
+        updateTitle();
+      });
+    </script>
+
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "553434348152376");
+      fbq("track", "PageView");
+    </script>
+
+    <!-- Facebook Pixel noscript -->
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=553434348152376&ev=PageView&noscript=1"
+    /></noscript>
+
+    <script>
+      if (window.location.pathname === "/WellcomePage") {
+        var gtagScript = document.createElement("script");
+        gtagScript.async = true;
+        gtagScript.src =
+          "https://www.googletagmanager.com/gtag/js?id=AW-934679256";
+        document.head.appendChild(gtagScript);
+
+        gtagScript.onload = function () {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag("js", new Date());
+          gtag("config", "AW-934679256");
+          gtag("event", "conversion", {
+            send_to: "AW-934679256/XXl5CMPnko0CENil2L0D",
+          });
+        };
+      }
+    </script>
   </body>
 </html>

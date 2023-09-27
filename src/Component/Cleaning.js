@@ -438,16 +438,16 @@ export default function Cleaning() {
       </div>
 
       <div className="col-md-12 body1">
-        <div className="row m-0">
+        <div className="row mzero">
           {" "}
-          <div className="col-md-6  ">
+          <div className="col-md-6 ">
             <div className="row">
               {filteredData?.map((ele, index) => (
                 <img style={{ height: "70vh" }} src={ele.bgimg} alt="" />
               ))}{" "}
             </div>
           </div>
-          <div className="col-md-5 ">
+          <div className="col-md-5 m-auto">
             <Form className="shadow p-3  bg-white rounded m-auto ">
               <div className="row m-auto p-3">
                 <h1 className="row fntf " style={{ fontWeight: "bold" }}>
@@ -564,7 +564,7 @@ export default function Cleaning() {
                       </>
                     ))}
                   </div>
-                  <div className="row mt-2">
+                  <div className="row mt-2 grid-card">
                     <div className="col-md-8">
                       <p
                         style={{ fontWeight: "bolder", fontSize: "16px" }}
@@ -797,7 +797,7 @@ export default function Cleaning() {
             </p>
           </div>
           <div className="col-md-5 m-auto">
-            <div className="row">
+            <div className="row mdQ2">
               <p className="row ">
                 <span className="col-md-2 ">
                   <img
@@ -1219,7 +1219,7 @@ export default function Cleaning() {
         </div>
       </div>
       <div className="row mt-5 m-auto " style={{ backgroundColor: "#ADC4CE" }}>
-        <div className="row">
+        <div className=" container">
           <div className="row grid-container3   p-2">
             <li
               className="col-md-1"
@@ -1307,7 +1307,7 @@ export default function Cleaning() {
           ></p>
 
           <div className="container p-2">
-            <div className="row p-2">
+            <div className="row ">
               <h3 className="fntf" style={{ fontWeight: "bolder" }}>
                 INDIA
               </h3>

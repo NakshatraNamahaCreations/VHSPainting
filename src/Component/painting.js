@@ -750,7 +750,7 @@ export default function Painting() {
             </p>
           </div>
           <div className="col-md-5  m-auto">
-            <div className="row ">
+            <div className="row mdQ2">
               <p className="row ">
                 <span className="col-md-2 ">
                   <img
@@ -1153,8 +1153,8 @@ export default function Painting() {
       </div>
 
       <div className="row mt-5 m-auto " style={{ backgroundColor: "#ADC4CE" }}>
-      <div className="row">
-          <div className="row grid-container3  p-2">
+        <div className=" container">
+          <div className="row grid-container3   p-2">
             <li
               className="col-md-1"
               style={{ fontSize: "12px", listStyleType: "none" }}
@@ -1241,7 +1241,7 @@ export default function Painting() {
           ></p>
 
           <div className="container p-2">
-            <div className="row p-2">
+            <div className="row ">
               <h3 className="fntf" style={{ fontWeight: "bolder" }}>
                 INDIA
               </h3>

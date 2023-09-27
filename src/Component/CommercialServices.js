@@ -566,7 +566,7 @@ export default function CommercialServices() {
                       </>
                     ))}
                   </div>
-                  <div className="row mt-2">
+                  <div className="row mt-2 grid-card">
                     <div className="col-md-8">
                       <p
                         style={{ fontWeight: "bolder", fontSize: "16px" }}
@@ -799,56 +799,53 @@ export default function CommercialServices() {
             </p>
           </div>
           <div className="col-md-5  m-auto">
-              <div className="row ">
-                <p className="row ">
-                  <span className="col-md-2 ">
-                    <img
-                      width={30}
-                      height={30}
-                      src="..\NImages\f350ae1f-1bb7-4cb0-9ffc-5591756e38f9.jfif"
-                      alt=""
-                    />
-                  </span>
-                  <span
-                    className="col-md-9 fntf"
-                    style={{ fontWeight: "bold" }}
-                  >
-                    Voices of Satisfaction: Our Happy Clients Speak
-                  </span>
+            <div className="row mdQ2">
+              <p className="row ">
+                <span className="col-md-2 ">
+                  <img
+                    width={30}
+                    height={30}
+                    src="..\NImages\f350ae1f-1bb7-4cb0-9ffc-5591756e38f9.jfif"
+                    alt=""
+                  />
+                </span>
+                <span className="col-md-9 fntf" style={{ fontWeight: "bold" }}>
+                  Voices of Satisfaction: Our Happy Clients Speak
+                </span>
+              </p>
+              <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
+                Good work, last long standing stains on our sofa set is totally
+                cleared. Can be trusted. Good service, thanks.
+                <p className="fntf text-end" style={{ fontWeight: "bold" }}>
+                  Vasu Javaraiah
                 </p>
-                <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  Good work, last long standing stains on our sofa set is
-                  totally cleared. Can be trusted. Good service, thanks.
-                  <p className="fntf text-end" style={{ fontWeight: "bold" }}>
-                    Vasu Javaraiah
-                  </p>
+              </p>
+              <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
+                Excellent!! We requested Office Cleaning Services and the
+                service provided was top quality. Would like to appreciate
+                Mr.Rahul and his team for their high quality cleaning service.
+                Truly commendable. Thanks a lot.
+                <p className="fntf text-end" style={{ fontWeight: "bold" }}>
+                  Anup Morap
                 </p>
-                <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  Excellent!! We requested Office Cleaning Services and the
-                  service provided was top quality. Would like to appreciate
-                  Mr.Rahul and his team for their high quality cleaning service.
-                  Truly commendable. Thanks a lot.
-                  <p className="fntf text-end" style={{ fontWeight: "bold" }}>
-                    Anup Morap
-                  </p>
+              </p>
+              <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
+                One of the best service I ever received, look at the below pics
+                it will tell about their service. Thank you so much for the
+                service!
+                <p className="fntf text-end" style={{ fontWeight: "bold" }}>
+                  Satish Loganathan
                 </p>
-                <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  One of the best service I ever received, look at the below
-                  pics it will tell about their service. Thank you so much for
-                  the service!
-                  <p className="fntf text-end" style={{ fontWeight: "bold" }}>
-                    Satish Loganathan
-                  </p>
+              </p>
+              <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
+                Very supportive team and professional at work...James team has
+                done excellent Deep clean in my flat..Habron Avenue.
+                <p className="fntf text-end" style={{ fontWeight: "bold" }}>
+                  Rohan
                 </p>
-                <p className="col-md-5 bclr card-container m-2 fnt14 p-2 fntf">
-                  Very supportive team and professional at work...James team has
-                  done excellent Deep clean in my flat..Habron Avenue.
-                  <p className="fntf text-end" style={{ fontWeight: "bold" }}>
-                    Rohan
-                  </p>
-                </p>{" "}
-              </div>
+              </p>{" "}
             </div>
+          </div>
         </div>
       </div>
 
@@ -1223,7 +1220,7 @@ export default function CommercialServices() {
         </div>
       </div> */}
       <div className="row mt-5 m-auto " style={{ backgroundColor: "#ADC4CE" }}>
-        <div className="row">
+        <div className=" container">
           <div className="row grid-container3   p-2">
             <li
               className="col-md-1"
@@ -1311,7 +1308,7 @@ export default function CommercialServices() {
           ></p>
 
           <div className="container p-2">
-            <div className="row p-2">
+            <div className="row ">
               <h3 className="fntf" style={{ fontWeight: "bolder" }}>
                 INDIA
               </h3>
