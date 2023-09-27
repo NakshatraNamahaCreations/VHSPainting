@@ -241,7 +241,7 @@ export default function MiniServices() {
         },
         {
           id: 3,
-          img: "../NImages/Nwindow.jfif",
+          img: "../NImages/updatedwindow.jfif",
           rate: "404.2",
           price: "177",
           Off: "12",
@@ -424,10 +424,10 @@ export default function MiniServices() {
             >
               Pay After Service | 100% Satisfaction or FREE Rework*
             </p>
-            <div className="row m-auto ">
+            <div className="row m-auto text-center">
               <Button
                 onClick={handleShow}
-                className="col-md-2 mt-5 btn_mdQ1   fntf"
+                className="col-md-2 mt-5 btn_mdQ1  m-auto  fntf"
                 style={{
                   backgroundColor: "#AE445A",
                   border: "none",
