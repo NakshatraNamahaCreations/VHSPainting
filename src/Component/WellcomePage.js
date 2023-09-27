@@ -22,7 +22,7 @@ const WellcomePage = () => {
       }
       gtag("js", new Date());
       gtag("config", "AW-934679256");
-      // Call the event handler here once the script is loaded
+      
       handleEvent();
     };
     document.head.appendChild(script);

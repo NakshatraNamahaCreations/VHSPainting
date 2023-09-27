@@ -220,7 +220,7 @@ export default function MiniServices() {
           img: "../NImages/nfridge.jfif",
           rate: "13004.2",
           price: "499",
-          Off: "15",
+          Off: "50",
           discription: [
             "Deep cleaning of one fridge's interiors and exteriors.",
             "Dry cleaning of the back side.",
@@ -231,8 +231,8 @@ export default function MiniServices() {
           id: 4,
           img: "../NImages/ncarpet.jfif",
           rate: "404.2",
-          price: "354",
-          Off: "21",
+          price: "349",
+          Off: "50",
           discription: [
             "Our high power suction equipment will suck and remove all the dust ",
             "We shampoo your carpet with chemical foam to remove and dislodge the finest particles of grime.",
@@ -244,7 +244,7 @@ export default function MiniServices() {
           img: "../NImages/updatedwindow.jfif",
           rate: "404.2",
           price: "177",
-          Off: "12",
+          Off: "50",
           discription: [
             "Vacuuming of window tracks to extract dust.",
             "Wiping and cleaning of glass.",
@@ -256,7 +256,7 @@ export default function MiniServices() {
           img: "../NImages/Nsofa.jfif",
           rate: "5000.2",
           price: "149",
-          Off: "15",
+          Off: "50",
           discription: [
             "Mechanized cleaning and extraction process for upholstered sofa.",
             "Dry Vacuum to extract loose dust and Applications of Chemical Foam & Scrubbing.",
@@ -267,11 +267,12 @@ export default function MiniServices() {
           id: 3,
           img: "../NImages/nmatress.jfif",
           rate: "404.2",
-          price: "589",
-          Off: "26",
+          price: "499",
+          Off: "50",
           discription: [
-            "Dust extraction, Sanitization by steam, Extraction of Residual Moisture.",
-            "Vacuuming of dust with vacuum cleaners with HEPA filters for maximum impact.",
+            "Dry Vacuum to extract loose dust.",
+            "Applications of Chemical Foam & Scrubbing.",
+            "Extraction of moisture & residual dirt.",
           ],
           categoryName: "Mattress Cleaning",
         },
@@ -551,7 +552,7 @@ export default function MiniServices() {
                             color: "#AE445A",
                           }}
                         >
-                             Rs. {item.price}
+                          Rs. {item.price}
                         </span>
                       </p>{" "}
                     </div>

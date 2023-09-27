@@ -366,6 +366,177 @@ export default function Painting() {
   });
 
   const categoryData = filteredData[0][selectedCategory];
+  const cities = [
+    "Ahmedabad",
+    "Bangalore",
+    "Lucknow",
+    "Chennai",
+    "Hyderabad",
+    "Pune",
+    "Mumbai",
+    "Surat",
+    "Vadodara",
+    "Gurugram",
+    "NCR",
+    "Noida",
+    "Sarjapur Road",
+    "Whitefield",
+    "Bannerghatta Road",
+    "Electronic City",
+    "HSR Layout",
+    "Jayanagar",
+    "JP Nagar",
+    "Hosur Road",
+    "Indira Nagar",
+    "Koramangala",
+    "Hesaraghatta Main Road",
+    "Devanahalli",
+    "Marathahalli",
+    "Hebbal",
+    "Kanakapura Road",
+    "Anekal",
+    "Hennur Road",
+    "CV Raman Nagar",
+    "Kalyan Nagar",
+    "RT Nagar",
+    "Jalahalli",
+    "HRBR Layout",
+    "BTM Layout",
+    "Ramamurthy Nagar",
+    "Brooke Field",
+    "Jakkur",
+    "Dollars Colony",
+    "Abbigere",
+    "Rajanukunte",
+    "GM Palya",
+    "Kundalahalli",
+    "Madiwala",
+    "Fraser Town",
+    "Chandapur",
+    "Gottigere",
+    "BasavaNagar",
+    "Nagarbhavi",
+    "Belandur",
+    "Hoskote",
+    "Chamarajpet",
+    "Richards Town",
+    "Lavelle Road",
+    "Kodigehalli",
+    "Chikkajala",
+    "Hanumanth Nagar",
+    "Akshaya Nagar",
+    "Thanisandra",
+    "Sarjapur",
+    "Hegde Nagar",
+    "Jigani",
+    "Industrial Area",
+    "House Road",
+    "Mathikere Rest",
+    "Begur Road",
+    "Rajajinagar",
+    "MG Road",
+    "HBR Layout",
+    "Banaswadi",
+    "Uttarahalli",
+    "Airport Road",
+    "Thippasandra",
+    "Banashankari",
+    "Bagalur",
+    "KR Puram",
+    "Bommanahalli",
+    "OMBR Layout",
+    "Mysore Road",
+    "Silkboard",
+    "RMV Extension Stage",
+    "Old Madras Road",
+    "Kasturi Nagar",
+    "Tumkur Road",
+    "Richmond Road",
+    "Vidyaranyapura",
+    "Mahadevapura",
+    "Rajarajeshwari Nagar",
+    "Malleshwaram",
+    "AECS Layout",
+    "Chikkaballapur",
+    "Defence Colony",
+    "Kanaka Nagar",
+    "Hulimavu",
+    "Thyagaraj Nagar",
+    "Basaveshwaranagar",
+    "Airport Area",
+    "Kumaraswamy Layout",
+    "Sanjay Nagar",
+    "Hoskote",
+    "Kudlu Gate",
+    "RBI Layout",
+    "Palace Road",
+    "Hoodi Village",
+    "Millers Road",
+    "Huskur",
+    "Vijaya Bank Layout",
+    "Shanti Nagar",
+    "Hebbal Kempapura",
+    "Tippasandra",
+    "Naganathapura",
+    "Yeshwantpur",
+    "Jeevan Bima Nagar",
+    "Cox Town",
+    "Ulsoor",
+    "Benson Town",
+    "ITPL",
+    "Doddaballapur",
+    "Kaggadaspura Nagwar",
+    "Attibele",
+    "Padmanabhanagar",
+    "Vijayanagar",
+    "Kengeri",
+    "Peenya",
+    "Magadi Road",
+    "Nelamangala",
+    "Sahakar Nagar",
+    "Dodballapur Road",
+    "Outer Ring Road",
+    "Vigyan Nagar",
+    "Basavanagudi",
+    "Mallesh Palaya",
+    "Peenya",
+    "Cookes Town",
+    "Old Airport Road",
+    "Bellary Road",
+    "Sadaramangala",
+    "Anjanapura",
+    "Majestic",
+    "Vasanth Nagar",
+    "Wilson Garden",
+    "ISRO Layout",
+    "HMT Layout",
+    "Nagawara",
+    "Doddaballapur Road",
+    "Central Silk Board",
+    "Nandi Hills",
+    "GangaNagar",
+    "Bommasandra",
+    "Pai Layout",
+    "Sadaramangala",
+    "Prashanth Nagar",
+    "Hennur",
+    "Raj Bhavan",
+    "VidyaNagar",
+    "Bilekahalli",
+    "Manek Chowk",
+    "Chambal River",
+    "Indraprastha",
+  ];
+
+  // const chunkArray = (arr, chunkSize) => {
+  //   const chunkedArray = [];
+  //   for (let i = 0; i < arr.length; i += chunkSize) {
+  //     chunkedArray.push(arr.slice(i, i + chunkSize));
+  //   }
+  //   return chunkedArray;
+  // };
+
+  // const chunkedCities = chunkArray(cities, 9);
 
   return (
     <>
@@ -1164,7 +1335,164 @@ export default function Painting() {
         </div>
       </div>
 
-      <div className="row mt-5 m-auto " style={{ backgroundColor: "#ADC4CE" }}>
+      {/* <div className="row mt-5 m-auto " style={{ backgroundColor: "#ADC4CE" }}>
+        <div className=" container">
+          <div className="row grid-container3   p-2">
+            <li
+              className="col-md-1"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              <a href="#" style={{ textDecoration: "none", color: "black" }}>
+                Home
+              </a>
+            </li>
+            <li
+              className="col-md-1"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              {" "}
+              <a href="#" style={{ textDecoration: "none", color: "black" }}>
+                Contact
+              </a>
+            </li>
+            <li
+              className="col-md-1"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              {" "}
+              <a href="#" style={{ textDecoration: "none", color: "black" }}>
+                About Us
+              </a>
+            </li>
+            <li
+              className="col-md-2"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              {" "}
+              <a href="#" style={{ textDecoration: "none", color: "black" }}>
+                Terms and Condition
+              </a>
+            </li>
+            <li
+              className="col-md-2"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              <a href="#" style={{ textDecoration: "none", color: "black" }}>
+                Refund and Cancellation
+              </a>
+            </li>
+            <li
+              className="col-md-2"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              {" "}
+              <a href="#" style={{ textDecoration: "none", color: "black" }}>
+                Policy Privacy Policy
+              </a>
+            </li>
+            <li
+              className="col-md-1"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              {" "}
+              <a href="#" style={{ textDecoration: "none", color: "black" }}>
+                VHS Logo
+              </a>
+            </li>
+            <li
+              className="col-md-1"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              {" "}
+              <a href="#" style={{ textDecoration: "none", color: "black" }}>
+                Career
+              </a>
+            </li>
+            <li
+              className="col-md-1"
+              style={{ fontSize: "12px", listStyleType: "none" }}
+            >
+              {" "}
+              <a href="#" style={{ textDecoration: "none", color: "black" }}>
+                Work with us
+              </a>
+            </li>
+          </div>
+          <p
+            className="mt-2 m-auto"
+            style={{ border: "1px solid #ECE8DD" }}
+          ></p>
+
+          <div className="container p-2">
+            <div className="row ">
+              <h3 className="fntf" style={{ fontWeight: "bolder" }}>
+                INDIA
+              </h3>
+              <div class="grid-container  ">
+                <>
+                  {cities.map((city, cityIndex) => (
+                    <>
+                      <div class="grid-item p-1 mt-3">
+                        {" "}
+                        <span
+                          className="fnt12 amazon_fnt li_f pdnl "
+                          key={cityIndex}
+                        >
+                          {city}
+                        </span>{" "}
+                        <span className="homdat"></span>
+                      </div>
+                    </>
+                  ))}
+                </>
+              </div>
+            </div>
+          </div>
+          <p
+            className="mt-2 m-auto"
+            style={{ border: "1px solid #ECE8DD" }}
+          ></p>
+
+          <div className="row p-2">
+            <p className="col-md-8  m-auto" style={{ fontSize: "13px" }}>
+              <span className="fntf me-2">
+                {" "}
+                © Copyright 2023 Vijay Home Services. All rights reserved.
+                Designed and Developed By
+              </span>
+              <a
+                style={{ textDecoration: "none" }}
+                className="fntf"
+                href="https://nakshatranamahacreations.com/"
+              >
+                Nakshatra Namaha Creations
+              </a>
+            </p>
+            <div className="col-md-4 ">
+              <div className=" row grid-footer">
+                <div className="col-md-2 m-auto ">
+                  <img
+                    width={100}
+                    height={50}
+                    src="..\NImages\Screenshot (19).png"
+                    alt=""
+                  />
+                </div>
+                <div className="col-md-2 m-auto ">
+                  <img
+                    style={{ borderRadius: "5px" }}
+                    width={100}
+                    height={50}
+                    src="..\NImages\Screenshot (20).png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> */}
+       <div className="row mt-5 m-auto " style={{ backgroundColor: "#ADC4CE" }}>
         <div className=" container">
           <div className="row grid-container3   p-2">
             <li

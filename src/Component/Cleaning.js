@@ -271,7 +271,7 @@ export default function Cleaning() {
           id: 1,
           img: "../NImages/nhmd.jpg",
           rate: "13004.2",
-          price: "2300",
+          price: "1999",
           Off: "55",
           discription: [
             "Floor Sterilization- Use of cleaning and disinfecting Chemicals & sophisticated Machinery to remove deep layers of dirt.",
@@ -283,8 +283,8 @@ export default function Cleaning() {
           id: 2,
           img: "/NImages/vcnt.jfif",
           rate: "5000.2",
-          price: "2300",
-          Off: "0",
+          price: "1499",
+          Off: "50",
           discription: [
             "Cupboard Cleaning from outside and inside.",
             "Dry dusting of Walls and ceiling.",
@@ -534,7 +534,6 @@ export default function Cleaning() {
                       style={{
                         width: "440px",
                         height: "200px",
-                       
                       }}
                       alt=""
                       src={item.img}
@@ -548,7 +547,6 @@ export default function Cleaning() {
                       <>
                         <span
                           style={{
-                           
                             listStyleType: "disc",
                           }}
                         >

@@ -273,8 +273,8 @@ export default function CommercialServices() {
           id: 2,
           categoryName: "Office Cleaning",
           rate: "2025",
-          price: "45",
-          Off: "0",
+          Off: "50",
+          dics: "Free inspection",
           discription: [
             "Dusting of cushions, ceilings, telephones, desks, chairs and tables.",
             "The crew is not to be asked to displace furniture, fixtures or any kind of appliances .",
@@ -286,8 +286,9 @@ export default function CommercialServices() {
           id: 3,
           categoryName: "Office Carpet Cleaning",
           rate: "45",
-          price: "45",
-          Off: "0",
+          price: "1",
+          Off: "50",
+          unit: "sft",
           discription: [
             "Carpet cleaning rejuvenates your floors, removing stains and allergens for a fresh and inviting space.",
             "Application of a foam based shampoo on the carpet using a sponge. ",
@@ -299,8 +300,8 @@ export default function CommercialServices() {
           id: 4,
           categoryName: "Office Chair Cleaning",
           rate: "345",
-          price: "45",
-          Off: "0",
+          price: "30",
+          Off: "50",
           discription: [
             "Removal of dirt and dust.",
             "Office chair cleaning restores comfort and hygiene to your workspace seating.",
@@ -481,7 +482,7 @@ export default function CommercialServices() {
           {" "}
           {categoryData &&
             categoryData.map((item, index) => {
-              const isEven = index % 2 === 0;
+              const isOffice_Cleaning = item.categoryName === "Office Cleaning";
               let starIcon;
               let starColor = "";
               let Rate = 0;
@@ -550,7 +551,6 @@ export default function CommercialServices() {
                       <>
                         <span
                           style={{
-                            // fontWeight: "bolder",
                             listStyleType: "disc",
                           }}
                         >
@@ -567,23 +567,42 @@ export default function CommercialServices() {
                     ))}
                   </div>
                   <div className="row mt-2 grid-card">
-                    <div className="col-md-8">
-                      <p
-                        style={{ fontWeight: "bolder", fontSize: "16px" }}
-                        className=" m-2 fntf"
-                      >
-                        Starting @
-                        <span
-                          style={{
-                            fontWeight: "bolder",
-                            fontSize: "16px",
-                            color: "#AE445A",
-                          }}
+                    {isOffice_Cleaning ? (
+                      <div className="col-md-8">
+                        <p
+                          style={{ fontWeight: "bolder", fontSize: "16px" }}
+                          className=" m-2 fntf"
                         >
-                    Rs. {item.price}
-                        </span>
-                      </p>{" "}
-                    </div>
+                          <span
+                            style={{
+                              fontWeight: "bolder",
+                              fontSize: "16px",
+                              color: "#AE445A",
+                            }}
+                          >
+                            {item.dics}
+                          </span>
+                        </p>{" "}
+                      </div>
+                    ) : (
+                      <div className="col-md-8">
+                        <p
+                          style={{ fontWeight: "bolder", fontSize: "16px" }}
+                          className=" m-2 fntf"
+                        >
+                          Starting @
+                          <span
+                            style={{
+                              fontWeight: "bolder",
+                              fontSize: "16px",
+                              color: "#AE445A",
+                            }}
+                          >
+                            Rs. {item.price} / {item.unit}
+                          </span>
+                        </p>{" "}
+                      </div>
+                    )}
                     <div className="col-md-4">
                       <Button
                         style={{
