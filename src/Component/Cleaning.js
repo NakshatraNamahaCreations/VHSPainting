@@ -324,8 +324,8 @@ export default function Cleaning() {
 
   const addenquiry = async (e) => {
     e.preventDefault();
-
-    if (!Name || !Email || !contact1 || !City) {
+    localStorage.setItem("previousUrl", window.location.href);
+    if (!Name || !contact1 || !City) {
       alert("Please enter all fields");
     } else {
       try {
@@ -341,7 +341,7 @@ export default function Cleaning() {
             enquirydate: formattedDate,
             name: Name,
             contact1: contact1,
-            email: Email,
+            // email: Email,
             address: Address,
             category: selectedCategory,
             city: City,
@@ -383,7 +383,9 @@ export default function Cleaning() {
       await axios(config).then(function (response) {
         if (response.status === 200) {
           setShow(false);
-          window.location.href = "/WellcomePage";
+          setTimeout(() => {
+            window.location.assign("/WellcomePage");
+          }, 200);
         }
       });
     } catch (error) {
@@ -394,7 +396,6 @@ export default function Cleaning() {
         alert("An error occurred. Please try again later.");
       }
     }
-    // }
   };
 
   const getCity = async () => {
@@ -632,17 +633,7 @@ export default function Cleaning() {
                 type="text"
               />
             </Form.Group>
-            <Form.Group as={Col} md="6" controlId="validationCustom02">
-              <Form.Label> Email</Form.Label>
-              <Form.Control
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                type="text"
-              />
-            </Form.Group>
-          </Row>
-          <Row className="mb-3">
-            <Form.Group as={Col} md="12" controlId="validationCustom01">
+            <Form.Group as={Col} md="6" controlId="validationCustom01">
               <Form.Label> Phone No.</Form.Label>
               <Form.Control
                 onChange={(e) => setcontact1(e.target.value)}
@@ -651,6 +642,7 @@ export default function Cleaning() {
               />
             </Form.Group>
           </Row>
+
           <Row className="mb-3">
             <Form.Group as={Col} controlId="validationCustom01">
               <Form.Label> Category</Form.Label>

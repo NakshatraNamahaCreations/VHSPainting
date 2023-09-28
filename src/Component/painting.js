@@ -258,8 +258,8 @@ export default function Painting() {
 
   const addenquiry = async (e) => {
     e.preventDefault();
-
-    if (!Name || !Email || !contact1 || !City) {
+    localStorage.setItem("previousUrl", window.location.href);
+    if (!Name || !contact1 || !City) {
       alert("Please enter all fields");
     } else {
       try {
@@ -275,7 +275,7 @@ export default function Painting() {
             enquirydate: formattedDate,
             name: Name,
             contact1: contact1,
-            email: Email,
+            // email: Email,
             address: Address,
             category: selectedCategory,
             city: City,
@@ -759,17 +759,7 @@ export default function Painting() {
                 type="text"
               />
             </Form.Group>
-            <Form.Group as={Col} md="6" controlId="validationCustom02">
-              <Form.Label> Email</Form.Label>
-              <Form.Control
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                type="text"
-              />
-            </Form.Group>
-          </Row>
-          <Row className="mb-3">
-            <Form.Group as={Col} md="12" controlId="validationCustom01">
+            <Form.Group as={Col} md="6" controlId="validationCustom01">
               <Form.Label> Phone No.</Form.Label>
               <Form.Control
                 onChange={(e) => setcontact1(e.target.value)}
@@ -778,6 +768,7 @@ export default function Painting() {
               />
             </Form.Group>
           </Row>
+
           <Row className="mb-3">
             <Form.Group as={Col} controlId="validationCustom01">
               <Form.Label> Category</Form.Label>
@@ -823,7 +814,7 @@ export default function Painting() {
           </Button>
 
           <Button
-            onClick={addenquiry}
+            onClick={ addenquiry}
             style={{
               backgroundColor: "#AE445A",
               border: "none",

@@ -316,10 +316,10 @@ export default function CommercialServices() {
     },
   ];
 
-  const addenquiry = async (e) => {
+  const addenquiry = async (e, selectedCategory) => {
     e.preventDefault();
-
-    if (!Name || !Email || !contact1 || !City) {
+    localStorage.setItem("previousUrl", window.location.href);
+    if (!Name || !contact1 || !City) {
       alert("Please enter all fields");
     } else {
       try {
@@ -335,7 +335,7 @@ export default function CommercialServices() {
             enquirydate: formattedDate,
             name: Name,
             contact1: contact1,
-            email: Email,
+            // email: Email,
             address: Address,
             category: selectedCategory,
             city: City,
@@ -346,6 +346,7 @@ export default function CommercialServices() {
         await axios(config).then(function (response) {
           if (response.status === 200) {
             AddEnquiryfollowup(response.data.data);
+            window.location.href = "/WellcomePage";
           }
         });
       } catch (error) {
@@ -655,17 +656,7 @@ export default function CommercialServices() {
                 type="text"
               />
             </Form.Group>
-            <Form.Group as={Col} md="6" controlId="validationCustom02">
-              <Form.Label> Email</Form.Label>
-              <Form.Control
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                type="text"
-              />
-            </Form.Group>
-          </Row>
-          <Row className="mb-3">
-            <Form.Group as={Col} md="12" controlId="validationCustom01">
+            <Form.Group as={Col} md="6" controlId="validationCustom01">
               <Form.Label> Phone No.</Form.Label>
               <Form.Control
                 onChange={(e) => setcontact1(e.target.value)}
@@ -674,6 +665,7 @@ export default function CommercialServices() {
               />
             </Form.Group>
           </Row>
+
           <Row className="mb-3">
             <Form.Group as={Col} controlId="validationCustom01">
               <Form.Label> Category</Form.Label>
@@ -719,7 +711,7 @@ export default function CommercialServices() {
           </Button>
 
           <Button
-            onClick={addenquiry}
+            onClick={(e) => addenquiry(e, selectedCategory)}
             style={{
               backgroundColor: "#AE445A",
               border: "none",
