@@ -269,7 +269,7 @@ export default function Cleaning() {
       Cleaning: [
         {
           id: 1,
-          img: "../NImages/nhmd.jpg",
+          img: "/NImages/cning.jfif",
           rate: "13004.2",
           price: "1999",
           Off: "55",
