@@ -66,8 +66,8 @@ const WellcomePage = () => {
             </div>
             <div className="row">
               <p
-                className="col-md-5 m-auto fntf"
-                style={{ fontSize: "30px", fontWeight: "normal" }}
+                className="col-md-7 m-auto fntf"
+                style={{ fontSize: "25px", fontWeight: "normal" }}
               >
                 {" "}
                 <CheckCircleIcon
