@@ -131,6 +131,7 @@ export default function Painting() {
     },
   ];
 
+
   const responsive = {
     desktop: {
       breakpoint: { max: 2000, min: 1024 },
@@ -276,7 +277,7 @@ export default function Painting() {
             name: Name,
             contact1: contact1,
             // email: Email,
-            address: Address,
+            // address: Address,
             category: selectedCategory,
             city: City,
             reference1: "Landingpage",
@@ -527,16 +528,35 @@ export default function Painting() {
     "Chambal River",
     "Indraprastha",
   ];
+  const loadGoogleTagManagerScript = () => {
+    const script = document.createElement("script");
+    script.innerHTML = `
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'AW-934679256');
+  `;
+    document.head.appendChild(script);
+  };
 
-  // const chunkArray = (arr, chunkSize) => {
-  //   const chunkedArray = [];
-  //   for (let i = 0; i < arr.length; i += chunkSize) {
-  //     chunkedArray.push(arr.slice(i, i + chunkSize));
-  //   }
-  //   return chunkedArray;
-  // };
+  const handleEvent = () => {
+    if (window.gtag) {
+      console.log("gtag is available, triggering event...");
+      window.gtag("event", "conversion", {
+        send_to: "AW-934679256/XXl5CMPnko0CENil2L0D",
+      });
+      console.log("Event triggered successfully");
+    } else {
+      console.log("gtag is not available.");
+    }
+  };
 
-  // const chunkedCities = chunkArray(cities, 9);
+  useEffect(() => {
+    loadGoogleTagManagerScript();
+    setTimeout(handleEvent, 2000);
+  }, []);
 
   return (
     <>
@@ -814,7 +834,7 @@ export default function Painting() {
           </Button>
 
           <Button
-            onClick={ addenquiry}
+            onClick={addenquiry}
             style={{
               backgroundColor: "#AE445A",
               border: "none",
@@ -1483,7 +1503,7 @@ export default function Painting() {
           </div>
         </div>
       </div> */}
-       <div className="row mt-5 m-auto " style={{ backgroundColor: "#ADC4CE" }}>
+      <div className="row mt-5 m-auto " style={{ backgroundColor: "#ADC4CE" }}>
         <div className=" container">
           <div className="row grid-container3   p-2">
             <li

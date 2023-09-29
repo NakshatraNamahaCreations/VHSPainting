@@ -1,49 +1,35 @@
 import React, { useEffect } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-
+import { Button } from "react-bootstrap";
+import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 const WellcomePage = () => {
-  const handleEvent = () => {
-    if (window.gtag) {
-      window.gtag("event", "conversion", {
-        send_to: "AW-934679256/XXl5CMPnko0CENil2L0D",
-      });
-    } else {
-      console.error("gtag is not available. Event not tracked.");
-    }
-  };
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://www.googletagmanager.com/gtag/js?id=AW-934679256";
-    script.async = true;
-    script.onload = () => {
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "AW-934679256");
-
-      handleEvent();
-    };
-    document.head.appendChild(script);
-  }, []);
-
   useEffect(() => {
     const previousUrl = localStorage.getItem("previousUrl");
-
+    console.log(previousUrl);
     if (previousUrl) {
       setTimeout(() => {
         window.location.href = previousUrl;
-      }, 2000);
+      }, 10000);
     } else {
       console.error("No previous URL found.");
     }
   }, []);
 
+  const handleBack = () => {
+    const previousUrl = localStorage.getItem("previousUrl");
+    window.location.href = previousUrl;
+  };
   return (
     <>
-      <div className="row" style={{ height: "100vh" }}>
+      <div className="row" style={{ height: "80vh" }}>
+        <div className="row m-auto">
+          <div className="col-md-2 ">
+            <ArrowCircleLeftIcon
+              onClick={handleBack}
+              style={{ color: "skyblue", fontSize: "35px" }}
+            />
+          </div>
+        </div>
         <div className="row m-auto">
           <div className="row m-auto text-center mb-3">
             <div className="col-md-3 m-auto">

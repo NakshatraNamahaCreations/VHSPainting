@@ -321,7 +321,7 @@ export default function Cleaning() {
       img1: "/images/thumb-deep-cleaning.jpg",
     },
   ];
-
+ 
   const addenquiry = async (e) => {
     e.preventDefault();
     localStorage.setItem("previousUrl", window.location.href);
@@ -431,7 +431,35 @@ export default function Cleaning() {
   });
 
   const categoryData = filteredData[0][selectedCategory];
+  const loadGoogleTagManagerScript = () => {
+    const script = document.createElement("script");
+    script.innerHTML = `
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'AW-934679256');
+  `;
+    document.head.appendChild(script);
+  };
 
+  const handleEvent = () => {
+    if (window.gtag) {
+      console.log("gtag is available, triggering event...");
+      window.gtag("event", "conversion", {
+        send_to: "AW-934679256/XXl5CMPnko0CENil2L0D",
+      });
+      console.log("Event triggered successfully");
+    } else {
+      console.log("gtag is not available.");
+    }
+  };
+
+  useEffect(() => {
+    loadGoogleTagManagerScript();
+    setTimeout(handleEvent, 2000);
+  }, []);
   return (
     <>
       <div className="col-md-12">
